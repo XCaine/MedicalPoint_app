@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+
+
+    <property name="connection.url">jdbc:postgresql://localhost:5432/medical1</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+    <mapping class="hibernate.AddressEntity"/>
+    <mapping class="hibernate.CityEntity"/>
+    <mapping class="hibernate.CountryEntity"/>
+    <mapping class="hibernate.MedicalPointEntity"/>
+    <mapping class="hibernate.MedicalUnitEntity"/>
+    <mapping class="hibernate.MedicalUnitSpecialtyEntity"/>
+    <mapping class="hibernate.MedicalUnitTypeEntity"/>
+    <mapping class="hibernate.ProvinceEntity"/>
+    <mapping class="hibernate.ShiftsEntity"/>
+    <mapping class="hibernate.SpecialtyEntity"/>
+    <mapping class="hibernate.BusinessHoursEntity"/>
+    <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+
+
+    <!-- Assume test is the database name -->
+
+
+  </session-factory>
+</hibernate-configuration>
