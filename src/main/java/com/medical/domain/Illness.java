@@ -1,6 +1,9 @@
 package com.medical.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "illness", schema = "public", catalog = "medicalpoint")
@@ -19,8 +22,9 @@ public class Illness {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
+    @NotNull
+    @Length(min=3, max=50)
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
     public String getName() {
         return name;
@@ -29,5 +33,6 @@ public class Illness {
     public void setName(String name) {
         this.name = name;
     }
+
 
 }

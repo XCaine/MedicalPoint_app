@@ -1,6 +1,9 @@
 package com.medical.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,8 +23,9 @@ public class MedicalUnit {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
+    @NotNull
+    @Length(min=3, max=100)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
     public String getName() {
         return name;
@@ -31,8 +35,8 @@ public class MedicalUnit {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "phone_number")
+    @Length(min=6, max=13)
+    @Column(name = "phone_number", length = 13)
     private String phoneNumber;
     public String getPhoneNumber() {
         return phoneNumber;
@@ -51,21 +55,57 @@ public class MedicalUnit {
         return medicalPoint;
     }
 
+    public void setMedicalPoint(MedicalPoint medicalPoint) {
+        this.medicalPoint = medicalPoint;
+    }
+
 
     @OneToOne
     @JoinColumn(name = "id_medical_unit_type", referencedColumnName = "id")
     private MedicalUnitType medicalUnitType;
 
-    public void setMedicalPoint(MedicalPoint medicalPoint) {
-        this.medicalPoint = medicalPoint;
-    }
-
     public void setMedicalUnitType(MedicalUnitType medicalUnitType) {
         this.medicalUnitType = medicalUnitType;
+    }
+
+    public MedicalUnitType getMedicalUnitType() {
+        return medicalUnitType;
     }
 
     @ManyToMany
     @JoinTable(name = "medical_unit/specialty", joinColumns = {@JoinColumn(name = "id_medical_unit")}, inverseJoinColumns = {@JoinColumn(name = "id_specialty")})
     private Set<Specialty> specialties = new HashSet<Specialty>();
+
+
+    public Set<Specialty> getSpecialties() {
+        return specialties;
+    }
+
+    public void setSpecialties(Set<Specialty> specialties) {
+        this.specialties = specialties;
+    }
+
+
+    public void addShifts(Shifts shifts){
+        if(shifts == null)
+            throw new NullPointerException("Can't add null shifts");
+        if(shifts.getMedicalUnit()!= null)
+            throw new IllegalStateException("Medical Unit already assigned");
+        shifts.setMedicalUnit(this);
+    }
+
+    public void addBusinessHours(BusinessHours businessHours){
+        if(businessHours == null)
+            throw new NullPointerException("Can't add null shifts");
+        if(businessHours.getMedicalUnit()!= null)
+            throw new IllegalStateException("Medical Unit already assigned");
+        businessHours.setMedicalUnit(this);
+    }
+
+    public void addSpecialties(Specialty specialty){
+        if(specialty == null)
+            throw new NullPointerException("Can't add null specialty");
+        getSpecialties().add(specialty);
+    }
 
 }

@@ -1,12 +1,15 @@
 package com.medical.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.sql.Time;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "business_hours", schema = "public", catalog = "medicalpoint")
-public class BusinessHoursEntity {
+public class BusinessHours {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +23,8 @@ public class BusinessHoursEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "open")
+    @NotNull
+    @Column(name = "open",nullable = false)
     private Time open;
     public Time getOpen() {
         return open;
@@ -31,8 +34,8 @@ public class BusinessHoursEntity {
         this.open = open;
     }
 
-    @Basic
-    @Column(name = "close")
+    @NotNull
+    @Column(name = "close", nullable = false)
     private Time close;
     public Time getClose() {
         return close;
@@ -42,8 +45,10 @@ public class BusinessHoursEntity {
         this.close = close;
     }
 
-    @Basic
-    @Column(name = "day_of_week")
+    @NotNull
+    @Min(value = 0)
+    @Max(value = 6)
+    @Column(name = "day_of_week", nullable = false)
     private Short dayOfWeek;
     public Short getDayOfWeek() {
         return dayOfWeek;
@@ -53,7 +58,7 @@ public class BusinessHoursEntity {
         this.dayOfWeek = dayOfWeek;
     }
 
-    @Basic
+
     @Column(name = "last_update")
     private Timestamp lastUpdate;
 

@@ -1,6 +1,9 @@
 package com.medical.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,8 +29,10 @@ public class Province {
 
     public void setId(int id) { this.id = id; }
 
-    @Basic
-    @Column(name = "name")
+
+    @NotNull
+    @Length(min =2, max=50)
+    @Column(name = "name", nullable = false, length =50)
     private String name;
 
     public String getName() {
@@ -37,6 +42,7 @@ public class Province {
     public void setName(String name) {
         this.name = name;
     }
+
     @ManyToOne
     @JoinColumn(name="id_country", referencedColumnName ="id")
     protected Country country;
@@ -69,7 +75,6 @@ public class Province {
         city.setProvince(this);
 
     }
-
 
 
 

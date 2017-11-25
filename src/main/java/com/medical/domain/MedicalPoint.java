@@ -1,6 +1,9 @@
 package com.medical.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,8 +23,8 @@ public class MedicalPoint {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "phone_number")
+    @Length(min = 6, max=13)
+    @Column(name = "phone_number", length = 13)
     private String phoneNumber;
     public String getPhoneNumber() {
         return phoneNumber;
@@ -31,8 +34,9 @@ public class MedicalPoint {
         this.phoneNumber = phoneNumber;
     }
 
-    @Basic
-    @Column(name = "name")
+    @NotNull
+    @Length(min = 3, max = 150)
+    @Column(name = "name", length = 150, nullable = false)
     private String name;
     public String getName() {
         return name;
@@ -42,18 +46,18 @@ public class MedicalPoint {
         this.name = name;
     }
 
+
     @OneToOne
     @JoinColumn(name = "id_address", referencedColumnName = "id")
-    private MedicalPoint medicalPoint;
+    private Address address;
 
-    public MedicalPoint getMedicalPoint() {
-        return medicalPoint;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setMedicalPoint(MedicalPoint medicalPoint) {
-        this.medicalPoint = medicalPoint;
+    public void setAddress(Address address) {
+        this.address = address;
     }
-
 
 
     @OneToMany(mappedBy = "medicalPoint")
@@ -65,5 +69,15 @@ public class MedicalPoint {
 
     public void setMedicalUnits(Set<MedicalUnit> medicalUnits) {
         this.medicalUnits = medicalUnits;
+    }
+
+    public void addMedicalUnits(MedicalUnit medicalUnit){
+        if(medicalUnit == null)
+            throw new NullPointerException("Can't add null Medical Unit");
+        if(medicalUnit.getMedicalPoint()!= null)
+            throw new IllegalStateException("Medical Point already assigned");
+        getMedicalUnits().add(medicalUnit);
+        medicalUnit.setMedicalPoint(this);
+
     }
 }

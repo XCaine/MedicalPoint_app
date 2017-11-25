@@ -1,6 +1,9 @@
 package com.medical.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,8 +24,9 @@ public class Specialty {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
+    @NotNull
+    @Length(min=3, max=50)
+    @Column(name = "name", nullable = false, length = 50)
     public String getName() {
         return name;
     }
@@ -31,8 +35,23 @@ public class Specialty {
         this.name = name;
     }
 
+
     @ManyToMany(cascade =  CascadeType.ALL)
     @JoinTable(name = "specialty/illness", joinColumns = {@JoinColumn(name = "id_specialty")}, inverseJoinColumns = {@JoinColumn(name = "id_illness")})
     private Set<Illness> illnesses = new HashSet<Illness>();
+
+    public Set<Illness> getIllnesses() {
+        return illnesses;
+    }
+
+    public void setIllnesses(Set<Illness> illnesses) {
+        this.illnesses = illnesses;
+    }
+
+    public void addIllnesses(Illness illness){
+        if (illness == null)
+            throw new NullPointerException("Can't add null illness");
+        getIllnesses().add(illness);
+    }
 
 }

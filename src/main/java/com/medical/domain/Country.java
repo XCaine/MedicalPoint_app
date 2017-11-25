@@ -1,6 +1,7 @@
 package com.medical.domain;
 
 import com.sun.istack.internal.NotNull;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,6 +10,9 @@ import java.util.Set;
 @Entity
 @Table(name = "country", schema = "public", catalog = "medicalpoint")
 public class Country {
+
+    public Country(){}
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +27,8 @@ public class Country {
     }
 
     @NotNull
-    @Column(name = "name", nullable = false, length = 40)
+    @Length(min=3, max=40)
+    @Column(name = "name", nullable = false, length = 40, unique = true)
     private String name;
     public String getName() {
         return name;
@@ -42,16 +47,6 @@ public class Country {
 
     public void setProvinces(Set<Province> provinces) {
         this.provinces = provinces;
-    }
-
-    public void addProvinces(Province province){
-        if(province == null)
-            throw new NullPointerException("Can't add null province");
-        if(province.getCountry()!= null)
-            throw new IllegalStateException("Province is already assigned to a Country");
-
-        getProvinces().add(province);
-        province.setCountry(this);
     }
 
     @OneToMany(mappedBy = "country")
@@ -76,8 +71,16 @@ public class Country {
 
     }
 
+    public void addProvinces(Province province){
+        if(province == null)
+            throw new NullPointerException("Can't add null province");
+        if(province.getCountry()!= null)
+            throw new IllegalStateException("Province is already assigned to a Country");
 
+        getProvinces().add(province);
+        province.setCountry(this);
 
+    }
    /* public void readProvinces(){
         for(Province name : getProvinces()){
             System.out.println(name);

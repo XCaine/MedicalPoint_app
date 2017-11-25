@@ -1,6 +1,9 @@
 package com.medical.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 
@@ -20,8 +23,8 @@ public class Shifts {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "start")
+    @NotNull
     private Timestamp start;
     public Timestamp getStart() {
         return start;
@@ -31,8 +34,10 @@ public class Shifts {
         this.start = start;
     }
 
-    @Basic
-    @Column(name = "length")
+    @NotNull
+    @Column(name = "length", nullable = false)
+    @Min(value = 1)
+    @Max(value = 72)
     private int length;
     public int getLength() {
         return length;
@@ -53,6 +58,7 @@ public class Shifts {
     public void setMedicalUnit(MedicalUnit medicalUnit) {
         this.medicalUnit = medicalUnit;
     }
+
 
    /* @ManyToOne
     @JoinColumn(name = "id_medical_unit", referencedColumnName = "id")

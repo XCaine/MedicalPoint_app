@@ -1,6 +1,9 @@
 package com.medical.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "address", schema = "public", catalog = "medicalpoint")
@@ -18,8 +21,9 @@ public class Address {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "street_name")
+    @NotNull
+    @Length(min = 2, max = 60)
+    @Column(name = "street_name", nullable = false, length = 60)
     private String streetName;
     public String getStreetName() {
         return streetName;
@@ -29,8 +33,9 @@ public class Address {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "street_number")
+    @NotNull
+    @Length(min = 1, max = 10)
+    @Column(name = "street_number", nullable = false, length = 10)
     private String streetNumber;
 
     public String getStreetNumber() {
@@ -41,8 +46,8 @@ public class Address {
         this.streetNumber = streetNumber;
     }
 
-    @Basic
-    @Column(name = "postal_code")
+    @Length(min = 1, max = 10)
+    @Column(name = "postal_code", length = 10)
     private String postalCode;
     public String getPostalCode() {
         return postalCode;
@@ -51,8 +56,6 @@ public class Address {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
-
-
 
     @ManyToOne
     @JoinColumn(name = "id_city", referencedColumnName = "id")
@@ -66,6 +69,12 @@ public class Address {
         this.city = city;
     }
 
-
+    public void addMedicalPoint(MedicalPoint medicalPoint){
+        if(medicalPoint == null)
+            throw new NullPointerException("Can't add null Medical Point");
+        if(medicalPoint.getAddress()!=null)
+            throw new IllegalStateException("Address already assigned");
+        medicalPoint.setAddress(this);
+    }
 
 }
