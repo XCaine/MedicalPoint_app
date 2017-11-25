@@ -55,7 +55,11 @@
           <version>6.0.5.Final</version>
       </dependency>
 
-
+      <dependency>
+          <groupId>com.google.maps</groupId>
+          <artifactId>google-maps-services</artifactId>
+          <version>0.2.5</version>
+      </dependency>
 
   </dependencies>
 </project>

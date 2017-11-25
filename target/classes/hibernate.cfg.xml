@@ -4,16 +4,16 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:postgresql://localhost:5432/medicalpoint</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/FindMedicalPointDB</property>
     <property name="connection.driver_class">org.postgresql.Driver</property>
     <property name="connection.username">postgres</property>
-    <property name="connection.password">kamikadze</property>
+    <property name="connection.password">medicalpoint</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.format_sql">true</property>
     <property name="hibernate.use_sql_comments">true</property>
     <!--<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>-->
     <mapping class="com.medical.domain.Address"/>
-    <mapping class="com.medical.domain.BusinessHoursEntity"/>
+    <mapping class="com.medical.domain.BusinessHours"/>
     <mapping class="com.medical.domain.City"/>
     <mapping class="com.medical.domain.Country"/>
     <mapping class="com.medical.domain.Illness"/>

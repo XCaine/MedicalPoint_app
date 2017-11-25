@@ -10,12 +10,13 @@ import java.util.Set;
 @Entity
 @Table(name = "specialty", schema = "public", catalog = "medicalpoint")
 public class Specialty {
-    private int id;
-    private String name;
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    private int id;
     public int getId() {
         return id;
     }
@@ -27,6 +28,7 @@ public class Specialty {
     @NotNull
     @Length(min=3, max=50)
     @Column(name = "name", nullable = false, length = 50)
+    private String name;
     public String getName() {
         return name;
     }
