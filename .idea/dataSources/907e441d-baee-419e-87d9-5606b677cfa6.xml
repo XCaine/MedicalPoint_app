@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="medicalpoint@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.4">
+    <root id="1"/>
+    <database id="2" parent="1" name="medicalpoint">
+      <ObjectId>18140</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12938</ObjectId>
+    </database>
+    <database id="4" parent="1" name="medical">
+      <ObjectId>17576</ObjectId>
+    </database>
+    <database id="5" parent="1" name="med">
+      <ObjectId>17745</ObjectId>
+    </database>
+    <database id="6" parent="1" name="medical1">
+      <ObjectId>17963</ObjectId>
+    </database>
+    <schema id="7" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-11-24.11:52:04.818</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1333</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="8" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="9" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="10" parent="2" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+    </schema>
+    <schema id="11" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+    </schema>
+    <schema id="12" parent="2" name="information_schema">
+      <ObjectId>12648</ObjectId>
+    </schema>
+    <sequence id="13" parent="7" name="address_id_seq">
+      <ObjectId>18179</ObjectId>
+      <StateNumber>1276</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="14" parent="7" name="business_hours_id_seq">
+      <ObjectId>18322</ObjectId>
+      <StateNumber>1327</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="15" parent="7" name="city_id_seq">
+      <ObjectId>18166</ObjectId>
+      <StateNumber>1273</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="16" parent="7" name="country_id_seq">
+      <ObjectId>18141</ObjectId>
+      <StateNumber>1268</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="17" parent="7" name="illness_id_seq">
+      <ObjectId>18263</ObjectId>
+      <StateNumber>1296</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="18" parent="7" name="medical_point_id_seq">
+      <ObjectId>18192</ObjectId>
+      <StateNumber>1279</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="19" parent="7" name="medical_unit_id_seq">
+      <ObjectId>18209</ObjectId>
+      <StateNumber>1283</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="20" parent="7" name="medical_unit_type_id_seq">
+      <ObjectId>18222</ObjectId>
+      <StateNumber>1286</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="21" parent="7" name="province_id_seq">
+      <ObjectId>18151</ObjectId>
+      <StateNumber>1270</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="22" parent="7" name="shifts_id_seq">
+      <ObjectId>18286</ObjectId>
+      <StateNumber>1302</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="23" parent="7" name="specialty_id_seq">
+      <ObjectId>18240</ObjectId>
+      <StateNumber>1290</StateNumber>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="24" parent="7" name="address">
+      <ObjectId>18181</ObjectId>
+      <StateNumber>1281</StateNumber>
+    </table>
+    <table id="25" parent="7" name="business_hours">
+      <ObjectId>18324</ObjectId>
+      <StateNumber>1332</StateNumber>
+    </table>
+    <table id="26" parent="7" name="city">
+      <ObjectId>18168</ObjectId>
+      <StateNumber>1278</StateNumber>
+    </table>
+    <table id="27" parent="7" name="country">
+      <ObjectId>18143</ObjectId>
+      <StateNumber>1288</StateNumber>
+    </table>
+    <table id="28" parent="7" name="illness">
+      <ObjectId>18265</ObjectId>
+      <StateNumber>1300</StateNumber>
+    </table>
+    <table id="29" parent="7" name="medical_point">
+      <ObjectId>18194</ObjectId>
+      <StateNumber>1285</StateNumber>
+    </table>
+    <table id="30" parent="7" name="medical_unit">
+      <ObjectId>18211</ObjectId>
+      <StateNumber>1332</StateNumber>
+    </table>
+    <table id="31" parent="7" name="medical_unit/specialty">
+      <ObjectId>18248</ObjectId>
+      <StateNumber>1295</StateNumber>
+    </table>
+    <table id="32" parent="7" name="medical_unit_type">
+      <ObjectId>18224</ObjectId>
+      <StateNumber>1289</StateNumber>
+    </table>
+    <table id="33" parent="7" name="province">
+      <ObjectId>18153</ObjectId>
+      <StateNumber>1275</StateNumber>
+    </table>
+    <table id="34" parent="7" name="shifts">
+      <ObjectId>18288</ObjectId>
+      <StateNumber>1304</StateNumber>
+    </table>
+    <table id="35" parent="7" name="specialty">
+      <ObjectId>18242</ObjectId>
+      <StateNumber>1301</StateNumber>
+    </table>
+    <table id="36" parent="7" name="specialty/illness">
+      <ObjectId>18271</ObjectId>
+      <StateNumber>1301</StateNumber>
+    </table>
+    <column id="37" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1276</StateNumber>
+      <SequenceName>address_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;address_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="38" parent="24" name="street_name">
+      <Position>2</Position>
+      <DataType>varchar(60)|0</DataType>
+      <StateNumber>1276</StateNumber>
+    </column>
+    <column id="39" parent="24" name="street_number">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+      <StateNumber>1276</StateNumber>
+    </column>
+    <column id="40" parent="24" name="postal_code">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+      <StateNumber>1276</StateNumber>
+    </column>
+    <column id="41" parent="24" name="id_city">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1276</StateNumber>
+    </column>
+    <index id="42" parent="24" name="address_pk">
+      <ObjectId>18185</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="43" parent="24" name="address_pk">
+      <ObjectId>18186</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>address_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="24" name="city_fk">
+      <ObjectId>18187</ObjectId>
+      <ColNames>id_city</ColNames>
+      <RefTableId>18168</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>city</RefTableName>
+      <RefKeyName>city_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="45" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1327</StateNumber>
+      <SequenceName>business_hours_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;business_hours_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="46" parent="25" name="open">
+      <Position>2</Position>
+      <DataType>time|0</DataType>
+      <StateNumber>1327</StateNumber>
+    </column>
+    <column id="47" parent="25" name="close">
+      <Position>3</Position>
+      <DataType>time|0</DataType>
+      <StateNumber>1327</StateNumber>
+    </column>
+    <column id="48" parent="25" name="day_of_week">
+      <Position>4</Position>
+      <DataType>smallint|0</DataType>
+      <StateNumber>1327</StateNumber>
+    </column>
+    <column id="49" parent="25" name="last_update">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>1327</StateNumber>
+    </column>
+    <column id="50" parent="25" name="id_medical_unit">
+      <Position>6</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1327</StateNumber>
+    </column>
+    <index id="51" parent="25" name="business_hours_pk">
+      <ObjectId>18329</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="52" parent="25" name="business_hours_uq">
+      <ObjectId>18338</ObjectId>
+      <ColNames>id_medical_unit</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="25" name="business_hours_pk">
+      <ObjectId>18330</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>business_hours_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="54" parent="25" name="business_hours_uq">
+      <ObjectId>18339</ObjectId>
+      <ColNames>id_medical_unit</ColNames>
+      <UnderlyingIndexName>business_hours_uq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="55" parent="25" name="medical_unit_fk">
+      <ObjectId>18333</ObjectId>
+      <ColNames>id_medical_unit</ColNames>
+      <RefTableId>18211</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>medical_unit</RefTableName>
+      <RefKeyName>medical_unit_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <check id="56" parent="25" name="check_day_of_week">
+      <ObjectId>18328</ObjectId>
+      <ColNames>day_of_week</ColNames>
+      <Predicate>(day_of_week &gt;= 0) AND (day_of_week &lt;= 6)</Predicate>
+    </check>
+    <column id="57" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1273</StateNumber>
+      <SequenceName>city_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;city_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="58" parent="26" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>1273</StateNumber>
+    </column>
+    <column id="59" parent="26" name="id_province">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1273</StateNumber>
+    </column>
+    <index id="60" parent="26" name="city_pk">
+      <ObjectId>18172</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="61" parent="26" name="city_pk">
+      <ObjectId>18173</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>city_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="62" parent="26" name="province_fk">
+      <ObjectId>18174</ObjectId>
+      <ColNames>id_province</ColNames>
+      <RefTableId>18153</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>province</RefTableName>
+      <RefKeyName>province_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="63" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1268</StateNumber>
+      <SequenceName>country_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;country_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="64" parent="27" name="name">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1268</StateNumber>
+    </column>
+    <index id="65" parent="27" name="country_pk">
+      <ObjectId>18147</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="66" parent="27" name="country_name_unique">
+      <ObjectId>18149</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="67" parent="27" name="country_pk">
+      <ObjectId>18148</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>country_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="68" parent="27" name="country_name_unique">
+      <ObjectId>18150</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>country_name_unique</UnderlyingIndexName>
+    </key>
+    <column id="69" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1296</StateNumber>
+      <SequenceName>illness_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;illness_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="70" parent="28" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>1296</StateNumber>
+    </column>
+    <index id="71" parent="28" name="illness_pk">
+      <ObjectId>18269</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="72" parent="28" name="illness_pk">
+      <ObjectId>18270</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>illness_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="73" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1279</StateNumber>
+      <SequenceName>medical_point_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;medical_point_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="74" parent="29" name="phone_number">
+      <Position>2</Position>
+      <DataType>varchar(13)|0</DataType>
+      <StateNumber>1279</StateNumber>
+    </column>
+    <column id="75" parent="29" name="name">
+      <Position>3</Position>
+      <DataType>varchar(150)|0</DataType>
+      <StateNumber>1279</StateNumber>
+    </column>
+    <column id="76" parent="29" name="id_address">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1279</StateNumber>
+    </column>
+    <index id="77" parent="29" name="medical_point_pk">
+      <ObjectId>18198</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="78" parent="29" name="medical_point_name_unique">
+      <ObjectId>18200</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="79" parent="29" name="medical_point_uq">
+      <ObjectId>18207</ObjectId>
+      <ColNames>id_address</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="80" parent="29" name="medical_point_pk">
+      <ObjectId>18199</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>medical_point_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="81" parent="29" name="medical_point_name_unique">
+      <ObjectId>18201</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>medical_point_name_unique</UnderlyingIndexName>
+    </key>
+    <key id="82" parent="29" name="medical_point_uq">
+      <ObjectId>18208</ObjectId>
+      <ColNames>id_address</ColNames>
+      <UnderlyingIndexName>medical_point_uq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="83" parent="29" name="address_fk">
+      <ObjectId>18202</ObjectId>
+      <ColNames>id_address</ColNames>
+      <RefTableId>18181</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>address</RefTableName>
+      <RefKeyName>address_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="84" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1283</StateNumber>
+      <SequenceName>medical_unit_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;medical_unit_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="85" parent="30" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>1283</StateNumber>
+    </column>
+    <column id="86" parent="30" name="phone_number">
+      <Position>3</Position>
+      <DataType>varchar(13)|0</DataType>
+      <StateNumber>1283</StateNumber>
+    </column>
+    <column id="87" parent="30" name="medical_unit_type">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1283</StateNumber>
+    </column>
+    <column id="88" parent="30" name="id_medical_point">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1283</StateNumber>
+    </column>
+    <column id="89" parent="30" name="id_medical_unit_type">
+      <Position>6</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1283</StateNumber>
+    </column>
+    <index id="90" parent="30" name="medical_unit_pk">
+      <ObjectId>18215</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="91" parent="30" name="medical_unit_pk">
+      <ObjectId>18216</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>medical_unit_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="92" parent="30" name="medical_point_fk">
+      <ObjectId>18217</ObjectId>
+      <ColNames>id_medical_point</ColNames>
+      <RefTableId>18194</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>medical_point</RefTableName>
+      <RefKeyName>medical_point_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="93" parent="30" name="medical_unit_type_fk">
+      <ObjectId>18235</ObjectId>
+      <ColNames>id_medical_unit_type</ColNames>
+      <RefTableId>18224</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>medical_unit_type</RefTableName>
+      <RefKeyName>medical_unit_type_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="94" parent="31" name="id_medical_unit">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1292</StateNumber>
+    </column>
+    <column id="95" parent="31" name="id_specialty">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1292</StateNumber>
+    </column>
+    <index id="96" parent="31" name="medical_unit/specialty_pk">
+      <ObjectId>18251</ObjectId>
+      <ColNames>id_medical_unit
+id_specialty</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="97" parent="31" name="medical_unit/specialty_pk">
+      <ObjectId>18252</ObjectId>
+      <ColNames>id_medical_unit
+id_specialty</ColNames>
+      <UnderlyingIndexName>medical_unit/specialty_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="98" parent="31" name="medical_unit_fk">
+      <ObjectId>18253</ObjectId>
+      <ColNames>id_medical_unit</ColNames>
+      <RefTableId>18211</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>medical_unit</RefTableName>
+      <RefKeyName>medical_unit_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="99" parent="31" name="specialty_fk">
+      <ObjectId>18258</ObjectId>
+      <ColNames>id_specialty</ColNames>
+      <RefTableId>18242</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>specialty</RefTableName>
+      <RefKeyName>specialty_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="100" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1286</StateNumber>
+      <SequenceName>medical_unit_type_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;medical_unit_type_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="101" parent="32" name="name">
+      <Position>2</Position>
+      <DataType>varchar(60)|0</DataType>
+      <StateNumber>1286</StateNumber>
+    </column>
+    <column id="102" parent="32" name="id_country">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1286</StateNumber>
+    </column>
+    <index id="103" parent="32" name="medical_unit_type_pk">
+      <ObjectId>18228</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="104" parent="32" name="medical_unit_type_pk">
+      <ObjectId>18229</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>medical_unit_type_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="105" parent="32" name="country_fk">
+      <ObjectId>18230</ObjectId>
+      <ColNames>id_country</ColNames>
+      <RefTableId>18143</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>country</RefTableName>
+      <RefKeyName>country_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="106" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1270</StateNumber>
+      <SequenceName>province_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;province_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="107" parent="33" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>1270</StateNumber>
+    </column>
+    <column id="108" parent="33" name="id_country">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1270</StateNumber>
+    </column>
+    <index id="109" parent="33" name="province_pk">
+      <ObjectId>18157</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="110" parent="33" name="province_name_unique">
+      <ObjectId>18159</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="111" parent="33" name="province_pk">
+      <ObjectId>18158</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>province_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="112" parent="33" name="province_name_unique">
+      <ObjectId>18160</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>province_name_unique</UnderlyingIndexName>
+    </key>
+    <foreign-key id="113" parent="33" name="country_fk">
+      <ObjectId>18161</ObjectId>
+      <ColNames>id_country</ColNames>
+      <RefTableId>18143</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>country</RefTableName>
+      <RefKeyName>country_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="114" parent="34" name="start">
+      <Position>1</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>1302</StateNumber>
+    </column>
+    <column id="115" parent="34" name="length">
+      <Position>2</Position>
+      <DataType>numeric|0</DataType>
+      <StateNumber>1302</StateNumber>
+    </column>
+    <column id="116" parent="34" name="id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1302</StateNumber>
+      <SequenceName>shifts_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;shifts_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="117" parent="34" name="id_medical_unit">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1302</StateNumber>
+    </column>
+    <index id="118" parent="34" name="shifts_pk">
+      <ObjectId>18295</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="119" parent="34" name="shifts_uq">
+      <ObjectId>18302</ObjectId>
+      <ColNames>id_medical_unit</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="120" parent="34" name="shifts_pk">
+      <ObjectId>18296</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>shifts_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="121" parent="34" name="shifts_uq">
+      <ObjectId>18303</ObjectId>
+      <ColNames>id_medical_unit</ColNames>
+      <UnderlyingIndexName>shifts_uq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="122" parent="34" name="medical_unit_fk">
+      <ObjectId>18297</ObjectId>
+      <ColNames>id_medical_unit</ColNames>
+      <RefTableId>18211</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>medical_unit</RefTableName>
+      <RefKeyName>medical_unit_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="123" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1290</StateNumber>
+      <SequenceName>specialty_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;specialty_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="124" parent="35" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1290</StateNumber>
+    </column>
+    <index id="125" parent="35" name="specialty_pk">
+      <ObjectId>18246</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="126" parent="35" name="specialty_pk">
+      <ObjectId>18247</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>specialty_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="127" parent="36" name="id_illness">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1298</StateNumber>
+    </column>
+    <column id="128" parent="36" name="id_specialty">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1298</StateNumber>
+    </column>
+    <index id="129" parent="36" name="specialty/illness_pk">
+      <ObjectId>18274</ObjectId>
+      <ColNames>id_illness
+id_specialty</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="130" parent="36" name="specialty/illness_pk">
+      <ObjectId>18275</ObjectId>
+      <ColNames>id_illness
+id_specialty</ColNames>
+      <UnderlyingIndexName>specialty/illness_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="131" parent="36" name="illness_fk">
+      <ObjectId>18276</ObjectId>
+      <ColNames>id_illness</ColNames>
+      <RefTableId>18265</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>illness</RefTableName>
+      <RefKeyName>illness_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="132" parent="36" name="specialty_fk">
+      <ObjectId>18281</ObjectId>
+      <ColNames>id_specialty</ColNames>
+      <RefTableId>18242</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>specialty</RefTableName>
+      <RefKeyName>specialty_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+  </database-model>
+</dataSource>
