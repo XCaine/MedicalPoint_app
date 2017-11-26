@@ -11,8 +11,6 @@ import java.util.Set;
 @Table(name = "specialty", schema = "public", catalog = "medicalpoint")
 public class Specialty {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

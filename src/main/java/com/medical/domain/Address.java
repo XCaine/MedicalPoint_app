@@ -1,5 +1,6 @@
 package com.medical.domain;
 
+import jdk.nashorn.internal.ir.annotations.Immutable;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
