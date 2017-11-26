@@ -1,19 +1,23 @@
 package com.medical;
 
-import com.medical.domain.City;
+import com.medical.config.AppConfig;
 import com.medical.domain.Country;
-import com.medical.domain.Province;
-import com.medical.util.HibernateUtil;
-import org.hibernate.*;
+import com.medical.service.CountryService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.stereotype.Controller;
 
 /**
  * Hello world!
  *
  */
+
+@Controller
 public class App
 {
     public static void main(String[] args) throws Exception {
 
+        /*
         SessionFactory sessFact = HibernateUtil.getSessionFactory();
         Session session = sessFact.getCurrentSession();
         org.hibernate.Transaction tr = session.beginTransaction();
@@ -37,6 +41,21 @@ public class App
         System.out.println("Successfully inserted");
         sessFact.close();
 
+    */
+
+        AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        CountryService service = (CountryService) context.getBean("countryService");
+
+        Country emp = new Country();
+        emp.setId(7);
+        emp.setName("Dupolandia");
+
+
+
+
+        service.remove(emp);
+       // service.add(emp1);
 
     }
 }
