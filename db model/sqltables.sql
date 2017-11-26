@@ -252,7 +252,7 @@ CREATE TABLE public.business_hours(
 	day_of_week int2,
 	last_update timestamp,
 	id_medical_unit integer,
-	CONSTRAINT check_day_of_week CHECK (day_of_week>=0 AND day_of_week<=6)),
+	CONSTRAINT check_day_of_week CHECK (day_of_week>=0 AND day_of_week<=6),
 	CONSTRAINT business_hours_pk PRIMARY KEY (id)
 
 );
