@@ -4,24 +4,7 @@ import com.medical.domain.Country;
 
 import java.util.List;
 
-public interface CountryDao  {
-
-
-    public void add(Country country);
-
-
-    public void saveOrUpdate(Country country);
-
-    public void update(Country country);
-
-
-    public void remove(Country country);
-
-    public Country find(Integer id);
-
-    public List<Country> findALL();
+public interface CountryDao extends GenericDao<Country> {
 
     public Country findByName(String countryName);
-
-
 }

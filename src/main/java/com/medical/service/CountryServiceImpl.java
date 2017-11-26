@@ -17,7 +17,7 @@ public class CountryServiceImpl implements CountryService{
 
     @Override
     public void add(Country country) {
-        countryDao.add(country);
+        countryDao.save(country);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class CountryServiceImpl implements CountryService{
 
     @Override
     public void update(Country country) {
-countryDao.update(country);
+countryDao.saveOrUpdate(country);
     }
 
     @Override
@@ -37,16 +37,21 @@ countryDao.remove(country);
 
     @Override
     public Country find(Integer id) {
-       return countryDao.find(id);
+       return countryDao.findById(id);
     }
 
     @Override
     public List<Country> findALL() {
-        return countryDao.findALL();
+        return countryDao.findAll();
     }
 
     @Override
     public Country findByName(String countryName) {
         return countryDao.findByName(countryName);
+    }
+
+    @Override
+    public void removeAll() {
+        countryDao.deleteAll();
     }
 }

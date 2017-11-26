@@ -18,6 +18,8 @@ public interface CountryService {
 
     public void remove(Country country);
 
+    public void removeAll();
+
     public Country find(Integer id);
 
     public List<Country> findALL();

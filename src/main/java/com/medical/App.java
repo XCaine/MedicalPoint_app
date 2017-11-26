@@ -2,7 +2,9 @@ package com.medical;
 
 import com.medical.config.AppConfig;
 import com.medical.domain.Country;
+import com.medical.domain.MedicalPoint;
 import com.medical.service.CountryService;
+import com.medical.service.MedicalPointService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -47,14 +49,25 @@ public class App
 
         CountryService service = (CountryService) context.getBean("countryService");
 
-        Country emp = new Country();
-        emp.setId(7);
-        emp.setName("Dupolandia");
+        MedicalPointService medService = (MedicalPointService) context.getBean("medicalPointService");
 
 
+       Country emp = new Country();
+        emp.setId(9);
+        emp.setName("Dupolandiaaaa");
+
+        MedicalPoint medPoint = new MedicalPoint();
+
+       medPoint.setId(0);
+       medPoint.setName("Szpital");
+       medPoint.setPhoneNumber("666");
 
 
-        service.remove(emp);
+        service.removeAll();
+
+       // medService.add(medPoint);
+
+       // medService.removeByName("Szpital");
        // service.add(emp1);
 
     }
