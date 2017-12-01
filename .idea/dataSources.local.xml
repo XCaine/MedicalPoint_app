@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="medicalpoint@localhost" uuid="907e441d-baee-419e-87d9-5606b677cfa6">
-      <database-info product="PostgreSQL" version="10.1" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+    <data-source name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" uuid="921a7aee-e6f2-447e-9ab5-b520a4b70564">
+      <database-info product="PostgreSQL" version="9.6.3" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>postgres</user-name>
-      <introspection-schemas>medicalpoint:public</introspection-schemas>
+      <user-name>gsprojfmp</user-name>
+      <introspection-schemas>medical_point:public</introspection-schemas>
     </data-source>
   </component>
 </project>

@@ -53,7 +53,7 @@ public class App
 
 
        Country emp = new Country();
-        emp.setId(9);
+        emp.setId(0);
         emp.setName("Dupolandiaaaa");
 
         MedicalPoint medPoint = new MedicalPoint();
@@ -68,7 +68,8 @@ public class App
        // medService.add(medPoint);
 
        // medService.removeByName("Szpital");
-       // service.add(emp1);
+       service.add(emp);
+        service.removeAll();
 
     }
 }

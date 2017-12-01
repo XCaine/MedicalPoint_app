@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "medical_unit", schema = "public", catalog = "medicalpoint")
+@Table(name = "medical_unit", schema = "public", catalog = "medical_point")
 public class MedicalUnit {
 
     @Id
@@ -47,7 +47,7 @@ public class MedicalUnit {
     }
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medical_point", referencedColumnName = "id")
     protected MedicalPoint medicalPoint;
 

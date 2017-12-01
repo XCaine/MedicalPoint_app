@@ -8,7 +8,7 @@ import java.sql.Time;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "business_hours", schema = "public", catalog = "medicalpoint")
+@Table(name = "business_hours", schema = "public", catalog = "medical_point")
 public class BusinessHours {
 
     @Id

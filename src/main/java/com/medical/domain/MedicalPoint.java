@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "medical_point", schema = "public", catalog = "medicalpoint")
+@Table(name = "medical_point", schema = "public", catalog = "medical_point")
 public class MedicalPoint {
 
     @Id
@@ -78,6 +78,13 @@ public class MedicalPoint {
             throw new IllegalStateException("Medical Point already assigned");
         getMedicalUnits().add(medicalUnit);
         medicalUnit.setMedicalPoint(this);
-
     }
+
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "x", column = @Column(name = "longitude")),
+            @AttributeOverride(name = "y", column = @Column(name = "latitude"))
+    })
+    private Coordinates coordinates;
 }

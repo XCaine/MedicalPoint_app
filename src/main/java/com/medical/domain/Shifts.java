@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "shifts", schema = "public", catalog = "medicalpoint")
+@Table(name = "shifts", schema = "public", catalog = "medical_point")
 public class Shifts {
 
     @Id

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="medicalpoint@localhost" uuid="907e441d-baee-419e-87d9-5606b677cfa6">
+    <data-source source="LOCAL" name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" uuid="921a7aee-e6f2-447e-9ab5-b520a4b70564">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/medicalpoint</jdbc-url>
+      <jdbc-url>jdbc:postgresql://medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com:5432/medical_point</jdbc-url>
       <driver-properties>
         <property name="ApplicationName" value="DataGrip" />
       </driver-properties>

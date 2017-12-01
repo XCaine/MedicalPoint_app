@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "address", schema = "public", catalog = "medicalpoint")
+@Table(name = "address", schema = "public", catalog = "medical_point")
 public class Address {
 
 

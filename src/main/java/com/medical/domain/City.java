@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "city", schema = "public", catalog = "medicalpoint")
+@Table(name = "city", schema = "public", catalog = "medical_point")
 public class City {
 
     public City(){}
@@ -43,7 +43,7 @@ public class City {
     }
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_province", referencedColumnName = "id")
     public Province province;
 

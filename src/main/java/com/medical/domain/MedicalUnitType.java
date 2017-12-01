@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "medical_unit_type", schema = "public", catalog = "medicalpoint")
+@Table(name = "medical_unit_type", schema = "public", catalog = "medical_point")
 public class MedicalUnitType{
 
     @Id
@@ -34,7 +34,7 @@ public class MedicalUnitType{
     }
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_country", referencedColumnName = "id")
     private Country country;
     public Country getCountry() {

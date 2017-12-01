@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "country", schema = "public", catalog = "medicalpoint")
+@Table(name = "country", schema = "public", catalog = "medical_point")
 public class Country {
 
     public Country(){}

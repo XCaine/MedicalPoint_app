@@ -4,7 +4,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="907e441d-baee-419e-87d9-5606b677cfa6" />
+          <unit-entry name="hibernate.cfg.xml" value="921a7aee-e6f2-447e-9ab5-b520a4b70564" />
           <unit-entry name="src:main:resources:hibernate.cfg.xml" value="a57b9138-79be-4bf8-8129-e7ff02af937d" />
         </datasource-map>
         <naming-strategy-map />
@@ -63,5 +63,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.0.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
   </component>
 </module>
