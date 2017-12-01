@@ -31,8 +31,8 @@ ALTER TABLE public.country OWNER TO postgres;
 -- DROP TABLE IF EXISTS public.province CASCADE;
 CREATE TABLE public.province(
 	id serial NOT NULL,
-	name varchar(50),
-	id_country integer,
+	name varchar(50) NOT NULL,
+	id_country integer NOT NULL,
 	CONSTRAINT province_name_unique UNIQUE (name),
 	CONSTRAINT province_pk PRIMARY KEY (id)
 
@@ -45,15 +45,15 @@ ALTER TABLE public.province OWNER TO postgres;
 -- ALTER TABLE public.province DROP CONSTRAINT IF EXISTS country_fk CASCADE;
 ALTER TABLE public.province ADD CONSTRAINT country_fk FOREIGN KEY (id_country)
 REFERENCES public.country (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.city | type: TABLE --
 -- DROP TABLE IF EXISTS public.city CASCADE;
 CREATE TABLE public.city(
 	id serial NOT NULL,
-	name varchar(50),
-	id_province integer,
+	name varchar(50) NOT NULL,
+	id_province integer NOT NULL,
 	CONSTRAINT city_pk PRIMARY KEY (id)
 
 );
@@ -65,17 +65,17 @@ ALTER TABLE public.city OWNER TO postgres;
 -- ALTER TABLE public.city DROP CONSTRAINT IF EXISTS province_fk CASCADE;
 ALTER TABLE public.city ADD CONSTRAINT province_fk FOREIGN KEY (id_province)
 REFERENCES public.province (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.address | type: TABLE --
 -- DROP TABLE IF EXISTS public.address CASCADE;
 CREATE TABLE public.address(
 	id serial NOT NULL,
-	street_name varchar(60),
-	street_number varchar(10),
+	street_name varchar(60) NOT NULL,
+	street_number varchar(10) NOT NULL,
 	postal_code varchar(10),
-	id_city integer,
+	id_city integer NOT NULL,
 	CONSTRAINT address_pk PRIMARY KEY (id)
 
 );
@@ -87,7 +87,7 @@ ALTER TABLE public.address OWNER TO postgres;
 -- ALTER TABLE public.address DROP CONSTRAINT IF EXISTS city_fk CASCADE;
 ALTER TABLE public.address ADD CONSTRAINT city_fk FOREIGN KEY (id_city)
 REFERENCES public.city (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.medical_point | type: TABLE --
@@ -95,10 +95,13 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 CREATE TABLE public.medical_point(
 	id serial NOT NULL,
 	phone_number varchar(13),
-	name varchar(150),
+	name varchar(200) NOT NULL,
 	id_address integer,
+	longitude decimal,
+	latitude decimal,
 	CONSTRAINT medical_point_name_unique UNIQUE (name),
-	CONSTRAINT medical_point_pk PRIMARY KEY (id)
+	CONSTRAINT medical_point_pk PRIMARY KEY (id),
+	CONSTRAINT latitude_longitude_value CHECK (longitude>= -180.0 AND longitude<= 180.0 AND latitude >=-90.0 AND latitude <= 90.0)
 
 );
 -- ddl-end --
@@ -121,10 +124,9 @@ ALTER TABLE public.medical_point ADD CONSTRAINT medical_point_uq UNIQUE (id_addr
 -- DROP TABLE IF EXISTS public.medical_unit CASCADE;
 CREATE TABLE public.medical_unit(
 	id serial NOT NULL,
-	name varchar(100),
+	name varchar(100) NOT NULL,
 	phone_number varchar(13),
-	medical_unit_type integer,
-	id_medical_point integer,
+	id_medical_point integer NOT NULL,
 	id_medical_unit_type integer,
 	CONSTRAINT medical_unit_pk PRIMARY KEY (id)
 
@@ -137,16 +139,17 @@ ALTER TABLE public.medical_unit OWNER TO postgres;
 -- ALTER TABLE public.medical_unit DROP CONSTRAINT IF EXISTS medical_point_fk CASCADE;
 ALTER TABLE public.medical_unit ADD CONSTRAINT medical_point_fk FOREIGN KEY (id_medical_point)
 REFERENCES public.medical_point (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.medical_unit_type | type: TABLE --
 -- DROP TABLE IF EXISTS public.medical_unit_type CASCADE;
 CREATE TABLE public.medical_unit_type(
 	id serial NOT NULL,
-	name varchar(60),
-	id_country integer,
-	CONSTRAINT medical_unit_type_pk PRIMARY KEY (id)
+	name varchar(60) NOT NULL,
+	id_country integer NOT NULL,
+	CONSTRAINT medical_unit_type_pk PRIMARY KEY (id),
+	CONSTRAINT medical_unit_type_unique UNIQUE (name)
 
 );
 -- ddl-end --
@@ -157,7 +160,7 @@ ALTER TABLE public.medical_unit_type OWNER TO postgres;
 -- ALTER TABLE public.medical_unit_type DROP CONSTRAINT IF EXISTS country_fk CASCADE;
 ALTER TABLE public.medical_unit_type ADD CONSTRAINT country_fk FOREIGN KEY (id_country)
 REFERENCES public.country (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: medical_unit_type_fk | type: CONSTRAINT --
@@ -172,7 +175,8 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 CREATE TABLE public.specialty(
 	id serial NOT NULL,
 	name varchar(50) NOT NULL,
-	CONSTRAINT specialty_pk PRIMARY KEY (id)
+	CONSTRAINT specialty_pk PRIMARY KEY (id),
+	CONSTRAINT specialty_uq UNIQUE (name)
 
 );
 -- ddl-end --
@@ -210,7 +214,8 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 CREATE TABLE public.illness(
 	id serial NOT NULL,
 	name varchar(50),
-	CONSTRAINT illness_pk PRIMARY KEY (id)
+	CONSTRAINT illness_pk PRIMARY KEY (id),
+	CONSTRAINT illness_uq UNIQUE (name)
 
 );
 -- ddl-end --
@@ -247,13 +252,14 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 -- DROP TABLE IF EXISTS public.business_hours CASCADE;
 CREATE TABLE public.business_hours(
 	id serial NOT NULL,
-	open time,
-	close time,
-	day_of_week int2,
+	open time NOT NULL,
+	close time NOT NULL,
+	day_of_week int2 NOT NULL,
 	last_update timestamp,
-	id_medical_unit integer,
+	id_medical_unit integer NOT NULL,
 	CONSTRAINT check_day_of_week CHECK (day_of_week>=0 AND day_of_week<=6),
-	CONSTRAINT business_hours_pk PRIMARY KEY (id)
+	CONSTRAINT business_hours_pk PRIMARY KEY (id),
+	CONSTRAINT day_of_week_uq UNIQUE (day_of_week)
 
 );
 -- ddl-end --
@@ -263,10 +269,10 @@ ALTER TABLE public.business_hours OWNER TO postgres;
 -- object: public.shifts | type: TABLE --
 -- DROP TABLE IF EXISTS public.shifts CASCADE;
 CREATE TABLE public.shifts(
-	start timestamp,
-	length numeric,
+	start timestamp NOT NULL,
+	length numeric NOT NULL,
 	id serial NOT NULL,
-	id_medical_unit integer,
+	id_medical_unit integer NOT NULL,
 	CONSTRAINT shifts_pk PRIMARY KEY (id)
 
 );
@@ -278,7 +284,7 @@ ALTER TABLE public.shifts OWNER TO postgres;
 -- ALTER TABLE public.shifts DROP CONSTRAINT IF EXISTS medical_unit_fk CASCADE;
 ALTER TABLE public.shifts ADD CONSTRAINT medical_unit_fk FOREIGN KEY (id_medical_unit)
 REFERENCES public.medical_unit (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: shifts_uq | type: CONSTRAINT --
@@ -290,10 +296,13 @@ ALTER TABLE public.shifts ADD CONSTRAINT shifts_uq UNIQUE (id_medical_unit);
 -- ALTER TABLE public.business_hours DROP CONSTRAINT IF EXISTS medical_unit_fk CASCADE;
 ALTER TABLE public.business_hours ADD CONSTRAINT medical_unit_fk FOREIGN KEY (id_medical_unit)
 REFERENCES public.medical_unit (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: business_hours_uq | type: CONSTRAINT --
 -- ALTER TABLE public.business_hours DROP CONSTRAINT IF EXISTS business_hours_uq CASCADE;
 ALTER TABLE public.business_hours ADD CONSTRAINT business_hours_uq UNIQUE (id_medical_unit);
 -- ddl-end --
+
+
+
