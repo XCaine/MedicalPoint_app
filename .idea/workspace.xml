@@ -1,40 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d5bf764-c4bd-48da-92cf-e74c56234027" name="Default" comment="Coordinates added to domain. DB on Amazon AWS.">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/907e441d-baee-419e-87d9-5606b677cfa6.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/907e441d-baee-419e-87d9-5606b677cfa6/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/907e441d-baee-419e-87d9-5606b677cfa6/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/907e441d-baee-419e-87d9-5606b677cfa6/_metadata_/metadata.values.at" afterPath="$PROJECT_DIR$/.idea/dataSources/907e441d-baee-419e-87d9-5606b677cfa6/_metadata_/metadata.values.at" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/App.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/App.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Address.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Address.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/City.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/City.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Country.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Country.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Illness.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Illness.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalPoint.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalUnit.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalUnit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalUnitType.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalUnitType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Province.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Province.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Shifts.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Shifts.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Specialty.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Specialty.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+    <list default="true" id="1d5bf764-c4bd-48da-92cf-e74c56234027" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MedicalApp.iml" afterPath="$PROJECT_DIR$/MedicalApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/App.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Address.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Address.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/BusinessHours.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/BusinessHours.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/City.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/City.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Illness.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Illness.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalPoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnit.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnitType.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnitType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Province.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Province.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Shifts.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Shifts.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Specialty.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Specialty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Coordinates.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Coordinates.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Coordinates.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,7 +104,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Address.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Address.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Address.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="545">
@@ -674,7 +642,7 @@
       <workItem from="1511641332133" duration="2338000" />
       <workItem from="1511645070958" duration="32933000" />
       <workItem from="1512156538670" duration="2607000" />
-      <workItem from="1512164907088" duration="870000" />
+      <workItem from="1512164907088" duration="1187000" />
     </task>
     <task id="LOCAL-00001" summary="Poprawione bledy">
       <created>1511650327085</created>
@@ -697,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511714808919</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Coordinates added to domain. DB on Amazon AWS.">
+      <created>1512165816101</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1512165816101</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -706,7 +681,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100871000" />
+    <option name="totallyTimeSpent" value="101188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
@@ -1271,16 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Coordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -1300,6 +1265,16 @@
             <element signature="e#1539#1540#0" expanded="true" />
             <element signature="e#1577#1578#0" expanded="true" />
             <element signature="e#1609#1610#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
