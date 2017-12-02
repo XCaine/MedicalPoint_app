@@ -56,24 +56,24 @@ public class City {
     }
 
 
-    @OneToMany(mappedBy = "city")
-    protected Set<Address> addresses = new HashSet<Address>();
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    protected Set<MedicalPoint> medicalPoints = new HashSet<MedicalPoint>();
 
-    public Set<Address> getAddresses() {
-        return addresses;
+    public Set<MedicalPoint> getMedicalPoints() {
+        return medicalPoints;
     }
 
-    public void setAddresses(Set<Address> addresses) {
-        this.addresses = addresses;
+    public void setMedicalPoints(Set<MedicalPoint> medicalPoints) {
+        this.medicalPoints = medicalPoints;
     }
 
-    public void addAddresses(Address address){
-        if(address == null)
-            throw new NullPointerException("Can't add null address");
-        if(address.getCity()!= null)
-            throw new IllegalStateException("City already assigned");
-        getAddresses().add(address);
-        address.setCity(this);
+    public void addMedicalPoints(MedicalPoint medicalPoint){
+        if(medicalPoint == null)
+            throw new NullPointerException("Can't add null medical point");
+        if(medicalPoint.getCity()!= null)
+            throw new IllegalStateException("City already assigned to medical point");
+        getMedicalPoints().add(medicalPoint);
+        medicalPoint.setCity(this);
     }
 
 }

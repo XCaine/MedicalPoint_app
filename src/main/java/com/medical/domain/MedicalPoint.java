@@ -47,20 +47,20 @@ public class MedicalPoint {
     }
 
 
-    @OneToOne
-    @JoinColumn(name = "id_address", referencedColumnName = "id")
-    private Address address;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_city", referencedColumnName = "id")
+    private City city;
 
-    public Address getAddress() {
-        return address;
+    public City getCity() {
+        return city;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setCity(City city) {
+        this.city = city;
     }
 
 
-    @OneToMany(mappedBy = "medicalPoint")
+    @OneToMany(mappedBy = "medicalPoint", cascade = CascadeType.ALL)
     protected Set<MedicalUnit> medicalUnits= new HashSet<MedicalUnit>();
 
     public Set<MedicalUnit> getMedicalUnits() {
@@ -83,8 +83,39 @@ public class MedicalPoint {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "x", column = @Column(name = "longitude")),
-            @AttributeOverride(name = "y", column = @Column(name = "latitude"))
+            @AttributeOverride(name = "x",
+                    column = @Column(name = "latitude")),
+            @AttributeOverride(name = "y",
+                    column = @Column(name = "longitude"))
     })
     private Coordinates coordinates;
+
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "streetName",
+                    column = @Column(name = "street_name", length = 100, nullable = false)),
+            @AttributeOverride(name = "streetNumber",
+                    column = @Column(name = "street_number", length = 12, nullable = false)),
+            @AttributeOverride(name = "postalCode",
+                    column = @Column(name = "postal_code", length = 12))
+    })
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }

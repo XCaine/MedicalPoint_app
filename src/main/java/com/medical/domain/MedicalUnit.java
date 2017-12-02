@@ -60,7 +60,8 @@ public class MedicalUnit {
     }
 
 
-    @OneToOne
+    @NotNull
+    @ManyToOne
     @JoinColumn(name = "id_medical_unit_type", referencedColumnName = "id")
     private MedicalUnitType medicalUnitType;
 

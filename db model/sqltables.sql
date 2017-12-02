@@ -24,7 +24,7 @@ CREATE TABLE public.country(
 
 );
 -- ddl-end --
-ALTER TABLE public.country OWNER TO postgres;
+ALTER TABLE public.country OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: public.province | type: TABLE --
@@ -38,7 +38,7 @@ CREATE TABLE public.province(
 
 );
 -- ddl-end --
-ALTER TABLE public.province OWNER TO postgres;
+ALTER TABLE public.province OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: country_fk | type: CONSTRAINT --
@@ -58,7 +58,7 @@ CREATE TABLE public.city(
 
 );
 -- ddl-end --
-ALTER TABLE public.city OWNER TO postgres;
+ALTER TABLE public.city OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: province_fk | type: CONSTRAINT --
@@ -68,56 +68,25 @@ REFERENCES public.province (id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: public.address | type: TABLE --
--- DROP TABLE IF EXISTS public.address CASCADE;
-CREATE TABLE public.address(
-	id serial NOT NULL,
-	street_name varchar(60) NOT NULL,
-	street_number varchar(10) NOT NULL,
-	postal_code varchar(10),
-	id_city integer NOT NULL,
-	CONSTRAINT address_pk PRIMARY KEY (id)
-
-);
--- ddl-end --
-ALTER TABLE public.address OWNER TO postgres;
--- ddl-end --
-
--- object: city_fk | type: CONSTRAINT --
--- ALTER TABLE public.address DROP CONSTRAINT IF EXISTS city_fk CASCADE;
-ALTER TABLE public.address ADD CONSTRAINT city_fk FOREIGN KEY (id_city)
-REFERENCES public.city (id) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
--- ddl-end --
-
 -- object: public.medical_point | type: TABLE --
 -- DROP TABLE IF EXISTS public.medical_point CASCADE;
 CREATE TABLE public.medical_point(
 	id serial NOT NULL,
 	phone_number varchar(13),
 	name varchar(200) NOT NULL,
-	id_address integer,
 	longitude decimal,
 	latitude decimal,
+	street_name varchar(100) NOT NULL,
+	street_number varchar(12) NOT NULL,
+	postal_code varchar(12),
+	id_city integer NOT NULL,
 	CONSTRAINT medical_point_name_unique UNIQUE (name),
 	CONSTRAINT medical_point_pk PRIMARY KEY (id),
 	CONSTRAINT latitude_longitude_value CHECK (longitude>= -180.0 AND longitude<= 180.0 AND latitude >=-90.0 AND latitude <= 90.0)
 
 );
 -- ddl-end --
-ALTER TABLE public.medical_point OWNER TO postgres;
--- ddl-end --
-
--- object: address_fk | type: CONSTRAINT --
--- ALTER TABLE public.medical_point DROP CONSTRAINT IF EXISTS address_fk CASCADE;
-ALTER TABLE public.medical_point ADD CONSTRAINT address_fk FOREIGN KEY (id_address)
-REFERENCES public.address (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
--- ddl-end --
-
--- object: medical_point_uq | type: CONSTRAINT --
--- ALTER TABLE public.medical_point DROP CONSTRAINT IF EXISTS medical_point_uq CASCADE;
-ALTER TABLE public.medical_point ADD CONSTRAINT medical_point_uq UNIQUE (id_address);
+ALTER TABLE public.medical_point OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: public.medical_unit | type: TABLE --
@@ -127,12 +96,12 @@ CREATE TABLE public.medical_unit(
 	name varchar(100) NOT NULL,
 	phone_number varchar(13),
 	id_medical_point integer NOT NULL,
-	id_medical_unit_type integer,
+	id_medical_unit_type integer NOT NULL,
 	CONSTRAINT medical_unit_pk PRIMARY KEY (id)
 
 );
 -- ddl-end --
-ALTER TABLE public.medical_unit OWNER TO postgres;
+ALTER TABLE public.medical_unit OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: medical_point_fk | type: CONSTRAINT --
@@ -153,7 +122,7 @@ CREATE TABLE public.medical_unit_type(
 
 );
 -- ddl-end --
-ALTER TABLE public.medical_unit_type OWNER TO postgres;
+ALTER TABLE public.medical_unit_type OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: country_fk | type: CONSTRAINT --
@@ -167,7 +136,7 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ALTER TABLE public.medical_unit DROP CONSTRAINT IF EXISTS medical_unit_type_fk CASCADE;
 ALTER TABLE public.medical_unit ADD CONSTRAINT medical_unit_type_fk FOREIGN KEY (id_medical_unit_type)
 REFERENCES public.medical_unit_type (id) MATCH FULL
-ON DELETE SET NULL ON UPDATE CASCADE;
+ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.specialty | type: TABLE --
@@ -180,7 +149,7 @@ CREATE TABLE public.specialty(
 
 );
 -- ddl-end --
-ALTER TABLE public.specialty OWNER TO postgres;
+ALTER TABLE public.specialty OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: public."medical_unit/specialty" | type: TABLE --
@@ -192,7 +161,7 @@ CREATE TABLE public."medical_unit/specialty"(
 
 );
 -- ddl-end --
-ALTER TABLE public."medical_unit/specialty" OWNER TO postgres;
+ALTER TABLE public."medical_unit/specialty" OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: medical_unit_fk | type: CONSTRAINT --
@@ -219,7 +188,7 @@ CREATE TABLE public.illness(
 
 );
 -- ddl-end --
-ALTER TABLE public.illness OWNER TO postgres;
+ALTER TABLE public.illness OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: public."specialty/illness" | type: TABLE --
@@ -231,7 +200,7 @@ CREATE TABLE public."specialty/illness"(
 
 );
 -- ddl-end --
-ALTER TABLE public."specialty/illness" OWNER TO postgres;
+ALTER TABLE public."specialty/illness" OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: illness_fk | type: CONSTRAINT --
@@ -263,7 +232,7 @@ CREATE TABLE public.business_hours(
 
 );
 -- ddl-end --
-ALTER TABLE public.business_hours OWNER TO postgres;
+ALTER TABLE public.business_hours OWNER TO gsprojfmps;
 -- ddl-end --
 
 -- object: public.shifts | type: TABLE --
@@ -277,7 +246,7 @@ CREATE TABLE public.shifts(
 
 );
 -- ddl-end --
-ALTER TABLE public.shifts OWNER TO postgres;
+ALTER TABLE public.shifts OWNER TO gsprojfmp;
 -- ddl-end --
 
 -- object: medical_unit_fk | type: CONSTRAINT --
@@ -304,5 +273,9 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE public.business_hours ADD CONSTRAINT business_hours_uq UNIQUE (id_medical_unit);
 -- ddl-end --
 
-
-
+-- object: city_fk | type: CONSTRAINT --
+-- ALTER TABLE public.medical_point DROP CONSTRAINT IF EXISTS city_fk CASCADE;
+ALTER TABLE public.medical_point ADD CONSTRAINT city_fk FOREIGN KEY (id_city)
+REFERENCES public.city (id) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+-- ddl-end --

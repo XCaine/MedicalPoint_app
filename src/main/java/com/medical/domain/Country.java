@@ -50,7 +50,7 @@ public class Country {
         this.provinces = provinces;
     }
 
-    @OneToMany(mappedBy = "country")
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
     protected  Set<MedicalUnitType> medicalUnitTypes = new HashSet<MedicalUnitType>();
 
     public Set<MedicalUnitType> getMedicalUnitTypes() {
