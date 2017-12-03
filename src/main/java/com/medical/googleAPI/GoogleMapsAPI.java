@@ -1,6 +1,13 @@
+package com.medical.googleAPI;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.maps.*;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.*;
+import com.medical.domain.Address;
+import com.medical.domain.City;
+import com.medical.domain.MedicalPoint;
 
 import java.io.IOException;
 
@@ -30,4 +37,5 @@ public class GoogleMapsAPI {
         Distance distance = directionsResults.routes[0].legs[0].distance;
         System.out.println("Podróż do " + endLocation + " zajmie " + duration + ". Długość trasy wynosi " + distance + ".");
     }
+
 }

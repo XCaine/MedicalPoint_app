@@ -1,15 +1,27 @@
 package com.medical.domain;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.maps.GeoApiContext;
+import com.google.maps.GeocodingApi;
+import com.google.maps.errors.ApiException;
+import com.google.maps.model.GeocodingResult;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "medical_point", schema = "public", catalog = "medical_point")
 public class MedicalPoint {
+
+
+    public MedicalPoint(){
+        addressString = (getAddress().getStreetName() + " " + getAddress().getStreetNumber() + ", "+ getAddress().getPostalCode() + " " + getCity().getName() + ", " + getCity().getProvince().getName() + " " + getCity().getProvince().getCountry().getName());
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +59,7 @@ public class MedicalPoint {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_city", referencedColumnName = "id")
     private City city;
 
@@ -90,7 +102,6 @@ public class MedicalPoint {
     })
     private Coordinates coordinates;
 
-
     public Coordinates getCoordinates() {
         return coordinates;
     }
@@ -117,5 +128,31 @@ public class MedicalPoint {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public void geoLocate() throws IOException, ApiException, InterruptedException {
+        String myApiKey = "AIzaSyBIDB0hfasjgD3hNrKtSz0X6EufWl820j0";
+        Address a = this.getAddress();
+        City c = this.getCity();
+        //np. Złota 9/12, 02-222 Warszawa, Mazowieckie Polska
+        GeoApiContext context = new GeoApiContext.Builder()
+                .apiKey(myApiKey)
+                .build();
+        GeocodingResult[] results = GeocodingApi.geocode(context, addressString).await();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Coordinates coordinates = new Coordinates();
+        coordinates.setX(results[0].geometry.location.lat);
+        coordinates.setY(results[0].geometry.location.lng);
+        setCoordinates(coordinates);
+    }
+
+    private String addressString;
+
+    public String getAddressString() {
+        return addressString;
+    }
+
+    public void setAddressString(String addressString) {
+        this.addressString = addressString;
     }
 }

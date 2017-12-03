@@ -1,14 +1,13 @@
 package com.medical;
 
 import com.medical.config.AppConfig;
-import com.medical.domain.Country;
-import com.medical.domain.MedicalPoint;
+import com.medical.domain.*;
 import com.medical.service.CountryService;
 import com.medical.service.MedicalPointService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
-
+import com.medical.googleAPI.GoogleMapsAPI;
 /**
  * Hello world!
  *
@@ -52,24 +51,21 @@ public class App
         MedicalPointService medService = (MedicalPointService) context.getBean("medicalPointService");
 
 
-       Country emp = new Country();
-        emp.setId(0);
-        emp.setName("Dupolandiaaaa");
+
+        Address address = new Address();
+        address.setPostalCode("01-809");
+        address.setStreetName("Cegłowska");
+        address.setStreetNumber("80");
 
         MedicalPoint medPoint = new MedicalPoint();
 
        medPoint.setId(0);
-       medPoint.setName("Szpital");
-       medPoint.setPhoneNumber("666");
+       medPoint.setName("SzpitalA");
+       medPoint.setAddress(address);
+
+       medService.add(medPoint);
 
 
-        service.removeAll();
-
-       // medService.add(medPoint);
-
-       // medService.removeByName("Szpital");
-       service.add(emp);
-        service.removeAll();
 
     }
 }

@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 @Embeddable
 public class Address {
 
+
     @NotNull
     @Length(min = 2, max = 100)
     private String streetName;
