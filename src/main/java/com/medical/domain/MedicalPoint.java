@@ -35,8 +35,8 @@ public class MedicalPoint {
     }
 
     @NotNull
-    @Length(min = 3, max = 150)
-    @Column(name = "name", length = 150, nullable = false)
+    @Length(min = 3, max = 200)
+    @Column(name = "name", length = 200, nullable = false)
     private String name;
     public String getName() {
         return name;
