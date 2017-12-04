@@ -1,27 +1,15 @@
 package com.medical.domain;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.maps.GeoApiContext;
-import com.google.maps.GeocodingApi;
-import com.google.maps.errors.ApiException;
-import com.google.maps.model.GeocodingResult;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "medical_point", schema = "public", catalog = "medical_point")
+@Table(name = "medical_point", schema = "public", catalog = "medicalpoint")
 public class MedicalPoint {
-
-
-   /* public MedicalPoint(){
-        addressString = (getAddress().getStreetName() + " " + getAddress().getStreetNumber() + ", "+ getAddress().getPostalCode() + " " + getCity().getName() + ", " + getCity().getProvince().getName() + " " + getCity().getProvince().getCountry().getName());
-    }*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,20 +47,20 @@ public class MedicalPoint {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_city", referencedColumnName = "id")
-    private City city;
+    @OneToOne
+    @JoinColumn(name = "id_address", referencedColumnName = "id")
+    private Address address;
 
-    public City getCity() {
-        return city;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
 
-    @OneToMany(mappedBy = "medicalPoint", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "medicalPoint")
     protected Set<MedicalUnit> medicalUnits= new HashSet<MedicalUnit>();
 
     public Set<MedicalUnit> getMedicalUnits() {
@@ -90,61 +78,7 @@ public class MedicalPoint {
             throw new IllegalStateException("Medical Point already assigned");
         getMedicalUnits().add(medicalUnit);
         medicalUnit.setMedicalPoint(this);
-    }
 
-
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "x",
-                    column = @Column(name = "latitude")),
-            @AttributeOverride(name = "y",
-                    column = @Column(name = "longitude"))
-    })
-    private Coordinates coordinates;
-
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
-
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
-
-
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "streetName",
-                    column = @Column(name = "street_name", length = 100, nullable = false)),
-            @AttributeOverride(name = "streetNumber",
-                    column = @Column(name = "street_number", length = 12, nullable = false)),
-            @AttributeOverride(name = "postalCode",
-                    column = @Column(name = "postal_code", length = 12))
-    })
-    private Address address;
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public void geoLocate() throws IOException, ApiException, InterruptedException {
-        String myApiKey = "AIzaSyBIDB0hfasjgD3hNrKtSz0X6EufWl820j0";
-        Address a = this.getAddress();
-        City c = this.getCity();
-        //np. Złota 9/12, 02-222 Warszawa, Mazowieckie Polska
-        String addressString = (a.getStreetName() + " " +a.getStreetNumber() + ", "+a.getPostalCode()+ " " + c.getName() + ", " + c.getProvince().getName() + " " + c.getProvince().getCountry().getName());
-        GeoApiContext context = new GeoApiContext.Builder()
-                .apiKey(myApiKey)
-                .build();
-        GeocodingResult[] results = GeocodingApi.geocode(context, addressString).await();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Coordinates coordinates = new Coordinates();
-        coordinates.setX(results[0].geometry.location.lat);
-        coordinates.setY(results[0].geometry.location.lng);
-        setCoordinates(coordinates);
     }
 
 }

@@ -67,4 +67,9 @@ public class MedicalPointServiceImpl implements  MedicalPointService{
         MedicalPoint temp = medicalPointDao.findById(id);
         this.remove(temp);
     }
+
+    @Override
+    public void removeAll() {
+        medicalPointDao.deleteAll();
+    }
 }
