@@ -1,7 +1,9 @@
 package com.medical.dao;
 
+import com.medical.domain.Country;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
@@ -67,5 +69,18 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
     @Override
     public void flush() {
         currentSession().flush();
+    }
+// MICHAŁ SPRAWDŹ
+    @Override
+    public void deleteById(final int id){
+        final E entity = findById( id);
+        remove(entity);
+    }
+// MICHAŁ SPRAWDŹ
+    @Override
+    public E findByName(String name, String tableName) {
+        Query query = currentSession().createQuery("from" + tableName + "where name=:name");
+        query.setParameter("name", name);
+        return (E) query.uniqueResult();
     }
 }

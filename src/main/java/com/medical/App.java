@@ -1,6 +1,7 @@
 package com.medical;
 
 import com.medical.config.AppConfig;
+import com.medical.dao.GenericDao;
 import com.medical.domain.*;
 import com.medical.service.CountryService;
 import com.medical.service.MedicalPointService;
@@ -51,8 +52,7 @@ public class App
         MedicalPointService medService = (MedicalPointService) context.getBean("medicalPointService");
 
 
-
-        Address address = new Address();
+       /* Address address = new Address();
         address.setPostalCode("01-809");
         address.setStreetName("Cegłowska");
         address.setStreetNumber("80");
@@ -64,7 +64,7 @@ public class App
        medPoint.setAddress(address);
 
        medService.add(medPoint);
-
+*/
 
 
     }

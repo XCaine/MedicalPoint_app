@@ -19,9 +19,9 @@ import java.util.Set;
 public class MedicalPoint {
 
 
-    public MedicalPoint(){
+   /* public MedicalPoint(){
         addressString = (getAddress().getStreetName() + " " + getAddress().getStreetNumber() + ", "+ getAddress().getPostalCode() + " " + getCity().getName() + ", " + getCity().getProvince().getName() + " " + getCity().getProvince().getCountry().getName());
-    }
+    }*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -135,6 +135,7 @@ public class MedicalPoint {
         Address a = this.getAddress();
         City c = this.getCity();
         //np. Złota 9/12, 02-222 Warszawa, Mazowieckie Polska
+        String addressString = (a.getStreetName() + " " +a.getStreetNumber() + ", "+a.getPostalCode()+ " " + c.getName() + ", " + c.getProvince().getName() + " " + c.getProvince().getCountry().getName());
         GeoApiContext context = new GeoApiContext.Builder()
                 .apiKey(myApiKey)
                 .build();
@@ -146,13 +147,4 @@ public class MedicalPoint {
         setCoordinates(coordinates);
     }
 
-    private String addressString;
-
-    public String getAddressString() {
-        return addressString;
-    }
-
-    public void setAddressString(String addressString) {
-        this.addressString = addressString;
-    }
 }
