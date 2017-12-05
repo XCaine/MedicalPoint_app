@@ -70,7 +70,7 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
     public void flush() {
         currentSession().flush();
     }
-// MICHAŁ SPRAWDŹ
+/*// MICHAŁ SPRAWDŹ
     @Override
     public void deleteById(final int id){
         final E entity = findById( id);
@@ -82,5 +82,5 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
         Query query = currentSession().createQuery("from" + tableName + "where name=:name");
         query.setParameter("name", name);
         return (E) query.uniqueResult();
-    }
+    }*/
 }
