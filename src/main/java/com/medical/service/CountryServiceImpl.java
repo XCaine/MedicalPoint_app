@@ -9,11 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service("countryService")
-@Transactional
-public class CountryServiceImpl implements CountryService{
+public class CountryServiceImpl extends GenericServiceImpl<Country> implements CountryService{
 
     @Autowired
-    private CountryDao countryDao;
+    CountryServiceImpl(CountryDao countryDao){
+        super(countryDao);
+    }
+
+    @Autowired
+    CountryDao countryDao;
 
     @Override
     public void add(Country country) {
@@ -21,28 +25,8 @@ public class CountryServiceImpl implements CountryService{
     }
 
     @Override
-    public void saveOrUpdate(Country country) {
-    countryDao.saveOrUpdate(country);
-    }
-
-    @Override
     public void update(Country country) {
 countryDao.saveOrUpdate(country);
-    }
-
-    @Override
-    public void remove(Country country) {
-countryDao.remove(country);
-    }
-
-    @Override
-    public Country find(Integer id) {
-       return countryDao.findById(id);
-    }
-
-    @Override
-    public List<Country> findALL() {
-        return countryDao.findAll();
     }
 
     @Override

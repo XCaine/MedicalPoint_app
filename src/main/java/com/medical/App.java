@@ -4,6 +4,7 @@ import com.medical.config.AppConfig;
 import com.medical.dao.GenericDao;
 import com.medical.domain.*;
 import com.medical.service.CountryService;
+import com.medical.service.GenericService;
 import com.medical.service.MedicalPointService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -52,6 +53,54 @@ public class App
         MedicalPointService medService = (MedicalPointService) context.getBean("medicalPointService");
 
 
+        Country country = service.find(5);
+        System.out.println(country.getName());
+
+/*
+        genericService.save(new Specialty("Allergology"));
+        genericService.save(new Specialty("Anaesthesiology"));
+        genericService.save(new Specialty("Cardiology"));
+        genericService.save(new Specialty("Cardiothoracic Surgery"));
+        genericService.save(new Specialty("Child and Adolescent Psychiatry"));
+        genericService.save(new Specialty("Clinical Genetics"));
+        genericService.save(new Specialty("Clinical Neurophysiology"));
+        genericService.save(new Specialty("Dermatology and Venereology"));
+        genericService.save(new Specialty("Emergency Medicine"));
+        genericService.save(new Specialty("Endocrinology"));
+        genericService.save(new Specialty("Gastroenterology"));
+        genericService.save(new Specialty("Geriatrics"));
+        genericService.save(new Specialty("Gynaecology and Obstetrics"));
+        genericService.save(new Specialty("Infectious Diseases"));
+        genericService.save(new Specialty("Internal Medicine"));
+        genericService.save(new Specialty("Laboratory Medicine / Medical Biopathology"));
+        genericService.save(new Specialty("Medical Microbiology"));
+        genericService.save(new Specialty("Medical Oncology"));
+        genericService.save(new Specialty("Nephrology"));
+        genericService.save(new Specialty("Neurology"));
+        genericService.save(new Specialty("Neurosurgery"));
+        genericService.save(new Specialty("Nuclear Medicine"));
+        genericService.save(new Specialty("Occupational Medicine"));
+        genericService.save(new Specialty("Ophthalmology"));
+        genericService.save(new Specialty("Oro-Maxillo-Facial Surgery"));
+        genericService.save(new Specialty("Orthopaedics"));
+        genericService.save(new Specialty("Otorhinolaryngology"));
+        genericService.save (new Specialty("Paediatric Surgery"));
+        genericService.save(new Specialty("Paediatrics"));
+        genericService.save(new Specialty("Pathology"));
+        genericService.save(new Specialty("Pharmacology"));
+        genericService.save(new Specialty("Physical Medicine and Rehabilitation"));
+        genericService.save(new Specialty("Plastic, Reconstructive and Aesthetic Surgery"));
+        genericService.save(new Specialty("Pneumology"));
+        genericService.save(new Specialty("Psychiatry"));
+        genericService.save(new Specialty("Public Health Medicine"));
+        genericService.save(new Specialty("Radiology"));
+        genericService.save(new Specialty("Radiation Oncology and Radiotherapy"));
+        genericService.save(new Specialty("Rheumatology"));
+        genericService.save(new Specialty("Surgery"));
+        genericService.save(new Specialty("Thoracic Surgery"));
+        genericService.save(new Specialty("Urology"));
+        genericService.save(new Specialty("Vascular Surgery"));
+*/
        /* Address address = new Address();
         address.setPostalCode("01-809");
         address.setStreetName("Cegłowska");

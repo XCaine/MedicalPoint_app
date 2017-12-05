@@ -31,7 +31,7 @@ public class CountryController {
     // Get all Countries
     @GetMapping("/country")
     public ResponseEntity<List<Country>> list() {
-        List<Country> books = countryService.findALL();
+        List<Country> books = countryService.findAll();
         return ResponseEntity.ok().body(books);
     }
 
