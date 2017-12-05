@@ -18,6 +18,8 @@ public interface MedicalPointService {
 
     public void remove(MedicalPoint medicalPoint);
 
+    public void removeAll();
+
     public void removeByName(String medicalPointName);
 
     public void removeById(Integer id);
