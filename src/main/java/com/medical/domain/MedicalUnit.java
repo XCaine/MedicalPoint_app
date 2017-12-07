@@ -74,7 +74,7 @@ public class MedicalUnit {
     }
 
     @ManyToMany
-    @JoinTable(name = "medical_unit/specialty", joinColumns = {@JoinColumn(name = "id_medical_unit")}, inverseJoinColumns = {@JoinColumn(name = "id_specialty")})
+    @JoinTable(name = "medical_unit_specialty", joinColumns = {@JoinColumn(name = "id_medical_unit")}, inverseJoinColumns = {@JoinColumn(name = "id_specialty")})
     private Set<Specialty> specialties = new HashSet<Specialty>();
 
 

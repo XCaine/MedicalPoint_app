@@ -42,9 +42,20 @@ public class Specialty {
         this.name = name;
     }
 
+    @Lob
+    @Column(name = "description")
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @ManyToMany(cascade =  CascadeType.ALL)
-    @JoinTable(name = "specialty/illness", joinColumns = {@JoinColumn(name = "id_specialty")}, inverseJoinColumns = {@JoinColumn(name = "id_illness")})
+    @JoinTable(name = "specialty_illness", joinColumns = {@JoinColumn(name = "id_specialty")}, inverseJoinColumns = {@JoinColumn(name = "id_illness")})
     private Set<Illness> illnesses = new HashSet<Illness>();
 
     public Set<Illness> getIllnesses() {
@@ -60,5 +71,6 @@ public class Specialty {
             throw new NullPointerException("Can't add null illness");
         getIllnesses().add(illness);
     }
+
 
 }
