@@ -34,5 +34,10 @@ public class Illness {
         this.name = name;
     }
 
+    @Lob
+    @Length(min = 10, max = 1500)
+    @Column(name = "description", length = 1500)
+    private String description;
+
 
 }
