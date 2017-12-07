@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository("countryDao")
 public class CountryDaoImpl extends AbstractGenericDao<Country> implements CountryDao {
 
+    CountryDaoImpl() {super("country");};
+
     @Override
     public Country findByName(String countryName) {
         Query query = currentSession().createQuery("from Country " + "where name=:name");

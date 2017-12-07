@@ -14,10 +14,12 @@ import java.util.List;
 public abstract class AbstractGenericDao<E> implements GenericDao<E> {
 
     private final Class<E> entityClass;
+    private final String tableName;
 
-    public  AbstractGenericDao() {
+    public  AbstractGenericDao(String tableName) {
         this.entityClass = (Class<E>) ((ParameterizedType) this.getClass().getGenericSuperclass())
                 .getActualTypeArguments()[0];
+        this.tableName = tableName;
     }
 
     @Autowired
@@ -70,7 +72,7 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
     public void flush() {
         currentSession().flush();
     }
-/*// MICHAŁ SPRAWDŹ
+// MICHAŁ SPRAWDŹ
     @Override
     public void deleteById(final int id){
         final E entity = findById( id);
@@ -78,9 +80,9 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
     }
 // MICHAŁ SPRAWDŹ
     @Override
-    public E findByName(String name, String tableName) {
+    public E findByName(String name) {
         Query query = currentSession().createQuery("from" + tableName + "where name=:name");
         query.setParameter("name", name);
         return (E) query.uniqueResult();
-    }*/
+    }
 }
