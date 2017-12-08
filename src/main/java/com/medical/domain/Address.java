@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Embeddable
 public class Address {
 
-
+    @Column(length = 100, nullable = false)
     @NotNull
     @Length(min = 2, max = 100)
     private String streetName;
@@ -21,6 +21,7 @@ public class Address {
         this.streetName = streetName;
     }
 
+    @Column(length = 12, nullable = false)
     @NotNull
     @Length(min = 1, max = 12)
     private String streetNumber;
@@ -33,6 +34,7 @@ public class Address {
         this.streetNumber = streetNumber;
     }
 
+    @Column(length = 12)
     @Length(min = 1, max = 12)
     private String postalCode;
     public String getPostalCode() {
@@ -43,13 +45,5 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-/*
-    public void addMedicalPoint(MedicalPoint medicalPoint){
-        if(medicalPoint == null)
-            throw new NullPointerException("Can't add null Medical Point");
-        if(medicalPoint.getAddress()!=null)
-            throw new IllegalStateException("Address already assigned");
-        medicalPoint.setAddress(this);
-    }*/
 
 }

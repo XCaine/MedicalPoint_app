@@ -1,5 +1,6 @@
 package com.medical.domain;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -57,6 +58,7 @@ public class City {
 
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @Cascade({org.hibernate.annotations.CascadeType.DELETE})
     protected Set<MedicalPoint> medicalPoints = new HashSet<MedicalPoint>();
 
     public Set<MedicalPoint> getMedicalPoints() {

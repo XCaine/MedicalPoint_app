@@ -72,5 +72,14 @@ public class Specialty {
         getIllnesses().add(illness);
     }
 
+    @ManyToMany(mappedBy = "specialties")
+    private Set<MedicalUnit> medicalUnits = new HashSet<MedicalUnit>();
 
+    public Set<MedicalUnit> getMedicalUnits() {
+        return medicalUnits;
+    }
+
+    public void setMedicalUnits(Set<MedicalUnit> medicalUnits) {
+        this.medicalUnits = medicalUnits;
+    }
 }

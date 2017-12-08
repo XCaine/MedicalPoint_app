@@ -34,6 +34,46 @@ public class MedicalPoint {
         this.id = id;
     }
 
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "streetName",
+                    column = @Column(name = "street_name", length = 100, nullable = false)),
+            @AttributeOverride(name = "streetNumber",
+                    column = @Column(name = "street_number", length = 12, nullable = false)),
+            @AttributeOverride(name = "postalCode",
+                    column = @Column(name = "postal_code", length = 12))
+    })
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "x",
+                    column = @Column(name = "latitude")),
+            @AttributeOverride(name = "y",
+                    column = @Column(name = "longitude"))
+    })
+    private Coordinates coordinates;
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+
     @Length(min = 6, max=13)
     @Column(name = "phone_number", length = 13)
     private String phoneNumber;
@@ -57,20 +97,6 @@ public class MedicalPoint {
         this.name = name;
     }
 
-//DLACZEGO TRZEBA DODAC INSERABLE I UPTADABLE????
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_city", referencedColumnName = "id", insertable = false, updatable = false)
-    private City city;
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-
     @OneToMany(mappedBy = "medicalPoint", cascade = CascadeType.ALL)
     protected Set<MedicalUnit> medicalUnits= new HashSet<MedicalUnit>();
 
@@ -92,58 +118,27 @@ public class MedicalPoint {
     }
 
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "x",
-                    column = @Column(name = "latitude")),
-            @AttributeOverride(name = "y",
-                    column = @Column(name = "longitude"))
-    })
-    private Coordinates coordinates;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_city", referencedColumnName = "id")
+    private City city;
 
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public City getCity() {
+        return city;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public void setCity(City city) {
+        this.city = city;
     }
 
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "streetName",
-                    column = @Column(name = "street_name", length = 100, nullable = false)),
-            @AttributeOverride(name = "streetNumber",
-                    column = @Column(name = "street_number", length = 12, nullable = false)),
-            @AttributeOverride(name = "postalCode",
-                    column = @Column(name = "postal_code", length = 12))
-    })
-    private Address address;
 
-    public Address getAddress() {
-        return address;
-    }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
-    public void geoLocate() throws IOException, ApiException, InterruptedException {
-        String myApiKey = "AIzaSyBIDB0hfasjgD3hNrKtSz0X6EufWl820j0";
-        Address a = this.getAddress();
-        City c = this.getCity();
-        //np. Złota 9/12, 02-222 Warszawa, Mazowieckie Polska
-        String addressString = (a.getStreetName() + " " +a.getStreetNumber() + ", "+a.getPostalCode()+ " " + c.getName() + ", " + c.getProvince().getName() + " " + c.getProvince().getCountry().getName());
-        GeoApiContext context = new GeoApiContext.Builder()
-                .apiKey(myApiKey)
-                .build();
-        GeocodingResult[] results = GeocodingApi.geocode(context, addressString).await();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Coordinates coordinates = new Coordinates();
-        coordinates.setX(results[0].geometry.location.lat);
-        coordinates.setY(results[0].geometry.location.lng);
-        setCoordinates(coordinates);
-    }
+
+
+
+   public String getAddressLine() {
+       return (getAddress().getStreetName() + " " + getAddress().getStreetNumber() + ", " + getAddress().getPostalCode() + " " + getCity().getName() + ", " + getCity().getProvince().getName() + " " + getCity().getProvince().getCountry().getName());
+   }
 
 }

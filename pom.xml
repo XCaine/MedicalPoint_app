@@ -113,5 +113,12 @@
           <version>3.1.0</version>
           <scope>provided</scope>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/com.google.maps/google-maps-services -->
+      <dependency>
+          <groupId>com.google.maps</groupId>
+          <artifactId>google-maps-services</artifactId>
+          <version>0.2.5</version>
+      </dependency>
+
   </dependencies>
 </project>

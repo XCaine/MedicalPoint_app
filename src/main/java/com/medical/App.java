@@ -1,6 +1,9 @@
 package com.medical;
 
 import com.medical.config.AppConfig;
+import com.medical.dao.CityDao;
+import com.medical.dao.CityDaoImpl;
+import com.medical.dao.CountryDaoImpl;
 import com.medical.dao.GenericDao;
 import com.medical.domain.*;
 import com.medical.service.CountryService;
@@ -52,9 +55,23 @@ public class App
 
         MedicalPointService medService = (MedicalPointService) context.getBean("medicalPointService");
 
+        CityDaoImpl cityDao = new CityDaoImpl();
+
+        //City city = cityDao.findByName("Łódź");
 
         Country country = service.find(5);
         System.out.println(country.getName());
+
+
+
+        service.findByName("Poland");
+
+    //    CountryDaoImpl countryDao = new CountryDaoImpl();
+
+      // countryDao.findByName("Poland");
+
+        medService.addMedicalPointWithName("SPZOZ Uniwersytecki Szpital Kliniczny nr 1 im. Norberta Barlickiego");
+
 
 /*
         genericService.save(new Specialty("Allergology"));

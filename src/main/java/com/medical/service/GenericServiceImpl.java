@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 
-public abstract class GenericServiceImpl<E> implements GenericService<E> {
+public abstract class GenericServiceImpl<E>  implements GenericService<E> {
 
     @Autowired
     private  GenericDao<E> genericDao;

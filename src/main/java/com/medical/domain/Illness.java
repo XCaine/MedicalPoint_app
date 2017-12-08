@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "illness", schema = "public", catalog = "medical_point")
@@ -39,5 +41,22 @@ public class Illness {
     @Column(name = "description", length = 1500)
     private String description;
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @ManyToMany(mappedBy = "illnesses")
+    private Set<Specialty> specialties = new HashSet<Specialty>();
+
+    public Set<Specialty> getSpecialties() {
+        return specialties;
+    }
+
+    public void setSpecialties(Set<Specialty> specialties) {
+        this.specialties = specialties;
+    }
 }

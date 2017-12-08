@@ -3,12 +3,14 @@ package com.medical.dao;
 import com.medical.domain.Country;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Repository("countryDao")
+@Transactional
 public class CountryDaoImpl extends AbstractGenericDao<Country> implements CountryDao {
 
-    CountryDaoImpl() {super("country");};
+    public CountryDaoImpl() {super("Country");};
 
     @Override
     public Country findByName(String countryName) {

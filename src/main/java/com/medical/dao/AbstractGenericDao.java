@@ -81,7 +81,7 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
 // MICHAŁ SPRAWDŹ
     @Override
     public E findByName(String name) {
-        Query query = currentSession().createQuery("from" + tableName + "where name=:name");
+        Query query = currentSession().createQuery("from " + tableName +" where name=:name");
         query.setParameter("name", name);
         return (E) query.uniqueResult();
     }
