@@ -1,7 +1,9 @@
 package com.medical.service;
 
+import com.google.maps.errors.ApiException;
 import com.medical.domain.MedicalPoint;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface MedicalPointService {
@@ -29,4 +31,6 @@ public interface MedicalPointService {
     public List<MedicalPoint> findALL();
 
     public MedicalPoint findByName(String medicalPointName);
+
+    public void addMedicalPointWithName(String name)throws IOException, ApiException, InterruptedException;
 }

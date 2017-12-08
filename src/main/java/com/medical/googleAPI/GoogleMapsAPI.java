@@ -7,6 +7,7 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.*;
 import com.medical.domain.Address;
 import com.medical.domain.City;
+import com.medical.domain.Coordinates;
 import com.medical.domain.MedicalPoint;
 
 import java.io.IOException;
@@ -35,7 +36,30 @@ public class GoogleMapsAPI {
         String endLocation = directionsResults.routes[0].legs[0].endAddress;
         Duration duration = directionsResults.routes[0].legs[0].duration;
         Distance distance = directionsResults.routes[0].legs[0].distance;
+
         System.out.println("Podróż do " + endLocation + " zajmie " + duration + ". Długość trasy wynosi " + distance + ".");
     }
+     public void geoCode(MedicalPoint medicalPoint) throws IOException, ApiException, InterruptedException {
+        if(medicalPoint == null)
+            throw new NullPointerException("Can't assign coordinates to null MP");
+        if(medicalPoint.getCoordinates() != null)
+            throw new IllegalStateException("Address already assigned to MP " + medicalPoint.getAddressLine());
+        //np. Złota 9/12, 02-222 Warszawa, Mazowieckie Polska
+        String addressString = medicalPoint.getAddressLine();
+        GeoApiContext context = new GeoApiContext.Builder()
+                .apiKey(myApiKey)
+                .build();
+        GeocodingResult[] results = GeocodingApi.geocode(context, addressString).await();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Coordinates coordinates = new Coordinates();
+        coordinates.setX(results[0].geometry.location.lat);
+        coordinates.setY(results[0].geometry.location.lng);
+        medicalPoint.setCoordinates(coordinates);
+    }
 
-}
+
+
+
+    }
+
+
