@@ -7,6 +7,8 @@ import com.medical.domain.MedicalUnit;
 import com.medical.domain.Specialty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,7 @@ public class IllnessServiceImpl extends GenericServiceImpl<Illness> implements I
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public List<MedicalPoint> getMedicalPoints(String illnessName) {
         Illness illness = illnessDao.findByName(illnessName);
         List<MedicalPoint> medicalPoints = new ArrayList<MedicalPoint>();

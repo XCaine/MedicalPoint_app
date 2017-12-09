@@ -49,7 +49,7 @@ public class Illness {
         this.description = description;
     }
 
-    @ManyToMany(mappedBy = "illnesses")
+    @ManyToMany(mappedBy = "illnesses", fetch=FetchType.EAGER)
     private Set<Specialty> specialties = new HashSet<Specialty>();
 
     public Set<Specialty> getSpecialties() {

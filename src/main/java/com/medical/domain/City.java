@@ -43,8 +43,8 @@ public class City {
         this.name = name;
     }
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
+//!!!!!
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_province", referencedColumnName = "id")
     public Province province;
 

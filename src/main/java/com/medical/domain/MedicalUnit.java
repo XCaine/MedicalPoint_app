@@ -47,7 +47,7 @@ public class MedicalUnit {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)//kurr jak zrobic to z lazy
     @JoinColumn(name = "id_medical_point", referencedColumnName = "id")
     protected MedicalPoint medicalPoint;
 
@@ -61,7 +61,7 @@ public class MedicalUnit {
 
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_medical_unit_type", referencedColumnName = "id")
     private MedicalUnitType medicalUnitType;
 
@@ -73,7 +73,7 @@ public class MedicalUnit {
         return medicalUnitType;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "medical_unit_specialty", joinColumns = {@JoinColumn(name = "id_medical_unit")}, inverseJoinColumns = {@JoinColumn(name = "id_specialty")})
     private Set<Specialty> specialties = new HashSet<Specialty>();
 

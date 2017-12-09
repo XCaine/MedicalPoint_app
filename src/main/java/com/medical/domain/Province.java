@@ -44,7 +44,9 @@ public class Province {
         this.name = name;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    //!!!!!
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_country", referencedColumnName ="id")
     protected Country country;
 

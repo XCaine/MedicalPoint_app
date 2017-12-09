@@ -4,8 +4,8 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="921a7aee-e6f2-447e-9ab5-b520a4b70564" />
-          <unit-entry name="sessionFactory" />
+          <unit-entry name="hibernate.cfg.xml" value="a96d68de-aa16-449e-8841-2a4bcaf39ab3" />
+          <unit-entry name="sessionFactory" value="a96d68de-aa16-449e-8841-2a4bcaf39ab3" />
           <unit-entry name="src:main:resources:hibernate.cfg.xml" value="a57b9138-79be-4bf8-8129-e7ff02af937d" />
         </datasource-map>
         <naming-strategy-map />
@@ -33,6 +33,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.2.12.Final" level="project" />

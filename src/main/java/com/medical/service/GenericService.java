@@ -15,4 +15,6 @@ public interface GenericService<E> {
     public void save(E entity);
 
     public void remove(E entity);
+
+    public E findByName(String name);
 }

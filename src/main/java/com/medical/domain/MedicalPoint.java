@@ -97,7 +97,7 @@ public class MedicalPoint {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "medicalPoint", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "medicalPoint", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     protected Set<MedicalUnit> medicalUnits= new HashSet<MedicalUnit>();
 
     public Set<MedicalUnit> getMedicalUnits() {
@@ -118,7 +118,7 @@ public class MedicalPoint {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne( fetch=FetchType.EAGER)// !!!
     @JoinColumn(name = "id_city", referencedColumnName = "id")
     private City city;
 

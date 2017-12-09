@@ -49,5 +49,9 @@ public abstract class GenericServiceImpl<E>  implements GenericService<E> {
         genericDao.remove(entity);
     }
 
-
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    public E findByName(String name) {
+        return genericDao.findByName(name);
+    }
 }

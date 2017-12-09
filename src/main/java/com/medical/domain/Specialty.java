@@ -54,7 +54,7 @@ public class Specialty {
         this.description = description;
     }
 
-    @ManyToMany(cascade =  CascadeType.ALL)
+    @ManyToMany(cascade =  CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinTable(name = "specialty_illness", joinColumns = {@JoinColumn(name = "id_specialty")}, inverseJoinColumns = {@JoinColumn(name = "id_illness")})
     private Set<Illness> illnesses = new HashSet<Illness>();
 
@@ -72,7 +72,7 @@ public class Specialty {
         getIllnesses().add(illness);
     }
 
-    @ManyToMany(mappedBy = "specialties")
+    @ManyToMany(mappedBy = "specialties", fetch=FetchType.EAGER)
     private Set<MedicalUnit> medicalUnits = new HashSet<MedicalUnit>();
 
     public Set<MedicalUnit> getMedicalUnits() {
