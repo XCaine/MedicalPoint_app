@@ -99,49 +99,66 @@ public class MedicalPointServiceImpl implements  MedicalPointService {
 
         if (name == null)
             throw new NullPointerException("Name is null");
-        MedicalPoint medicalPoint = new MedicalPoint();
-        Address address = new Address();
-        Coordinates coordinates = new Coordinates();
         GeoApiContext context = new GeoApiContext.Builder()
                 .apiKey(myApiKey)
                 .build();
         GeocodingResult[] results = GeocodingApi.geocode(context, name).await();
-        medicalPoint.setName(name);
+        String countryName = null, provinceName = null, cityName = null, streetName = null, streetNumber = null, postalCode = null;
+
         for (AddressComponent ac : results[0].addressComponents) {
             for (AddressComponentType acType : ac.types) {
                 System.out.println("iter");
                 if (acType == AddressComponentType.COUNTRY) {
-                    Country country = countryDao.findByName(ac.longName);
-                    System.out.println("country");
+                    countryName = ac.longName;
+                    //System.out.println("country");
                 }
                 if (acType == AddressComponentType.ADMINISTRATIVE_AREA_LEVEL_1) {
-                    Province province = provinceDao.findByName(ac.longName.replace("województwo ", ""));
-                    System.out.println("province");
+                    provinceName = ac.longName.replace("województwo ", "");
+                    //System.out.println("province");
                 }
                 if (acType == AddressComponentType.ADMINISTRATIVE_AREA_LEVEL_2) {
-                    medicalPoint.setCity(cityDao.findByName(ac.longName));
-                    System.out.println(ac.longName);
+                    cityName = ac.longName;
+                    //System.out.println(ac.longName);
                 }
                 if (acType == AddressComponentType.ROUTE) {
-                    address.setStreetName(ac.longName);
-                    System.out.println("st name");
+                    streetName = ac.shortName;
+                    //System.out.println("st name");
                 }
                 if (acType == AddressComponentType.STREET_NUMBER) {
-                    address.setStreetNumber(ac.longName);
-                    System.out.println("st nr");
+                    streetNumber = ac.longName;
+                    //System.out.println("st nr");
                 }
                 if (acType == AddressComponentType.POSTAL_CODE) {
-                    address.setPostalCode(ac.longName);
-                    System.out.println("postal code");
+                    postalCode = ac.longName;
+                    //System.out.println("postal code");
                 }
             }
         }
 
-            medicalPoint.setAddress(address);
-            coordinates.setX(results[0].geometry.location.lat);
-            coordinates.setY(results[0].geometry.location.lng);
-            medicalPoint.setCoordinates(coordinates);
-            this.add(medicalPoint);
+        Country country = countryDao.findByName(countryName);
+        if(country == null) throw new NullPointerException("Country is null");
+        Province province = countryDao.findProvinceInCountryByName(provinceName, country);
+        if(province == null) throw new NullPointerException("Province is null");
+        City city = provinceDao.findCityInProvinceByName(cityName, province);
+        if(city == null) {
+            provinceDao.addCity(cityName, province);
+            city = provinceDao.findCityInProvinceByName(cityName, province);
+        }
 
+        Address address = new Address();
+        address.setPostalCode(postalCode);
+        address.setStreetName(streetName);
+        address.setStreetNumber(streetNumber);
+
+        Coordinates coordinates = new Coordinates();
+        coordinates.setX(results[0].geometry.location.lat);
+        coordinates.setY(results[0].geometry.location.lng);
+
+        MedicalPoint medicalPoint = new MedicalPoint();
+        medicalPoint.setName(name);
+        medicalPoint.setAddress(address);
+        medicalPoint.setCoordinates(coordinates);
+        medicalPoint.setCity(city);
+        this.add(medicalPoint);
     }
 }

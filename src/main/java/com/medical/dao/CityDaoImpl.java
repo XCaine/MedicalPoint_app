@@ -17,4 +17,6 @@ public class CityDaoImpl extends AbstractGenericDao<City> implements CityDao{
         query.setParameter("name", cityName);
         return (City) query.uniqueResult();
     }
+
+
 }

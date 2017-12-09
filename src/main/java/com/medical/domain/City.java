@@ -14,9 +14,9 @@ public class City {
 
     public City(){}
 
-    public City(Province province){
-        this.province = province;
-        province.getCities().add(this);
+    public City(String cityName, Province province){
+        setName(cityName);
+        setProvince(province);
     }
 
     @Id
@@ -30,6 +30,7 @@ public class City {
     public void setId(int id) {
         this.id = id;
     }
+
 
     @NotNull
     @Length(min = 2, max=50)

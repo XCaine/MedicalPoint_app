@@ -1,6 +1,7 @@
 package com.medical.domain;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Immutable;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Immutable
 @Table(name = "province", schema = "public", catalog = "medical_point")
 public class Province {
 

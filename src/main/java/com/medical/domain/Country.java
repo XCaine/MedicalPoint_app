@@ -2,6 +2,7 @@ package com.medical.domain;
 
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Immutable;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -10,7 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "country", schema = "public", catalog = "medical_point")
+@Immutable
+@Table(name = "country", schema = "public", catalog = "medical_point",
+uniqueConstraints = @UniqueConstraint(columnNames ="name"))
 public class Country {
 
     public Country(){}

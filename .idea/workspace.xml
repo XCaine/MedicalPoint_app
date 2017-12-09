@@ -5,24 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d5bf764-c4bd-48da-92cf-e74c56234027" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MedicalApp.iml" afterPath="$PROJECT_DIR$/MedicalApp.iml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/App.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/App.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/AbstractGenericDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/AbstractGenericDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/IllnessDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/IllnessDaoImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDaoImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDaoImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDaoImpl.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/City.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/City.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Illness.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Illness.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalPoint.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalPoint.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnit.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnit.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Province.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Province.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/domain/Specialty.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/domain/Specialty.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/service/GenericService.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/service/GenericService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/service/GenericServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/service/GenericServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/service/IllnessServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/service/IllnessServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointServiceImpl.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/medical/App.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/App.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/City.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/City.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Country.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Country.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Illness.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Illness.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalPoint.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalPoint.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalUnit.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/MedicalUnit.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Province.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Province.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/medical/domain/Specialty.class" afterPath="$PROJECT_DIR$/target/classes/com/medical/domain/Specialty.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,83 +45,36 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: database" type="6d9b600a:PostgresImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="business_hours: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="city: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="country: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="medical_point@medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="medical_point: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MedicalPoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalPoint.java">
+      <file leaf-file-name="CountryDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="24" column="103" lean-forward="false" selection-start-line="24" selection-start-column="103" selection-end-line="24" selection-end-column="103" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CountryDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProvinceDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,84 +82,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/GenericServiceImpl.java">
+      <file leaf-file-name="ProvinceDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="54" column="43" lean-forward="false" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+            <state relative-caret-position="238">
+              <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
               <folding>
-                <element signature="e#1492#1493#0" expanded="true" />
-                <element signature="e#1542#1543#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Province.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Province.java">
+      <file leaf-file-name="CityDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CityDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+            <state relative-caret-position="136">
+              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CityDaoImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CityDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IllnessTranslation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/IllnessTranslation.java">
+      <file leaf-file-name="MedicalPointServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="50" column="28" lean-forward="false" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+            <state relative-caret-position="214">
+              <caret line="97" column="65" lean-forward="false" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Country.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-375">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Illness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Illness.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Specialty.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Specialty.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MedicalUnit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnit.java">
+      <file leaf-file-name="MedicalPointService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="49" column="66" lean-forward="false" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="City.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/City.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -211,12 +139,19 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="96" column="53" lean-forward="false" selection-start-line="96" selection-start-column="53" selection-end-line="96" selection-end-column="53" />
-              <folding>
-                <element signature="e#2350#2363#0" expanded="true" />
-                <element signature="e#2660#2674#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="197">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="City.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/City.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-415">
+              <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -268,7 +203,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/medical/config/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/config/HibernateConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/MedicalPointDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/BusinessHours.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/Shifts.java" />
@@ -283,19 +217,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/IllnessTranslation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/SpecialtyTranslation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnitType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/controller/CountryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/MedicalPointDaoImpl.java" />
         <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/service/CountryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/googleAPI/GoogleMapsAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/Address.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/AbstractGenericDao.java" />
@@ -307,10 +234,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/medical/service/GenericService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/service/GenericServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalPoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/City.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/Province.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/domain/City.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CityDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -579,7 +514,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2869416" />
-    <property name="SearchEverywhereHistoryKey" value="dat&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;project str&#9;ACTION&#9;ShowProjectStructureSettings&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;project st&#9;ACTION&#9;ShowProjectStructureSettings&#10;per&#9;ACTION&#9;ActivatePersistenceToolWindow&#10;project_&#9;FILE&#9;file://C:/Users/WINDOWSTOCHUJ/Testy/MedicalPoint_app/.idea/inspectionProfiles/Project_Default.xml&#10;settings&#9;ACTION&#9;Database.Settings&#10;setting&#9;ACTION&#9;Database.Settings&#10;databa&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;databas&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;Data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;stru&#9;ACTION&#9;ShowProjectStructureSettings&#10;PERSI&#9;ACTION&#9;ActivatePersistenceToolWindow&#10;project s&#9;ACTION&#9;ShowProjectStructureSettings&#10;maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;proje&#9;ACTION&#9;ActivateProjectToolWindow&#10;persistence.xml&#9;FILE&#9;file://C:/Users/WINDOWSTOCHUJ/MedicalApp/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml&#10;pro&#9;ACTION&#9;ActivateProjectToolWindow&#10;basic type&#9;FILE&#9;jar://C:/Users/WINDOWSTOCHUJ/.m2/repository/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar!/org/hibernate/type/StandardBasicTypes.class&#10;basic type regi&#9;FILE&#9;jar://C:/Users/WINDOWSTOCHUJ/.m2/repository/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar!/org/hibernate/type/BasicTypeRegistry.class&#10;DAT&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;project &#9;ACTION&#9;ShowProjectStructureSettings&#10;persi&#9;ACTION&#9;ActivatePersistenceToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="documentation&#9;ACTION&#9;QuickJavaDoc&#10;dat&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;project str&#9;ACTION&#9;ShowProjectStructureSettings&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;project st&#9;ACTION&#9;ShowProjectStructureSettings&#10;per&#9;ACTION&#9;ActivatePersistenceToolWindow&#10;project_&#9;FILE&#9;file://C:/Users/WINDOWSTOCHUJ/Testy/MedicalPoint_app/.idea/inspectionProfiles/Project_Default.xml&#10;settings&#9;ACTION&#9;Database.Settings&#10;setting&#9;ACTION&#9;Database.Settings&#10;databa&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;databas&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;Data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;stru&#9;ACTION&#9;ShowProjectStructureSettings&#10;PERSI&#9;ACTION&#9;ActivatePersistenceToolWindow&#10;project s&#9;ACTION&#9;ShowProjectStructureSettings&#10;maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;proje&#9;ACTION&#9;ActivateProjectToolWindow&#10;persistence.xml&#9;FILE&#9;file://C:/Users/WINDOWSTOCHUJ/MedicalApp/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml&#10;pro&#9;ACTION&#9;ActivateProjectToolWindow&#10;basic type&#9;FILE&#9;jar://C:/Users/WINDOWSTOCHUJ/.m2/repository/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar!/org/hibernate/type/StandardBasicTypes.class&#10;basic type regi&#9;FILE&#9;jar://C:/Users/WINDOWSTOCHUJ/.m2/repository/org/hibernate/hibernate-core/5.2.12.Final/hibernate-core-5.2.12.Final.jar!/org/hibernate/type/BasicTypeRegistry.class&#10;DAT&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;project &#9;ACTION&#9;ShowProjectStructureSettings&#10;persi&#9;ACTION&#9;ActivatePersistenceToolWindow" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="JPA.DatabaseSchemaImportDialog" value="a57b9138-79be-4bf8-8129-e7ff02af937d" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -872,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512705417374</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="domain">
+      <created>1512821630746</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1512821630746</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -881,7 +823,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211886000" />
+    <option name="totallyTimeSpent" value="226155000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -892,7 +834,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18385416" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21303074" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.049048316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -907,8 +849,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31537244" sideWeight="0.47083333" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.42592594" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.5740741" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.44444445" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14714494" sideWeight="0.5555556" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -997,80 +939,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/target/classes/com/medical/domain/Country.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/GenericDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="62" column="9" lean-forward="false" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CityDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/MedicalPointDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/config/HibernateConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/config/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/CountryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1090,14 +958,6 @@
     <entry file="das://table:/3a009c53/921a7aee-e6f2-447e-9ab5-b520a4b70564/medical_point.public.medical_point" />
     <entry file="das://table:/3a009c53/921a7aee-e6f2-447e-9ab5-b520a4b70564/medical_point.public.medical_unit" />
     <entry file="das://table:/3a009c53/921a7aee-e6f2-447e-9ab5-b520a4b70564/medical_point.public.specialty_translation" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/3a009c53/921a7aee-e6f2-447e-9ab5-b520a4b70564/medical_point.public.city" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/googleAPI/GoogleMapsAPI.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1135,33 +995,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/MedicalPointDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/BusinessHours.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Coordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1190,16 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/IllnessDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1220,14 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnitType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1253,18 +1072,8 @@
         <state relative-caret-position="433">
           <caret line="54" column="43" lean-forward="false" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
           <folding>
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1542#1543#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CityDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1542#1543#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1274,32 +1083,6 @@
         <state relative-caret-position="306">
           <caret line="81" column="13" lean-forward="true" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-977">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="e#1333#1334#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="e#1495#1496#0" expanded="true" />
-            <element signature="e#1599#1600#0" expanded="true" />
-            <element signature="e#1651#1652#0" expanded="true" />
-            <element signature="e#1713#1714#0" expanded="true" />
-            <element signature="e#1764#1765#0" expanded="true" />
-            <element signature="e#1821#1822#0" expanded="true" />
-            <element signature="e#1869#1870#0" expanded="true" />
-            <element signature="e#1946#1947#0" expanded="true" />
-            <element signature="e#2013#2014#0" expanded="true" />
-            <element signature="e#2457#2458#0" expanded="true" />
-            <element signature="e#2500#2501#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1334,29 +1117,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="96" column="53" lean-forward="false" selection-start-line="96" selection-start-column="53" selection-end-line="96" selection-end-column="53" />
-          <folding>
-            <element signature="e#2350#2363#0" expanded="true" />
-            <element signature="e#2660#2674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/IllnessTranslation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="50" column="28" lean-forward="false" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Illness.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -1379,26 +1143,185 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Coordinates.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/City.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Illness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        <state relative-caret-position="373">
+          <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/afda64ae/a96d68de-aa16-449e-8841-2a4bcaf39ab3/medical_point.public.country">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://index:/afda64ae/a96d68de-aa16-449e-8841-2a4bcaf39ab3/medical_point.public.country.country_pk">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Country.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/MedicalPointDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/MedicalPointDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/IllnessDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/IllnessDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/GenericDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/Province.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+        <state relative-caret-position="17">
+          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/MedicalUnitType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/domain/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-415">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/ProvinceDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/service/MedicalPointServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="97" column="65" lean-forward="false" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="24" column="103" lean-forward="false" selection-start-line="24" selection-start-column="103" selection-end-line="24" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CountryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/medical/dao/CityDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
