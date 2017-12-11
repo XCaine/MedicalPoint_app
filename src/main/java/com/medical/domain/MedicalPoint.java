@@ -134,9 +134,6 @@ public class MedicalPoint {
 
 
 
-
-
-
    public String getAddressLine() {
        return (getAddress().getStreetName() + " " + getAddress().getStreetNumber() + ", " + getAddress().getPostalCode() + " " + getCity().getName() + ", " + getCity().getProvince().getName() + " " + getCity().getProvince().getCountry().getName());
    }

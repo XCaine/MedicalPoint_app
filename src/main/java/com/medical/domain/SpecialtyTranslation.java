@@ -34,7 +34,7 @@ public class SpecialtyTranslation {
         this.name = name;
     }
 
-    @NotNull
+   /* @NotNull
     @Length(min =2, max = 5)
     @Column(name = "language_code", length = 5, nullable = false)
     private String languageCode;
@@ -45,7 +45,9 @@ public class SpecialtyTranslation {
 
     public void setLanguageCode(String languageCode) {
         this.languageCode = languageCode;
-    }
+    }*/
+
+
 
     @Lob
     @Length(min =10, max = 1500)

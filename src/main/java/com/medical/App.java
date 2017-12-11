@@ -39,9 +39,34 @@ public class App {
 
         IllnessService illnessService = (IllnessService) context.getBean("illnessService");
 
+     /*   medService.addMedicalPointWithName("CENTRUM MEDYCZNE IM. BITWY WARSZAWSKIEJ 1920 R. W RADZYMINIE - SAMODZIELNY PUBLICZNY ZESPÓŁ " +
+                "ZAKŁADÓW OPIEKI ZDROWOTNEJ");
+        medService.addMedicalPointWithName("ZESPÓŁ OPIEKI ZDROWOTNEJ \"SZPITALA POWIATOWEGO\" W SOCHACZEWIE");
+        medService.addMedicalPointWithName("SZPITAL WOLSKI IM. DR ANNY GOSTYŃSKIEJ SAMODZIELNY PUBLICZNY ZAKŁAD OPIEKI ZDROWOTNEJ");
+        medService.addMedicalPointWithName("CENTRUM MEDYCZNE \"ŻELAZNA\" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ");
+        medService.addMedicalPointWithName("SZPITAL SPECJALISTYCZNY IM. ŚWIĘTEJ RODZINY SAMODZIELNY PUBLICZNY ZAKŁAD OPIEKI ZDROWOTNEJ");
+        medService.addMedicalPointWithName("SAMODZIELNY PUBLICZNY ZESPÓŁ ZAKŁADÓW OPIEKI ZDROWOTNEJ W WYSZKOWIE");
+        medService.addMedicalPointWithName("SAMODZIELNY PUBLICZNY ZAKŁAD OPIEKI ZDROWOTNEJ - ZESPÓŁ ZAKŁADÓW");
+        medService.addMedicalPointWithName("SAMODZIELNY PUBLICZNY ZESPÓŁ ZAKŁADÓW OPIEKI ZDROWOTNEJ W PRZASNYSZU");
+        medService.addMedicalPointWithName("SAMODZIELNY PUBLICZNY ZESPÓŁ ZAKŁADÓW OPIEKI ZDROWOTNEJ W OSTROWI MAZOWIECKIEJ");
+        medService.addMedicalPointWithName("SZPITAL DZIECIĘCY IM. PROF. DR. MED. JANA BOGDANOWICZA SAMODZIELNY PUBLICZNY ZAKŁAD OPIEKI " +
+                "ZDROWOTNEJ");
+        medService.addMedicalPointWithName("WARSZAWSKI SZPITAL DLA DZIECI SP ZOZ");
+        medService.addMedicalPointWithName("MAZOWIECKI SZPITAL SPECJALISTYCZNY SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ");
+        medService.addMedicalPointWithName("SPECJALISTYCZNY SZPITAL WOJEWÓDZKI W CIECHANOWIE");
+        medService.addMedicalPointWithName("RADOMSKI SZPITAL SPECJALISTYCZNY IM.DR TYTUSA CHAŁUBIŃSKIEGO");
+        medService.addMedicalPointWithName("SZPITAL BIELAŃSKI IM.KS.JERZEGO POPIEŁUSZKI SAMODZIELNY PUBLICZNY ZAKŁAD OPIEKI ZDROWOTNEJ");
+        medService.addMedicalPointWithName("WOJEWÓDZKI SZPITAL ZAKAŹNY W WARSZAWIE");
+        medService.addMedicalPointWithName("MAZOWIECKIE CENTRUM REHABILITACJI STOCER SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ");
+        medService.addMedicalPointWithName("MAZOWIECKI SZPITAL WOJEWÓDZKI W SIEDLCACH SP. Z O.O");
+        medService.addMedicalPointWithName("SAMODZIELNY PUBLICZNY ZESPÓŁ ZAKŁADÓW OPIEKI ZDROWOTNEJ W KOZIENICACH");
+        medService.addMedicalPointWithName("MIĘDZYLESKI SZPITAL SPECJALISTYCZNY W WARSZAWIE");
+        medService.addMedicalPointWithName("SZPITAL POWIATOWY W WOŁOMINIE - SAMODZIELNY ZESPÓŁ PUBLICZNYCH ZAKŁADÓW OPIEKI ZDROWOTNEJ");
+
+*/
 
 
-        medService.addMedicalPointWithName("Krakowski Szpital Specjalistyczny im. Jana Pawła II");
+      //  medService.addMedicalPointWithName("Krakowski Szpital Specjalistyczny im. Jana Pawła II");
 
      /*   Illness illness = illnessService.findByName("Eye pain");
         System.out.println("halo1");
