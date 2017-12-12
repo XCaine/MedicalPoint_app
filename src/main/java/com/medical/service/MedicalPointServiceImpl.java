@@ -16,12 +16,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.maps.model.AddressComponentType;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 @Service("medicalPointService")
 @Transactional
-public class MedicalPointServiceImpl implements  MedicalPointService {
+public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> implements  MedicalPointService {
 
     @Autowired
     MedicalPointDao medicalPointDao;
@@ -160,5 +162,15 @@ public class MedicalPointServiceImpl implements  MedicalPointService {
         medicalPoint.setCoordinates(coordinates);
         medicalPoint.setCity(city);
         this.add(medicalPoint);
+    }
+
+
+    public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Set<Specialty> specialties){
+        MedicalUnit medicalUnit = new MedicalUnit();
+        medicalUnit.setName(medicalUnitName);
+        medicalUnit.setMedicalUnitType(medicalUnitType);
+        medicalUnit.setMedicalPoint(medicalPoint);
+        medicalUnit.setSpecialties(specialties);
+        this.saveOrUpdate(medicalPoint);
     }
 }

@@ -20,10 +20,10 @@ public class IllnessServiceImpl extends GenericServiceImpl<Illness> implements I
     @Autowired
     IllnessDao illnessDao;
 
-    @Autowired
+    /*@Autowired
     IllnessServiceImpl(IllnessDao illnessDao){
         super(illnessDao);
-    }
+    }*/
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)

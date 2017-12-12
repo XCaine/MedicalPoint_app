@@ -16,6 +16,7 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
     private final Class<E> entityClass;
     private final String tableName;
 
+    @Autowired
     public  AbstractGenericDao(String tableName) {
         this.entityClass = (Class<E>) ((ParameterizedType) this.getClass().getGenericSuperclass())
                 .getActualTypeArguments()[0];

@@ -24,16 +24,6 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
         return (MedicalUnit) query.uniqueResult();
     }
 
-    public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Specialty... specialties){
-        MedicalUnit medicalUnit = new MedicalUnit();
-        medicalUnit.setName(medicalUnitName);
-        medicalUnit.setMedicalUnitType(medicalUnitType);
-        medicalUnit.setMedicalPoint(medicalPoint);
-        Set<Specialty> specialtyList = new HashSet<Specialty>();
-        for(Specialty specialty : specialties)
-            specialtyList.add(specialty);
 
-        medicalUnit.setSpecialties(specialtyList);
-    }
 
 }
