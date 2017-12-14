@@ -15,9 +15,9 @@ public abstract class GenericServiceImpl<E>  implements GenericService<E> {
     @Autowired
     private  GenericDao<E> genericDao;
 
-    public  GenericServiceImpl(GenericDao<E> genericDao){
+    /*public  GenericServiceImpl(GenericDao<E> genericDao){
         this.genericDao=genericDao;
-    }
+    }*/
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)

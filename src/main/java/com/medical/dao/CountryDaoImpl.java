@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CountryDaoImpl extends AbstractGenericDao<Country> implements CountryDao {
 
+
     public CountryDaoImpl() {super("Country");};
 
     @Override

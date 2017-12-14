@@ -13,10 +13,10 @@ import java.util.List;
 @Transactional
 public class CountryServiceImpl extends GenericServiceImpl<Country> implements CountryService{
 
-    @Autowired
+   /* @Autowired
     CountryServiceImpl(CountryDao countryDao){
         super(countryDao);
-    }
+    }*/
 
     @Autowired
     CountryDao countryDao;

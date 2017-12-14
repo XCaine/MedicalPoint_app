@@ -22,10 +22,10 @@ public class IllnessServiceImpl extends GenericServiceImpl<Illness> implements I
     @Autowired
     IllnessDao illnessDao;
 
-    @Autowired
+    /*@Autowired
     IllnessServiceImpl(IllnessDao illnessDao){
         super(illnessDao);
-    }
+    }*/
 
     /**
      * Finding all medical points found by specific illness name
