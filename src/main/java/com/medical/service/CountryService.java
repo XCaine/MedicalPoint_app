@@ -13,4 +13,6 @@ public interface CountryService extends GenericService<Country>{
     public void removeAll();
 
     public Country findByName(String countryName);
+
+    //public String getTableName();
 }

@@ -4,6 +4,7 @@ import com.medical.dao.CountryDao;
 import com.medical.domain.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -21,9 +22,7 @@ public class CountryServiceImpl extends GenericServiceImpl<Country> implements C
     CountryDao countryDao;
 
     @Override
-    public void add(Country country) {
-        countryDao.save(country);
-    }
+    public void add(Country country) { countryDao.save(country); }
 
     @Override
     public void update(Country country) {
@@ -31,6 +30,7 @@ countryDao.saveOrUpdate(country);
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public Country findByName(String countryName) {
         return countryDao.findByName(countryName);
     }
@@ -39,4 +39,6 @@ countryDao.saveOrUpdate(country);
     public void removeAll() {
         countryDao.deleteAll();
     }
+
+
 }
