@@ -173,4 +173,10 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
         medicalUnit.setSpecialties(specialties);
         this.saveOrUpdate(medicalPoint);
     }
+
+    @Override
+    public List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName) {
+
+        return medicalPointDao.findWithIllnessAndCity(illnessName,cityName);
+    }
 }

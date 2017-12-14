@@ -62,4 +62,5 @@ public interface GenericDao<E> {
 
     public E findByName(String name);
 
+  //  public String getTableName();
 }

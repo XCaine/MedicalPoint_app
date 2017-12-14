@@ -38,12 +38,16 @@ public class App {
 
         IllnessService illnessService = (IllnessService) context.getBean("illnessService");
 
-        MedicalPoint medicalPoint = medService.findById(24);
 
 
-        MedicalUnitTypeDaoImpl medicalUnitTypeDao = new MedicalUnitTypeDaoImpl();
 
-        medicalUnitTypeDao.findById(1);
+
+        List<MedicalPoint> xd = medService.findWithIllnessAndCity("Eye pain", "wołomiński");
+
+        for(MedicalPoint medPoint : xd)
+        {
+            System.out.println(medPoint.getName());
+        }
 
         //medService.addMedicalUnit("Szpitalny Oddział ratunkowy", "medicalPoint,);
 

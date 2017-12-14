@@ -38,4 +38,6 @@ public interface MedicalPointService {
     public void addMedicalPointWithName(String name)throws IOException, ApiException, InterruptedException;
 
     public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Set<Specialty> specialties);
+
+    public List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName);
 }
