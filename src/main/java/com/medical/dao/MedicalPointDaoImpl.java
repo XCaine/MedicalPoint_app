@@ -27,10 +27,13 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
     @Override
     public List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName) {
 
-        Query query = currentSession().createQuery("select m from MedicalPoint m inner join m.medicalUnits u inner join u.specialties s inner join s.illnesses " +
-                "i where i.name = :illnessName ");
+        Query query = currentSession().createQuery("select m from MedicalPoint m " +
+                                                    "inner join fetch m.medicalUnits u " +
+                                                    "inner join fetch  u.specialties s " +
+                                                     "inner join fetch s.illnesses " +
+                                                     "i where i.name = :illnessName and m.city.name = :cityName");
         query.setParameter("illnessName", illnessName);
-        //query.setParameter("cityName", cityName);
+        query.setParameter("cityName", cityName);
 
 /*
         Query query = currentSession().createQuery("from MedicalPoint m where  ");

@@ -72,7 +72,7 @@ public class Specialty {
         getIllnesses().add(illness);
     }
 
-    @ManyToMany(mappedBy = "specialties", fetch=FetchType.EAGER)
+    @ManyToMany(mappedBy = "specialties", fetch=FetchType.LAZY)
     private Set<MedicalUnit> medicalUnits = new HashSet<MedicalUnit>();
 
     public Set<MedicalUnit> getMedicalUnits() {
