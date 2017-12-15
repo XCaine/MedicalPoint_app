@@ -109,30 +109,31 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
 
         for (AddressComponent ac : results[0].addressComponents) {
             for (AddressComponentType acType : ac.types) {
-                System.out.println("iter");
-                if (acType == AddressComponentType.COUNTRY) {
+                switch (acType){
+                    case COUNTRY:  {
                     countryName = ac.longName;
-                    //System.out.println("country");
+                    continue;
                 }
-                if (acType == AddressComponentType.ADMINISTRATIVE_AREA_LEVEL_1) {
+                    case ADMINISTRATIVE_AREA_LEVEL_1: {
                     provinceName = ac.longName.replace("województwo ", "");
-                    //System.out.println("province");
+                    continue;
                 }
-                if (acType == AddressComponentType.ADMINISTRATIVE_AREA_LEVEL_2) {
+                    case ADMINISTRATIVE_AREA_LEVEL_2: {
                     cityName = ac.longName;
-                    //System.out.println(ac.longName);
+                    continue;
                 }
-                if (acType == AddressComponentType.ROUTE) {
+                    case ROUTE:{
                     streetName = ac.shortName;
-                    //System.out.println("st name");
+                    continue;
                 }
-                if (acType == AddressComponentType.STREET_NUMBER) {
+                    case STREET_NUMBER:{
                     streetNumber = ac.longName;
-                    //System.out.println("st nr");
+                    continue;
                 }
-                if (acType == AddressComponentType.POSTAL_CODE) {
+                    case POSTAL_CODE: {
                     postalCode = ac.longName;
-                    //System.out.println("postal code");
+                    continue;
+                }
                 }
             }
         }
@@ -171,7 +172,7 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
         medicalUnit.setMedicalUnitType(medicalUnitType);
         medicalUnit.setMedicalPoint(medicalPoint);
         medicalUnit.setSpecialties(specialties);
-        this.saveOrUpdate(medicalPoint);
+        medicalPointDao.update(medicalPoint);
     }
 
     @Override

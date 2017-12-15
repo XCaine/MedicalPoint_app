@@ -1,5 +1,6 @@
 package com.medical.domain;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -8,8 +9,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@DynamicUpdate
 @Table(name = "medical_unit", schema = "public", catalog = "medical_point")
 public class MedicalUnit {
+
+    public MedicalUnit(){};
+
+    public MedicalUnit(MedicalPoint medicalPoint, String medicalUnitName, MedicalUnitType medicalUnitType)
+    {
+        setMedicalPoint(medicalPoint);
+        setName(medicalUnitName);
+        setMedicalUnitType(medicalUnitType);
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +59,7 @@ public class MedicalUnit {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)//kurr jak zrobic to z lazy
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medical_point", referencedColumnName = "id")
     protected MedicalPoint medicalPoint;
 

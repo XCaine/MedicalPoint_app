@@ -41,4 +41,12 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
   */
         return (List<MedicalPoint>) query.list();
     }
+
+    public Set<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint) {
+
+        Query query = currentSession().createQuery("from MedicalUnit mu "
+        +"where mu.medicalPoint = :medicalPoint");
+        query.setParameter("medicalPoint", medicalPoint);
+        return (Set<MedicalUnit>) query.list();
+    }
 }

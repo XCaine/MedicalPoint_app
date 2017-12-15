@@ -3,10 +3,7 @@ package com.medical;
 import com.medical.config.AppConfig;
 import com.medical.dao.*;
 import com.medical.domain.*;
-import com.medical.service.CountryService;
-import com.medical.service.GenericService;
-import com.medical.service.IllnessService;
-import com.medical.service.MedicalPointService;
+import com.medical.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -39,14 +36,19 @@ public class App {
         IllnessService illnessService = (IllnessService) context.getBean("illnessService");
 
 
-
-
+        MedicalPointAdminService medicalPointAdminService = (MedicalPointAdminService) context.getBean("medicalPointAdminService");
 
         List<MedicalPoint> xd = medService.findWithIllnessAndCity("Eye pain", "wołomiński");
+
+        MedicalUnitType mut = new MedicalUnitType();
+
+        MedicalUnitService medicalUnitService = (MedicalUnitService) context.getBean("medicalUnitService");
 
         for(MedicalPoint medPoint : xd)
         {
             System.out.println(medPoint.getName());
+            medicalPointAdminService.addNewMedicalUnit(medPoint, "Oddział Kardiologii",  medicalUnitService.findMedicalUnitTypeById(1));
+
         }
 
         //medService.addMedicalUnit("Szpitalny Oddział ratunkowy", "medicalPoint,);
