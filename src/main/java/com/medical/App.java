@@ -1,8 +1,11 @@
 package com.medical;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.medical.config.AppConfig;
 import com.medical.dao.*;
 import com.medical.domain.*;
+import com.medical.objectmapper.MedicalPointAdapter;
 import com.medical.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -43,13 +46,20 @@ public class App {
         MedicalUnitType mut = new MedicalUnitType();
 
         MedicalUnitService medicalUnitService = (MedicalUnitService) context.getBean("medicalUnitService");
-
+/*
         for(MedicalPoint medPoint : xd)
         {
             System.out.println(medPoint.getName());
-            medicalPointAdminService.addNewMedicalUnit(medPoint, "Oddział Kardiologii",  medicalUnitService.findMedicalUnitTypeById(1));
+            //medicalPointAdminService.addNewMedicalUnit(medPoint, "Oddział Kardiologii",  medicalUnitService.findMedicalUnitTypeById(1));
+           // medicalPointAdminService.getMedicalUnits(medPoint);
 
         }
+*/
+
+
+
+
+
 
         //medService.addMedicalUnit("Szpitalny Oddział ratunkowy", "medicalPoint,);
 

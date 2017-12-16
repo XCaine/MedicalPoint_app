@@ -30,7 +30,7 @@ public class MedicalPointAdminServiceImpl implements MedicalPointAdminService {
         medicalUnitDao.save(medicalUnit);
     }
 
-    public Set<MedicalUnit> getMedicalUnits(MedicalPoint medicalPoint){
+    public List<MedicalUnit> getMedicalUnits(MedicalPoint medicalPoint){
         Assert.notNull(medicalPoint, "MedicalPoint can't be null");
         return medicalPointDao.findAllMedicalUnits(medicalPoint);
     }

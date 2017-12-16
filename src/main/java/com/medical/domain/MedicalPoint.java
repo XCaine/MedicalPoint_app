@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.beans.Transient;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +19,10 @@ import java.util.Set;
 @Entity
 @DynamicUpdate
 @Table(name = "medical_point", schema = "public", catalog = "medical_point")
+@NamedEntityGraph(name = "medicalPoint.city.province.country",
+attributeNodes = {  @NamedAttributeNode(value = "city", subgraph = "city")},
+subgraphs = {   @NamedSubgraph(name = "city", attributeNodes = @NamedAttributeNode("province"))})
+
 public class MedicalPoint {
 
    /* public MedicalPoint(){
@@ -99,7 +104,7 @@ public class MedicalPoint {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "medicalPoint", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "medicalPoint", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     protected Set<MedicalUnit> medicalUnits= new HashSet<MedicalUnit>();
 
     public Set<MedicalUnit> getMedicalUnits() {

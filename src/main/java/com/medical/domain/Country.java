@@ -87,6 +87,15 @@ public class Country {
         province.setCountry(this);
 
     }
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n*****Country INFO*****\n");
+        sb.append("ID: " + getId() + "\n");
+        sb.append("Name: " + getName() + "\n");
+        sb.append("********************\n");
+        return sb.toString();
+    }
    /* public void readProvinces(){
         for(Province name : getProvinces()){
             System.out.println(name);

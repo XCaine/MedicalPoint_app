@@ -180,4 +180,9 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
 
         return medicalPointDao.findWithIllnessAndCity(illnessName,cityName);
     }
+
+    @Override
+    public MedicalPoint findMedicalPointById(int id){
+        return medicalPointDao.findById(id);
+    }
 }

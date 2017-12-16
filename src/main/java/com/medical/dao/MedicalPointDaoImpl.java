@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityGraph;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.Set;
 @Repository("medicalPointDao")
 public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implements MedicalPointDao {
 
-    MedicalPointDaoImpl(){super("medical_point");};
+    MedicalPointDaoImpl(){super("MedicalPoint");};
     public MedicalUnit FindMedicalUnitWithSpecialty(String specialtyName){
         Query query = currentSession().createQuery("from MedicalUnit.specialties S where S.name=:name");
         query.setParameter("name", specialtyName);
@@ -42,11 +43,20 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
         return (List<MedicalPoint>) query.list();
     }
 
-    public Set<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint) {
+    public List<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint) {
 
         Query query = currentSession().createQuery("from MedicalUnit mu "
         +"where mu.medicalPoint = :medicalPoint");
         query.setParameter("medicalPoint", medicalPoint);
-        return (Set<MedicalUnit>) query.list();
+        return (List<MedicalUnit>) query.list();
+    }
+
+    @Override
+    public MedicalPoint findById(int id){
+        Query query = currentSession().createQuery("from MedicalPoint MP where MP.id =:id");
+        query.setParameter("id", id);
+        EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");
+        query.setHint("javax.persistence.fetchgraph", entityGraph);
+        return (MedicalPoint) query.uniqueResult();
     }
 }

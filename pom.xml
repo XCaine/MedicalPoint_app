@@ -20,12 +20,14 @@
     <name>MedicalApp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <dependency>
+      <!-- https://mvnrepository.com/artifact/junit/junit -->
+      <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
-          <version>3.8.1</version>
+          <version>4.12</version>
           <scope>test</scope>
-        </dependency>
+      </dependency>
+
         <dependency>
           <groupId>org.postgresql</groupId>
           <artifactId>postgresql</artifactId>
@@ -72,6 +74,14 @@
           <artifactId>slf4j-api</artifactId>
           <version>1.7.25</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <version>1.6.2</version>
+          <scope>test</scope>
+      </dependency>
+
       <dependency>
           <groupId>com.google.maps</groupId>
           <artifactId>google-maps-services</artifactId>
@@ -119,6 +129,25 @@
           <artifactId>google-maps-services</artifactId>
           <version>0.2.5</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-core</artifactId>
+          <version>2.9.3</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>2.9.3</version>
+      </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <version>RELEASE</version>
+      </dependency>
+
 
   </dependencies>
 </project>
