@@ -4,7 +4,7 @@ import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
 import com.medical.domain.MedicalUnitType;
 import com.medical.domain.Specialty;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,10 +35,20 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
         query.setParameter("illnessName", illnessName);
         query.setParameter("cityName", cityName);
 
-/*
-        Query query = currentSession().createQuery("from MedicalPoint m where  ");
+        return (List<MedicalPoint>) query.list();
+    }
+
+    @Override
+    public List<MedicalPoint> findWithIllnessAndProvince(String illnessName, String provinceName) {
+
+        Query query = currentSession().createQuery("select m from MedicalPoint m " +
+                "inner join fetch m.medicalUnits u " +
+                "inner join fetch  u.specialties s " +
+                "inner join fetch s.illnesses " +
+                "i where i.name = :illnessName and m.city.province.name = :provinceName");
         query.setParameter("illnessName", illnessName);
-  */
+        query.setParameter("provinceName", provinceName);
+
         return (List<MedicalPoint>) query.list();
     }
 }

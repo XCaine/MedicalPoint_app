@@ -177,6 +177,6 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
     @Override
     public List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName) {
 
-        return medicalPointDao.findWithIllnessAndCity(illnessName,cityName);
+        return medicalPointDao.findWithIllnessAndProvince(illnessName,cityName);
     }
 }

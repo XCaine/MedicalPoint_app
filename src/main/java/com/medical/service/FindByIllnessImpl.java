@@ -17,13 +17,13 @@ import java.util.Set;
 import static java.lang.Math.*;
 
 @Service("illnessService")
-public class IllnessServiceImpl extends GenericServiceImpl<Illness> implements IllnessService {
+public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements FindByIllness {
 
     @Autowired
     IllnessDao illnessDao;
 
     /*@Autowired
-    IllnessServiceImpl(IllnessDao illnessDao){
+    FindByIllnessImpl(IllnessDao illnessDao){
         super(illnessDao);
     }*/
 
@@ -57,7 +57,7 @@ public class IllnessServiceImpl extends GenericServiceImpl<Illness> implements I
      * @return nearest medical point
      */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public MedicalPoint getNearestMedicalPoint(double latitude, double longitude, String illnessName) {
 
         List<MedicalPoint> medicalPoints = getMedicalPoints(illnessName);

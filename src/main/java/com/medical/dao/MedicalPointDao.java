@@ -12,6 +12,20 @@ public interface MedicalPointDao extends GenericDao<MedicalPoint> {
     public MedicalUnit FindMedicalUnitWithSpecialty(String specialtyName);
    // public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Specialty... specialties);
 
-    public List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName);
 
+    /**
+     * Find medical points with given illness and city name
+     * @param illnessName
+     * @param cityName
+     * @return List of medical points found with given illness name and city name
+     */
+    List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName);
+
+    /**
+     * Find medical points with given illness and province name
+     * @param illnessName
+     * @param provinceName
+     * @return List of medical points found with given illness name and province name
+     */
+    List<MedicalPoint> findWithIllnessAndProvince(String illnessName, String provinceName);
 }

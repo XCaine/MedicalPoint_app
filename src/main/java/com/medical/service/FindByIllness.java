@@ -5,7 +5,7 @@ import com.medical.domain.MedicalPoint;
 
 import java.util.List;
 
-public interface IllnessService extends GenericService<Illness> {
+public interface FindByIllness extends GenericService<Illness> {
 
     public List<MedicalPoint> getMedicalPoints(String illnessName);
 
