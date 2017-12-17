@@ -43,7 +43,7 @@ public class Country {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "country")
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
     protected Set<Province> provinces = new HashSet<Province>();
 
     public Set<Province> getProvinces() {

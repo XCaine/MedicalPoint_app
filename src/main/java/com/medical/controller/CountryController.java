@@ -1,7 +1,12 @@
 package com.medical.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.medical.domain.Country;
+import com.medical.domain.MedicalPoint;
+import com.medical.objectmapper.MedicalPointAdapter;
 import com.medical.service.CountryService;
+import com.medical.service.MedicalPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +18,8 @@ public class CountryController {
 
     @Autowired
     private CountryService countryService;
+    @Autowired
+    private MedicalPointService medicalPointService;
 
     // Add new Country
     @PostMapping("/country")
@@ -27,6 +34,8 @@ public class CountryController {
         Country country = countryService.find(id);
         return ResponseEntity.ok().body(country);
     }
+
+
 
     // Get all Countries
     @GetMapping("/country")
