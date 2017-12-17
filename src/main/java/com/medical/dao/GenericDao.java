@@ -58,9 +58,11 @@ public interface GenericDao<E> {
      */
     void flush();
 
-    public void deleteById(final int id);
+    void deleteById(final int id);
 
-    public E findByName(String name);
+    E findByName(String name);
+
+    void update(E entity);
 
   //  public String getTableName();
 }

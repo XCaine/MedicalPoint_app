@@ -74,6 +74,10 @@ public abstract class AbstractGenericDao<E> implements GenericDao<E> {
     public void flush() {
         currentSession().flush();
     }
+
+    @Override
+    public void update(E entity) {currentSession().update(entity);}
+
 // MICHAŁ SPRAWDŹ
     @Override
     public void deleteById(final int id){
