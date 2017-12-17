@@ -3,7 +3,7 @@ package com.medical.dao;
 import com.medical.domain.Country;
 import com.medical.domain.Province;
 
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

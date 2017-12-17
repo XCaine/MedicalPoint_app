@@ -4,7 +4,7 @@ import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
 import com.medical.domain.MedicalUnitType;
 import com.medical.domain.Specialty;
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -65,6 +65,7 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
     public MedicalPoint findById(int id){
         Query query = currentSession().createQuery("from MedicalPoint MP where MP.id =:id");
         query.setParameter("id", id);
+
         EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");
         query.setHint("javax.persistence.fetchgraph", entityGraph);
         return (MedicalPoint) query.uniqueResult();

@@ -28,4 +28,10 @@ public interface MedicalPointDao extends GenericDao<MedicalPoint> {
      * @return List of medical points found with given illness name and province name
      */
     List<MedicalPoint> findWithIllnessAndProvince(String illnessName, String provinceName);
+
+    public List<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint);
+
+    public MedicalPoint findById(int id);
+
+
 }
