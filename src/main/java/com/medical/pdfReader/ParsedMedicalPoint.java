@@ -3,7 +3,7 @@ package com.medical.pdfReader;
 import java.util.Vector;
 
 public class ParsedMedicalPoint {
-    String nazwa, adres, nazwaZakladu, adresZakladu;
+    String nazwaZakladu, adresZakladu;
     Vector<String> profile = new Vector<String>();
 
     void saveToDatabase()
