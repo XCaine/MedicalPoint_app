@@ -1,0 +1,31 @@
+<br><h3 style="text-align: center">data insert: putting new medical point into database by name</h3><br>
+
+  <head>
+    <link href="../pages/css/datainsert.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" ng-submit="request()">
+        <h2 class="form-signin-heading">Please insert the name of the hospital</h2>
+      
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="text" id="Hospital Name" ng-model="name" class="form-control" placeholder="Hospital Name" required>
+          
+        <input type="submit" value="submit data" class="btn btn-primary">
+
+      </form>
+      
+        
+<!-- commented since return data from server for now is not in json format
+      <div ng-repeat="result in results">
+            {{ result }}
+      </div>
+-->
+        
+    </div>
+
+</body>
+

@@ -1,0 +1,16 @@
+<h2>medical points directory</h2>
+
+<form ng-submit = "request()">
+    <label for="inputID">Please insert the ID of hospital you are looking for</label>
+    <br>
+    <input type="text" id="inputID" ng-model="ID" placeholder="ID" required>
+    <br>
+    <input type="submit" value="submit data" class="btn btn-primary">
+
+</form>
+    <br>
+    <div ng-repeat="result in results">
+        {{ result }}
+    </div>
+
+
