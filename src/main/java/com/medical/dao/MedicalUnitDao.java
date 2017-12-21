@@ -7,4 +7,5 @@ public interface MedicalUnitDao extends GenericDao<MedicalUnit> {
 
 
 
+
 }

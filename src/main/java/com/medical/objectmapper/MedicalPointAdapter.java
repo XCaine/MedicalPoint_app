@@ -9,9 +9,7 @@ import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,6 +26,9 @@ public class MedicalPointAdapter extends TypeAdapter<MedicalPoint> {
         in.beginObject();
         while(in.hasNext()){
             switch (in.nextName()){
+                case "id": {
+                    medicalPoint.setId(in.nextInt());
+                }
                 case "name": {
                     medicalPoint.setName(in.nextString());
                     break;
@@ -69,11 +70,11 @@ public class MedicalPointAdapter extends TypeAdapter<MedicalPoint> {
                     while(in.hasNext()){
                         switch (in.nextName()){
                             case "latitude": {
-                                coordinates.setY(in.nextDouble());
+                                coordinates.setLatitude(in.nextDouble());
                                 break;
                             }
                             case "longitude": {
-                                coordinates.setX(in.nextDouble());
+                                coordinates.setLongitude(in.nextDouble());
                                 break;
                             }
                         }
@@ -126,6 +127,7 @@ public class MedicalPointAdapter extends TypeAdapter<MedicalPoint> {
     public void write(final JsonWriter out, final MedicalPoint medicalPoint) throws IOException{
         Set<MedicalUnit> medicalUnits = medicalPoint.getMedicalUnits();
         out.beginObject();
+        out.name("id").value(medicalPoint.getId());
         out.name("name").value(medicalPoint.getName());
         out.name("phoneNumber").value(medicalPoint.getPhoneNumber());
 
@@ -143,8 +145,8 @@ public class MedicalPointAdapter extends TypeAdapter<MedicalPoint> {
 
         out.name("coordinates");
         out.beginObject();
-        out.name("longitude").value(medicalPoint.getCoordinates().getX());
-        out.name("latitude").value(medicalPoint.getCoordinates().getY());
+        out.name("longitude").value(medicalPoint.getCoordinates().getLongitude());
+        out.name("latitude").value(medicalPoint.getCoordinates().getLatitude());
         out.endObject();
 
         out.name("medicalUnits");

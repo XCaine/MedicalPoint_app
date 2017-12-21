@@ -16,8 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.maps.model.AddressComponentType;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -154,8 +152,8 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
         address.setStreetNumber(streetNumber);
 
         Coordinates coordinates = new Coordinates();
-        coordinates.setX(results[0].geometry.location.lat);
-        coordinates.setY(results[0].geometry.location.lng);
+        coordinates.setLatitude(results[0].geometry.location.lat);
+        coordinates.setLongitude(results[0].geometry.location.lng);
 
         MedicalPoint medicalPoint = new MedicalPoint();
         medicalPoint.setName(name);

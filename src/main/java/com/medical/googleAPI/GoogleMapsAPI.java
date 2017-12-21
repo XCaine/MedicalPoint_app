@@ -5,8 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.maps.*;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.*;
-import com.medical.domain.Address;
-import com.medical.domain.City;
 import com.medical.domain.Coordinates;
 import com.medical.domain.MedicalPoint;
 
@@ -52,8 +50,8 @@ public class GoogleMapsAPI {
         GeocodingResult[] results = GeocodingApi.geocode(context, addressString).await();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Coordinates coordinates = new Coordinates();
-        coordinates.setX(results[0].geometry.location.lat);
-        coordinates.setY(results[0].geometry.location.lng);
+        coordinates.setLatitude(results[0].geometry.location.lat);
+        coordinates.setLongitude(results[0].geometry.location.lng);
         medicalPoint.setCoordinates(coordinates);
     }
 

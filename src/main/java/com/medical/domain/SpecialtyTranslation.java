@@ -63,7 +63,7 @@ public class SpecialtyTranslation {
     }
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)//!!
     @JoinColumn(name = "id_specialty", referencedColumnName = "id")
     private Specialty specialty;
 

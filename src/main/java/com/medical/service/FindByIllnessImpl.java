@@ -67,7 +67,7 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
 
         for(MedicalPoint medPoint : medicalPoints)
         {
-            distance = getDistanceHeversine(latitude, longitude, medPoint.getCoordinates().getX(), medPoint.getCoordinates().getY());
+            distance = getDistanceHeversine(latitude, longitude, medPoint.getCoordinates().getLatitude(), medPoint.getCoordinates().getLongitude());
 
             if(shortestDistance > distance)
             {
