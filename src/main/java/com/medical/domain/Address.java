@@ -10,6 +10,14 @@ import java.io.Serializable;
 @Embeddable
 public class Address implements Serializable{
 
+    public Address(){};
+
+    Address(String streetName, String streetNumber, String postalCode){
+        setStreetNumber(streetNumber);
+        setStreetName(streetName);
+        setPostalCode(postalCode);
+    }
+
     @Column(length = 100, nullable = false)
     @NotNull
     @Length(min = 2, max = 100)

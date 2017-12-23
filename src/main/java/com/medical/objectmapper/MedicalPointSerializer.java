@@ -27,7 +27,7 @@ public class MedicalPointSerializer implements JsonSerializer<MedicalPoint> {
         }
         jsonObject.add("medicalUnits", jsonMedicalUnitsArray);
 
-
         return jsonObject;
     }
+
 }

@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.maps.errors.ApiException;
 import com.medical.domain.MedicalPoint;
-import com.medical.objectmapper.MedicalPointAdapter;
+import com.medical.objectmapper.*;
 import com.medical.service.MedicalPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +24,11 @@ public class MedicalPointController {
     @RequestMapping("/medicalpoint/searchbyid/{id}")
     public ResponseEntity<String> get(@PathVariable("id") Integer id){
         final GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(MedicalPoint.class, new MedicalPointAdapter());
+        gsonBuilder.registerTypeAdapter(MedicalPoint.class, new MedicalPointSerializer())
+                .registerTypeAdapter(AddressSerializer.class, new AddressSerializer())
+                .registerTypeAdapter(CoordinatesSerializer.class, new CoordinatesSerializer())
+                .registerTypeAdapter(MedicalUnitSerializer.class, new MedicalUnitSerializer())
+                .registerTypeAdapter(SpecialtySerializer.class, new SpecialtySerializer());
         gsonBuilder.setPrettyPrinting();
 
         final Gson gson = gsonBuilder.create();

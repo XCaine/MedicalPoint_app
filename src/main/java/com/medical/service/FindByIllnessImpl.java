@@ -16,7 +16,7 @@ import java.util.Set;
 
 import static java.lang.Math.*;
 
-@Service("illnessService")
+@Service("findByIllnessService")
 public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements FindByIllness {
 
     @Autowired
