@@ -1,10 +1,6 @@
 package com.medical.controller;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.medical.domain.Country;
-import com.medical.domain.MedicalPoint;
-import com.medical.objectmapper.MedicalPointAdapter;
 import com.medical.service.CountryService;
 import com.medical.service.MedicalPointService;
 import org.springframework.beans.factory.annotation.Autowired;

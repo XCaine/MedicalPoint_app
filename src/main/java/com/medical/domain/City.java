@@ -10,6 +10,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "city", schema = "public", catalog = "medical_point")
+@NamedEntityGraph(name = "city.province.country",
+attributeNodes = {@NamedAttributeNode(value = "province", subgraph = "province")},
+subgraphs = {@NamedSubgraph(name = "province", attributeNodes = @NamedAttributeNode("country"))})
+
 public class City {
 
     public City(){}

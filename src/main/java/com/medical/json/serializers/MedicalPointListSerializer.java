@@ -1,8 +1,7 @@
-package com.medical.objectmapper;
+package com.medical.json.serializers;
 
 import com.google.gson.*;
 import com.medical.domain.MedicalPoint;
-import org.springframework.core.serializer.Serializer;
 
 import java.lang.reflect.Type;
 import java.util.List;

@@ -19,9 +19,15 @@ import java.util.Set;
 @Entity
 @DynamicUpdate
 @Table(name = "medical_point", schema = "public", catalog = "medical_point")
+
 @NamedEntityGraph(name = "medicalPoint.city.province.country",
 attributeNodes = {  @NamedAttributeNode(value = "city", subgraph = "city")},
-subgraphs = {   @NamedSubgraph(name = "city", attributeNodes = @NamedAttributeNode("province"))})
+subgraphs = {
+@NamedSubgraph(name = "city",
+        attributeNodes = {@NamedAttributeNode(value = "province", subgraph = "province")}),
+@NamedSubgraph(name = "province",
+        attributeNodes = {@NamedAttributeNode(value = "country", subgraph = "country")})})
+
 
 public class MedicalPoint {
 
@@ -65,9 +71,9 @@ public class MedicalPoint {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "x",
+            @AttributeOverride(name = "latitude",
                     column = @Column(name = "latitude")),
-            @AttributeOverride(name = "y",
+            @AttributeOverride(name = "longitude",
                     column = @Column(name = "longitude"))
     })
     private Coordinates coordinates;
@@ -142,7 +148,7 @@ public class MedicalPoint {
 
 
    public String getAddressLine() {
-       return (getAddress().getStreetName() + " " + getAddress().getStreetNumber() + ", " + getAddress().getPostalCode() + " " + getCity().getName() + ", " + getCity().getProvince().getName() + " " + getCity().getProvince().getCountry().getName());
+       return (getAddress().getStreetName() + " " + getAddress().getStreetNumber() + ", " + getAddress().getPostalCode());
    }
 
 }

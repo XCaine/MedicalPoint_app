@@ -1,5 +1,6 @@
 package com.medical.service;
 
+import com.google.gson.JsonElement;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.errors.ApiException;
@@ -161,6 +162,10 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
         medicalPoint.setCoordinates(coordinates);
         medicalPoint.setCity(city);
         this.add(medicalPoint);
+    }
+
+    public void addMedicalPointJson(JsonElement jsonElement){
+
     }
 
 

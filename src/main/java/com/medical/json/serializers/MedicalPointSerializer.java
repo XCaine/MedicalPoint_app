@@ -1,12 +1,10 @@
-package com.medical.objectmapper;
+package com.medical.json.serializers;
 
 import com.google.gson.*;
-import com.medical.domain.Coordinates;
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
 
 import java.lang.reflect.Type;
-import java.util.List;
 
 public class MedicalPointSerializer implements JsonSerializer<MedicalPoint> {
 
@@ -16,6 +14,9 @@ public class MedicalPointSerializer implements JsonSerializer<MedicalPoint> {
         jsonObject.addProperty("id", medicalPoint.getId());
         jsonObject.addProperty("name", medicalPoint.getName());
         jsonObject.addProperty("phoneNumber", medicalPoint.getPhoneNumber());
+        jsonObject.addProperty("city", medicalPoint.getCity().getName());
+        jsonObject.addProperty("province", medicalPoint.getCity().getProvince().getName());
+        jsonObject.addProperty("country", medicalPoint.getCity().getProvince().getCountry().getName());
         final JsonElement jsonAddress = context.serialize(medicalPoint.getAddress(), AddressSerializer.class);
         jsonObject.add("address", jsonAddress);
         final JsonElement jsonCoordinates = context.serialize(medicalPoint.getCoordinates(), CoordinatesSerializer.class);

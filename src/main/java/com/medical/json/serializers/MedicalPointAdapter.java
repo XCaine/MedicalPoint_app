@@ -1,4 +1,4 @@
-package com.medical.objectmapper;
+package com.medical.json.serializers;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;

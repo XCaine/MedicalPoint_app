@@ -3,11 +3,15 @@ package com.medical.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.maps.errors.ApiException;
 import com.medical.domain.MedicalPoint;
-import com.medical.objectmapper.*;
+import com.medical.json.serializers.*;
+import com.medical.service.MedicalPointAdminService;
 import com.medical.service.MedicalPointService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +23,8 @@ import java.io.IOException;
 public class MedicalPointController {
     @Autowired
     private MedicalPointService medicalPointService;
+    @Autowired
+    private MedicalPointAdminService medicalPointAdminService;
 
 
     @RequestMapping("/medicalpoint/searchbyid/{id}")
@@ -44,5 +50,11 @@ public class MedicalPointController {
         return ResponseEntity.ok().body(name + " succesfully added");
     }
 
+    @RequestMapping("/medicalpoint/addmedicalpoint/{json}")
+    public void add(@PathVariable("json")String string){
+        JsonParser parser = new JsonParser();
+        JsonElement jsonElement = parser.parse(string).getAsJsonObject();
+        medicalPointAdminService.addMedicalPoint(jsonElement);
+    }
 
 }

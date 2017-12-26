@@ -1,5 +1,6 @@
 package com.medical.service;
 
+import com.google.gson.JsonElement;
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
 import com.medical.domain.MedicalUnitType;
@@ -15,5 +16,6 @@ public interface MedicalPointAdminService {
 
     public void addNewMedicalUnit(MedicalPoint medicalPoint, String medicalUnitName, MedicalUnitType medicalUnitType);
 
+    public void addMedicalPoint(JsonElement jsonElement);
 
 }
