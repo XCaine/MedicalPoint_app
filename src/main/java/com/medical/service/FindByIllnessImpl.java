@@ -1,6 +1,7 @@
 package com.medical.service;
 
 import com.medical.dao.IllnessDao;
+import com.medical.dao.MedicalPointDao;
 import com.medical.domain.Illness;
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
@@ -16,38 +17,11 @@ import java.util.Set;
 
 import static java.lang.Math.*;
 
-@Service("findByIllnessService")
+@Service("illnessService")
 public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements FindByIllness {
 
     @Autowired
-    IllnessDao illnessDao;
-
-    /*@Autowired
-    FindByIllnessImpl(IllnessDao illnessDao){
-        super(illnessDao);
-    }*/
-
-    /**
-     * Finding all medical points found by specific illness name
-     * @param illnessName given illnessName to find specific medical points
-     * @return list of medical points found by specific illness name
-     */
-    @Override
-    @Transactional(propagation = Propagation.REQUIRED)
-    public List<MedicalPoint> getMedicalPoints(String illnessName) {
-        Illness illness = illnessDao.findByName(illnessName);
-        List<MedicalPoint> medicalPoints = new ArrayList<MedicalPoint>();
-        List<MedicalUnit> medicalUnits = new ArrayList<MedicalUnit>();
-        Set<Specialty> specialties = illness.getSpecialties();
-
-        for(Specialty specialty : specialties)
-            medicalUnits.addAll(specialty.getMedicalUnits());
-
-        for(MedicalUnit medicalUnit : medicalUnits)
-            medicalPoints.add(medicalUnit.getMedicalPoint());
-
-        return medicalPoints;
-    }
+    MedicalPointDao medicalPointDao;
 
     /**
      * Finding nearest medical point for specific illness
@@ -56,11 +30,17 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
      * @param illnessName given illnessName to find specific medical points
      * @return nearest medical point
      */
+
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public MedicalPoint getNearestMedicalPoint(double latitude, double longitude, String illnessName) {
+    public MedicalPoint getNearestMedicalPoint(double latitude, double longitude, String illnessName,
+                                               String cityName, String provinceName) {
 
-        List<MedicalPoint> medicalPoints = getMedicalPoints(illnessName);
+        List<MedicalPoint> medicalPoints = medicalPointDao.findWithIllnessAndCity(illnessName, cityName);
+
+        if(medicalPoints.size() == 0)
+            medicalPoints = medicalPointDao.findWithIllnessAndProvince(illnessName, provinceName);
+
         double shortestDistance = 1000000.0 ;
         double distance;
         MedicalPoint medicalPoint = null;
@@ -89,6 +69,7 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
      * @param longitude2 second longitude
      * @return distance between two locations
      */
+
     private double getDistance( double latitude1, double longitude1, double latitude2, double longitude2)
     {
         double distance = sqrt(pow(latitude2 - latitude1, 2) + pow(longitude2 - longitude1, 2));
@@ -104,6 +85,7 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
      * @param longitude2 second longitude
      * @return distance between two locations
      */
+
     private double getDistanceHeversine(double latitude1, double longitude1, double latitude2, double longitude2)
     {
         double r = 6371; // Radius of Earth in km
@@ -121,6 +103,7 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
     /**
      * Converting to radians
      */
+
     private double degToRad(double d)
     {
         return d * (PI /180);
@@ -129,3 +112,5 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
 
 
 }
+
+

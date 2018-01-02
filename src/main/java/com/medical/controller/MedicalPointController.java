@@ -57,4 +57,6 @@ public class MedicalPointController {
         medicalPointAdminService.addMedicalPoint(jsonElement);
     }
 
+   // @RequestMapping("/")
+
 }

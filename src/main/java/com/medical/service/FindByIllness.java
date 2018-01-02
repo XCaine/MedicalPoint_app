@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface FindByIllness extends GenericService<Illness> {
 
-    public List<MedicalPoint> getMedicalPoints(String illnessName);
+    //public List<MedicalPoint> getMedicalPoints(String illnessName);
 
-    public MedicalPoint getNearestMedicalPoint(double latitude, double longitude, String illnessName);
+    public MedicalPoint getNearestMedicalPoint(double latitude, double longitude, String illnessName,
+                                               String cityName, String provinceName);
 }
