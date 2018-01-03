@@ -36,6 +36,9 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
         query.setParameter("illnessName", illnessName);
         query.setParameter("cityName", cityName);
 
+        EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");
+        query.setHint("javax.persistence.fetchgraph", entityGraph);
+
         return (List<MedicalPoint>) query.list();
     }
 
@@ -49,6 +52,9 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
                 "i where i.name = :illnessName and m.city.province.name = :provinceName");
         query.setParameter("illnessName", illnessName);
         query.setParameter("provinceName", provinceName);
+
+        EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");
+        query.setHint("javax.persistence.fetchgraph", entityGraph);
 
         return (List<MedicalPoint>) query.list();
     }

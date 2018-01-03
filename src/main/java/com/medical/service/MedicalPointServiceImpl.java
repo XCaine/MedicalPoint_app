@@ -114,7 +114,7 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
                     continue;
                 }
                     case ADMINISTRATIVE_AREA_LEVEL_1: {
-                    provinceName = ac.longName.replace("województwo ", "");
+                    provinceName = ac.longName.toLowerCase().replace("województwo ", "");
                     continue;
                 }
                     case ADMINISTRATIVE_AREA_LEVEL_2: {
