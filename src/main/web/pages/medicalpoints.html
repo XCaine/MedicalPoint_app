@@ -10,7 +10,13 @@
 </form>
     <br>
     <div ng-repeat="result in results">
-        {{ result }}
+<!--
+        <h4>nazwa szpitala: </h4>   {{ result.name }} <br/>
+        <h4>adres szpitala: </h4>   {{ result.city }}
+                                    {{ result.address.streetName }}
+                                    {{ result.address.streetNumber }}
+-->
+        {{result}}
     </div>
 
 

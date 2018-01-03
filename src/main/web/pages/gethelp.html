@@ -19,15 +19,29 @@
           
         <label for="inputNumber" class="sr-only">Number</label>
         <input type="text" id="inputnumber" ng-model="number" class="form-control" placeholder="Street number" required>
+          
+        <label for="inputIllness" class="sr-only">Illness</label>
+        <input type="text" id="illnessnumber" ng-model="illness" class="form-control" placeholder="illness">
+          
         <input type="submit" value="submit data" class="btn btn-primary">
 
       </form>
+        
       
       <h3>you entered {{ city }} {{ street }} {{ number }} </h3>
       
       <div ng-repeat="result in results">
-            {{ result[0].geometry.location }}
+            {{ result[0] }}<br/>
+            
       </div>
+        <br/>
+        
+      <div ng-repeat="result in finalresults">
+            {{ result }}
+      </div>
+        
+<!--        <h4>{{ results.results }}</h4>-->
+        
         
     </div>
 
