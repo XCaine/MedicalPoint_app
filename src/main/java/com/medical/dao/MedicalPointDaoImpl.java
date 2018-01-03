@@ -30,6 +30,7 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
 
         Query query = currentSession().createQuery("select m from MedicalPoint m " +
                 "inner join fetch m.medicalUnits u " +
+                "inner join fetch u.medicalUnitType t " +
                 "inner join fetch  u.specialties s " +
                 "inner join fetch s.illnesses " +
                 "i where i.name = :illnessName and m.city.name = :cityName");
@@ -47,6 +48,7 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
 
         Query query = currentSession().createQuery("select m from MedicalPoint m " +
                 "inner join fetch m.medicalUnits u " +
+                "inner join fetch u.medicalUnitType t " +
                 "inner join fetch  u.specialties s " +
                 "inner join fetch s.illnesses " +
                 "i where i.name = :illnessName and m.city.province.name = :provinceName");
@@ -63,6 +65,7 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
     public List<MedicalPoint> findWithSpecialtyAndCity(String specialtyName, String cityName) {
         Query query = currentSession().createQuery("select m from MedicalPoint m " +
                 "inner join fetch m.medicalUnits u " +
+                "inner join fetch u.medicalUnitType t " +
                 "inner join fetch  u.specialties s " +
                 " where s.name = :specialtyName and m.city.name = :cityName");
         query.setParameter("specialtyName", specialtyName);
@@ -79,6 +82,7 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
 
         Query query = currentSession().createQuery("select m from MedicalPoint m " +
                 "inner join fetch m.medicalUnits u " +
+                "inner join fetch u.medicalUnitType t " +
                 "inner join fetch  u.specialties s " +
                 " where s.name = :specialtyName and m.city.province.name = :provinceName");
         query.setParameter("specialtyName", specialtyName);
@@ -92,8 +96,9 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
 
     public List<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint) {
 
-        Query query = currentSession().createQuery("from MedicalUnit mu "
-                +"where mu.medicalPoint = :medicalPoint");
+        Query query = currentSession().createQuery("from MedicalUnit mu " +
+                "inner join fetch mu.medicalUnitType t " +
+                "where mu.medicalPoint = :medicalPoint");
         query.setParameter("medicalPoint", medicalPoint);
         return (List<MedicalUnit>) query.list();
     }

@@ -2,18 +2,15 @@ package com.medical.controller;
 
 
 import com.google.gson.*;
-import com.google.maps.errors.ApiException;
 import com.medical.domain.MedicalPoint;
+import com.medical.json.JsonModifier;
 import com.medical.json.serializers.*;
-import com.medical.service.FindByIllness;
+import com.medical.service.FindMedicalPointService;
 import com.medical.service.MedicalPointAdminService;
 import com.medical.service.MedicalPointService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @RestController
 public class FindMedicalPointController {
@@ -22,53 +19,48 @@ public class FindMedicalPointController {
     @Autowired
     private MedicalPointAdminService medicalPointAdminService;
     @Autowired
-    private FindByIllness findByIllness;
+    private FindMedicalPointService findByIllness;
 
 
     @RequestMapping(value = "/medicalpoint/searchbyid/{id}", method = RequestMethod.GET)
     public ResponseEntity<String> searchbyid(@PathVariable("id") Integer id){
-        final GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(MedicalPoint.class, new MedicalPointSerializer())
-                .registerTypeAdapter(AddressSerializer.class, new AddressSerializer())
-                .registerTypeAdapter(CoordinatesSerializer.class, new CoordinatesSerializer())
-                .registerTypeAdapter(MedicalUnitSerializer.class, new MedicalUnitSerializer())
-                .registerTypeAdapter(SpecialtySerializer.class, new SpecialtySerializer());
-        gsonBuilder.setPrettyPrinting();
 
-        final Gson gson = gsonBuilder.create();
+
+        final Gson gson = JsonModifier.prepareJsonBuilderForMedicalPointSerializer();
 
         final String json = gson.toJson(medicalPointService.findMedicalPointById(id));
-        return ResponseEntity.ok().body(prepareResult(json));
+        return ResponseEntity.ok().body(JsonModifier.prepareResults(json));
     }
 
 
     @RequestMapping("/findmedicalpoint/findmedicalpoint")
-    public ResponseEntity<String> findMedicalPoint(@RequestParam ("lat")Double latitude,
+    public ResponseEntity<String> findMedicalPointByIllness(@RequestParam ("lat")Double latitude,
                                                    @RequestParam("lon") Double longitude,
                                                    @RequestParam ("illness") String illness,
                                                    @RequestParam ("city") String city,
                                                    @RequestParam ("province") String province){
-        findByIllness.getNearestMedicalPoint(latitude, longitude, illness, city, province);
-        final GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(MedicalPoint.class, new MedicalPointSerializer())
-                .registerTypeAdapter(AddressSerializer.class, new AddressSerializer())
-                .registerTypeAdapter(CoordinatesSerializer.class, new CoordinatesSerializer())
-                .registerTypeAdapter(MedicalUnitSerializer.class, new MedicalUnitSerializer())
-                .registerTypeAdapter(SpecialtySerializer.class, new SpecialtySerializer());
-        gsonBuilder.setPrettyPrinting();
 
-        final Gson gson = gsonBuilder.create();
 
-        String json = gson.toJson(findByIllness.getNearestMedicalPoint(latitude, longitude, illness, city, province));
+        final Gson gson = JsonModifier.prepareJsonBuilderForMedicalPointSerializer();
 
-        return ResponseEntity.ok().body(prepareResult(json));
+        String json = gson.toJson(findByIllness.getNearestMedicalPointByIllness(latitude, longitude, illness, city, province));
+
+        return ResponseEntity.ok().body(JsonModifier.prepareResults(json));
     }
 
-   // @RequestMapping("/")
 
-    String prepareResult(String json){
-        json = "{ results:" + json;
-        json = json.concat(" }");
-        return json;
+    @RequestMapping("/findmedicalpoint/findmedicalpoint2")
+    public ResponseEntity<String> findMedicalPointBySpecialty(@RequestParam ("lat")Double latitude,
+                                                   @RequestParam("lon") Double longitude,
+                                                   @RequestParam ("specialty") String specialty,
+                                                   @RequestParam ("city") String city,
+                                                   @RequestParam ("province") String province){
+
+        final Gson gson = JsonModifier.prepareJsonBuilderForMedicalPointSerializer();
+
+        String json = gson.toJson(findByIllness.getNearestMedicalPointBySpeciality(latitude, longitude, specialty, city, province));
+
+        return ResponseEntity.ok().body(JsonModifier.prepareResults(json));
     }
+
 }
