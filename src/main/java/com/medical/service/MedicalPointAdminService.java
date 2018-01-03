@@ -14,8 +14,10 @@ public interface MedicalPointAdminService {
 
     //public void updateInfo(String name, String streetName, String streetNumber, String postalCode, String phoneNumber);
 
-    public void addNewMedicalUnit(MedicalPoint medicalPoint, String medicalUnitName, MedicalUnitType medicalUnitType);
+    //public void addNewMedicalUnit(MedicalPoint medicalPoint, String medicalUnitName, MedicalUnitType medicalUnitType);
 
     public void addMedicalPoint(JsonElement jsonElement);
+
+    public void addMedicalUnit(JsonElement jsonElement, int medicalPointId);
 
 }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
-public class MedicalPointController {
+public class FindMedicalPointController {
     @Autowired
     private MedicalPointService medicalPointService;
     @Autowired
@@ -38,28 +38,11 @@ public class MedicalPointController {
         final Gson gson = gsonBuilder.create();
 
         final String json = gson.toJson(medicalPointService.findMedicalPointById(id));
-        return ResponseEntity.ok().body(json);
+        return ResponseEntity.ok().body(prepareResult(json));
     }
 
-    @RequestMapping(value = "/medicalpoint/addwithname/{name}")
-    public ResponseEntity<String> addByName(@PathVariable String name)throws IOException, ApiException, InterruptedException{
-        medicalPointService.addMedicalPointWithName(name);
 
-        return ResponseEntity.ok().body(name + " successfully added");
-    }
-
-    @RequestMapping("/medicalpoint/addwithJSON")
-    public ResponseEntity<String> addMedicalPoint(@RequestParam ("json")String string){
-        //string = "{ \"name\": \"TESTIN\", \"city\": \"sochaczewski\", \"province\": \"mazowieckie\", \"country\": \"Poland\", \"address\": { \"streetName\": \"Marsz. Piłsudskiego\", \"streetNumber\": \"65\", \"postalCode\": \"96-500\" }, \"coordinates\": { \"latitude\": 52.2388448, \"longitude\": 20.2277301 }, \"medicalUnits\": [ { \"id\": 5, \"name\": \"Oddział Okulistyki\", \"phoneNumber\": \"700400298\", \"specialties\": [ { \"id\": 23, \"name\": \"Ophthalmology\" } ] } ] }";
-        System.out.println(string);
-        Gson gson = new Gson();
-        JsonElement jsonElement = gson.fromJson(string, JsonElement.class);
-        medicalPointAdminService.addMedicalPoint(jsonElement);
-
-        return ResponseEntity.ok().body("Medical point successfully added");
-    }
-
-    @RequestMapping("/medicalpoint/findmedicalpoint")
+    @RequestMapping("/findmedicalpoint/findmedicalpoint")
     public ResponseEntity<String> findMedicalPoint(@RequestParam ("lat")Double latitude,
                                                    @RequestParam("lon") Double longitude,
                                                    @RequestParam ("illness") String illness,
@@ -76,10 +59,16 @@ public class MedicalPointController {
 
         final Gson gson = gsonBuilder.create();
 
-        final String json = gson.toJson(findByIllness.getNearestMedicalPoint(latitude, longitude, illness, city, province));
-        return ResponseEntity.ok().body(json);
+        String json = gson.toJson(findByIllness.getNearestMedicalPoint(latitude, longitude, illness, city, province));
+
+        return ResponseEntity.ok().body(prepareResult(json));
     }
 
    // @RequestMapping("/")
 
+    String prepareResult(String json){
+        json = "{ results:" + json;
+        json = json.concat(" }");
+        return json;
+    }
 }

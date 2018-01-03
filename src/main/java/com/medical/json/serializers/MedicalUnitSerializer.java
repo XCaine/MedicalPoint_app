@@ -13,6 +13,7 @@ public class MedicalUnitSerializer implements JsonSerializer<MedicalUnit>{
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("id", medicalUnit.getId());
         jsonObject.addProperty("name", medicalUnit.getName());
+        jsonObject.addProperty("medicalUnitType", medicalUnit.getMedicalUnitType().getName());
         jsonObject.addProperty("phoneNumber", medicalUnit.getPhoneNumber());
         final JsonArray jsonSpecialtyArray = new JsonArray();
         for(final Specialty S : medicalUnit.getSpecialties())
@@ -21,6 +22,7 @@ public class MedicalUnitSerializer implements JsonSerializer<MedicalUnit>{
             jsonSpecialtyArray.add(specialty);
         }
         jsonObject.add("specialties", jsonSpecialtyArray);
+
         return jsonObject;
     }
 

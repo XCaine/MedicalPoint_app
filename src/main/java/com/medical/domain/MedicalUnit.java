@@ -11,6 +11,9 @@ import java.util.Set;
 @Entity
 @DynamicUpdate
 @Table(name = "medical_unit", schema = "public", catalog = "medical_point")
+
+@NamedEntityGraph(name = "medicalPoint.medicalUnitType",
+attributeNodes = {@NamedAttributeNode(value = "medicalUnitType", subgraph = "medicalUnitType")})
 public class MedicalUnit {
 
     public MedicalUnit(){};
@@ -73,7 +76,7 @@ public class MedicalUnit {
 
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medical_unit_type", referencedColumnName = "id")
     private MedicalUnitType medicalUnitType;
 

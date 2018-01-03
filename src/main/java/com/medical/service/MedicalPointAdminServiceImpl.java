@@ -5,11 +5,13 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.medical.dao.MedicalPointDao;
 import com.medical.dao.MedicalUnitDao;
+import com.medical.dao.MedicalUnitTypeDao;
 import com.medical.dao.ProvinceDao;
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
 import com.medical.domain.MedicalUnitType;
 import com.medical.json.deserializers.MedicalPointDeserializer;
+import com.medical.json.deserializers.MedicalUnitDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,14 +30,9 @@ public class MedicalPointAdminServiceImpl implements MedicalPointAdminService {
     MedicalPointDao medicalPointDao;
     @Autowired
     ProvinceDao provinceDao;
+    @Autowired
+    MedicalUnitTypeDao medicalUnitTypeDao;
 
-    public void addNewMedicalUnit(MedicalPoint medicalPoint, String medicalUnitName, MedicalUnitType medicalUnitType){
-        Assert.notNull(medicalPoint, "MedicalPoint can't be null");
-        Assert.notNull(medicalUnitName, "MedicalUnitName cant be null");
-        Assert.notNull(medicalUnitType, "MedicalUnitTape can't be null");
-        MedicalUnit medicalUnit= new MedicalUnit(medicalPoint, medicalUnitName, medicalUnitType);
-        medicalUnitDao.save(medicalUnit);
-    }
 
     public List<MedicalUnit> getMedicalUnits(MedicalPoint medicalPoint){
         Assert.notNull(medicalPoint, "MedicalPoint can't be null");
@@ -48,7 +45,20 @@ public class MedicalPointAdminServiceImpl implements MedicalPointAdminService {
         Gson gson = gsonBuilder.create();
         MedicalPoint medicalPoint = gson.fromJson(jsonElement, MedicalPoint.class);
         medicalPoint.setCity(provinceDao.findCityInProvince(medicalPoint.getCity()));
-        medicalPointDao.save(medicalPoint);
+        if(medicalPoint.getCity() != null)
+            medicalPointDao.save(medicalPoint);
+        else
+            throw new NullPointerException("City doesn't exist");
+    }
+
+    public void addMedicalUnit(JsonElement jsonElement, int medicalPointId){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(MedicalPoint.class, new MedicalUnitDeserializer());
+        Gson gson = gsonBuilder.create();
+        MedicalUnit medicalUnit = gson.fromJson(jsonElement, MedicalUnit.class);
+        medicalUnit.setMedicalUnitType(medicalUnitTypeDao.findByName(medicalUnit.getMedicalUnitType().getName()));
+        medicalUnit.setMedicalPoint(medicalPointDao.findById(medicalPointId));
+        medicalUnitDao.save(medicalUnit);
     }
 
 }
