@@ -1,24 +1,19 @@
 package com.medical.service;
 
-import com.medical.dao.IllnessDao;
 import com.medical.dao.MedicalPointDao;
 import com.medical.domain.Illness;
 import com.medical.domain.MedicalPoint;
-import com.medical.domain.MedicalUnit;
-import com.medical.domain.Specialty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static java.lang.Math.*;
 
-@Service("illnessService")
-public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements FindByIllness {
+@Service("findByIllnessService")
+public class FindMedicalPointServiceImpl extends GenericServiceImpl<Illness> implements FindMedicalPointService {
 
     @Autowired
     MedicalPointDao medicalPointDao;
@@ -33,21 +28,57 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public MedicalPoint getNearestMedicalPoint(double latitude, double longitude, String illnessName,
-                                               String cityName, String provinceName) {
+    public MedicalPoint getNearestMedicalPointByIllness(double latitude, double longitude, String illnessName,
+                                                        String cityName, String provinceName) {
 
-        List<MedicalPoint> medicalPoints = medicalPointDao.findWithIllnessAndCity(illnessName, cityName);
+        List<MedicalPoint> medicalPoints = medicalPointDao.findWithSpecialtyAndCity(illnessName, cityName);
 
         if(medicalPoints.size() == 0)
-            medicalPoints = medicalPointDao.findWithIllnessAndProvince(illnessName, provinceName);
+            medicalPoints = medicalPointDao.findWithSpecialtyAndProvince(illnessName, provinceName);
 
+        return getNearest(latitude, longitude, medicalPoints);
+    }
+
+    /**
+     * Finding nearest medical point for specific specilaty
+     * @param latitude given latitude
+     * @param longitude given longitude
+     * @param specialtyName given specialtyName to find specific medical points
+     * @return nearest medical point
+     */
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    public MedicalPoint getNearestMedicalPointBySpeciality(double latitude, double longitude, String specialtyName,
+                                                           String cityName, String provinceName) {
+
+        List<MedicalPoint> medicalPoints = medicalPointDao.findWithIllnessAndCity(specialtyName, cityName);
+
+        if(medicalPoints.size() == 0)
+            medicalPoints = medicalPointDao.findWithIllnessAndProvince(specialtyName, provinceName);
+
+        return getNearest(latitude, longitude, medicalPoints);
+
+    }
+
+    /**
+     * Finding nearest medical point from list
+     * @param latitude given latitude
+     * @param longitude given longitude
+     * @param medicalPoints list of medical points
+     * @return
+     */
+
+    private MedicalPoint getNearest(double latitude, double longitude, List<MedicalPoint> medicalPoints)
+    {
         double shortestDistance = 1000000.0 ;
         double distance;
         MedicalPoint medicalPoint = null;
 
         for(MedicalPoint medPoint : medicalPoints)
         {
-            distance = getDistanceHeversine(latitude, longitude, medPoint.getCoordinates().getLatitude(), medPoint.getCoordinates().getLongitude());
+            distance = getDistanceHeversine(latitude, longitude, medPoint.getCoordinates().getLatitude(),
+                    medPoint.getCoordinates().getLongitude());
 
             if(shortestDistance > distance)
             {
@@ -56,10 +87,9 @@ public class FindByIllnessImpl extends GenericServiceImpl<Illness> implements Fi
             }
         }
 
-        System.out.println(shortestDistance);
-
         return medicalPoint;
     }
+
 
     /**
      * Calculating distance using simpler calculations than using Heversine formula

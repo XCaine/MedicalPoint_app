@@ -59,6 +59,37 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
         return (List<MedicalPoint>) query.list();
     }
 
+    @Override
+    public List<MedicalPoint> findWithSpecialtyAndCity(String specialtyName, String cityName) {
+        Query query = currentSession().createQuery("select m from MedicalPoint m " +
+                "inner join fetch m.medicalUnits u " +
+                "inner join fetch  u.specialties s " +
+                " where s.name = :specialtyName and m.city.name = :cityName");
+        query.setParameter("specialtyName", specialtyName);
+        query.setParameter("cityName", cityName);
+
+        EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");
+        query.setHint("javax.persistence.fetchgraph", entityGraph);
+
+        return (List<MedicalPoint>) query.list();
+    }
+
+    @Override
+    public List<MedicalPoint> findWithSpecialtyAndProvince(String specialtyName, String provinceName) {
+
+        Query query = currentSession().createQuery("select m from MedicalPoint m " +
+                "inner join fetch m.medicalUnits u " +
+                "inner join fetch  u.specialties s " +
+                " where s.name = :specialtyName and m.city.province.name = :provinceName");
+        query.setParameter("specialtyName", specialtyName);
+        query.setParameter("provinceName", provinceName);
+
+        EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");
+        query.setHint("javax.persistence.fetchgraph", entityGraph);
+
+        return (List<MedicalPoint>) query.list();
+    }
+
     public List<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint) {
 
         Query query = currentSession().createQuery("from MedicalUnit mu "

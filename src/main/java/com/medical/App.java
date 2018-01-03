@@ -3,9 +3,8 @@ package com.medical;
 import com.medical.config.AppConfig;
 import com.medical.domain.*;
 import com.medical.service.CountryService;
-import com.medical.service.FindByIllness;
+import com.medical.service.FindMedicalPointService;
 import com.medical.service.MedicalPointService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -33,7 +32,7 @@ public class App {
 
         MedicalPointService medService = (MedicalPointService) context.getBean("medicalPointService");
 
-        FindByIllness illnessService = (FindByIllness) context.getBean("illnessService");
+        FindMedicalPointService illnessService = (FindMedicalPointService) context.getBean("illnessService");
 
 
 

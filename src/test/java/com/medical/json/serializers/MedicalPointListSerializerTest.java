@@ -2,24 +2,16 @@ package com.medical.json.serializers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import com.medical.config.AppConfig;
-import com.medical.domain.Address;
 import com.medical.domain.MedicalPoint;
-import com.medical.json.deserializers.AddressDeserializer;
 import com.medical.json.deserializers.MedicalPointDeserializer;
-import com.medical.service.FindByIllness;
 import com.medical.service.MedicalPointService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.io.Reader;
-import java.lang.reflect.Type;
-import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
@@ -32,7 +24,7 @@ class MedicalPointListSerializerTest {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         MedicalPointService medService = (MedicalPointService) context.getBean("medicalPointService");
 
-        FindByIllness findByIllness = (FindByIllness) context.getBean("findByIllnessService");
+        FindMedicalPointService findByIllness = (FindMedicalPointService) context.getBean("findByIllnessService");
         Type listOfMedicalPoints = new TypeToken<List<MedicalPoint>>(){}.getType();
         final GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(listOfMedicalPoints, new MedicalPointListSerializer())
