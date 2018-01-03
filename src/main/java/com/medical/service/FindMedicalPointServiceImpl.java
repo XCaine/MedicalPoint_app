@@ -31,10 +31,10 @@ public class FindMedicalPointServiceImpl extends GenericServiceImpl<Illness> imp
     public MedicalPoint getNearestMedicalPointByIllness(double latitude, double longitude, String illnessName,
                                                         String cityName, String provinceName) {
 
-        List<MedicalPoint> medicalPoints = medicalPointDao.findWithSpecialtyAndCity(illnessName, cityName);
+        List<MedicalPoint> medicalPoints = medicalPointDao.findWithIllnessAndCity(illnessName, cityName);
 
         if(medicalPoints.size() == 0)
-            medicalPoints = medicalPointDao.findWithSpecialtyAndProvince(illnessName, provinceName);
+            medicalPoints = medicalPointDao.findWithIllnessAndProvince(illnessName, provinceName);
 
         return getNearest(latitude, longitude, medicalPoints);
     }
@@ -52,10 +52,10 @@ public class FindMedicalPointServiceImpl extends GenericServiceImpl<Illness> imp
     public MedicalPoint getNearestMedicalPointBySpeciality(double latitude, double longitude, String specialtyName,
                                                            String cityName, String provinceName) {
 
-        List<MedicalPoint> medicalPoints = medicalPointDao.findWithIllnessAndCity(specialtyName, cityName);
+        List<MedicalPoint> medicalPoints = medicalPointDao.findWithSpecialtyAndCity(specialtyName, cityName);
 
         if(medicalPoints.size() == 0)
-            medicalPoints = medicalPointDao.findWithIllnessAndProvince(specialtyName, provinceName);
+            medicalPoints = medicalPointDao.findWithSpecialtyAndProvince(specialtyName, provinceName);
 
         return getNearest(latitude, longitude, medicalPoints);
 
