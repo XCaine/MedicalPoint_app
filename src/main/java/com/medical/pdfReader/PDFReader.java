@@ -1,10 +1,27 @@
 package com.medical.pdfReader;
 
+import com.medical.config.AppConfig;
+import com.medical.dao.MedicalUnitTypeDao;
+import com.medical.domain.MedicalPoint;
+import com.medical.domain.MedicalUnitType;
+import com.medical.domain.Specialty;
+import com.medical.service.MedicalPointService;
+import com.medical.service.MedicalUnitTypeService;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Vector;
+
+import static org.springframework.http.HttpHeaders.CONNECTION;
 
 public class PDFReader {
 
@@ -14,10 +31,42 @@ public class PDFReader {
     static String line = "";
     static String profileRegex = ".*[^.1-9]2\\.[1-9]*\\.";
 
+    static String USERNAME = "gsprojfmp";
+    static String PASSWORD = "1pro2myk";
+    static String CONNECTION = "jdbc:postgresql://medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com:5432/medical_point";
+    static Connection connection;
+
     static void printMedicalPoints() {
         for(int i=0; i<medicalPoints.size(); i++)
         {
             medicalPoints.get(i).printData();
+        }
+    }
+
+    static void saveMedicalPointsToDatabase() throws Exception {
+        AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        MedicalPointService pointService = (MedicalPointService) context.getBean("medicalPointService");
+        MedicalUnitTypeService unitTypeService = ( MedicalUnitTypeService) context.getBean("medicalUnitTypeService");
+        MedicalUnitTypeDao medicalUnitTypeDao;
+        //connection = DriverManager.getConnection(CONNECTION, USERNAME, PASSWORD);
+
+        for(int i=5; i<6; i++) {
+            String fullName = medicalPoints.get(i).getFullName();
+            MedicalPoint point = pointService.addMedicalPointWithName(fullName);
+            //MedicalPoint point = pointService.findByName(medicalPoints.get(i).getFullName());
+            Set<Specialty> specialties = new HashSet<Specialty>();
+
+            Specialty specialty = new Specialty();
+            specialty.setId(1);
+            specialties.add(specialty);
+
+            //if (medicalPoints.get(i).sor == true)
+            //{
+            MedicalUnitType unitType = unitTypeService.findByName("Szpitalny Oddział Ratunkowy");
+            pointService.addMedicalUnit("SOR", unitType, point, specialties);
+            //}
+
+
         }
     }
 
@@ -110,6 +159,8 @@ public class PDFReader {
             TO DO:
                 - x dla dzieci == x dziecięca, usunięcie powtórzeń jeśli gdzieś są
         */
+
+
         PDDocument document = PDDocument.load(new File("pdf/mazowieckie.pdf"));
         if (!document.isEncrypted()) {
             PDFTextStripper stripper = new PDFTextStripper();
@@ -119,5 +170,17 @@ public class PDFReader {
             printMedicalPoints();
         }
         document.close();
+        saveMedicalPointsToDatabase();
+        /*connection = DriverManager.getConnection(CONNECTION, USERNAME, PASSWORD);
+        String query = "SELECT * FROM medical_unit_type";
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next())
+        {
+            String name = rs.getString("name");
+            // print the results
+            System.out.println(name);
+        }
+        st.close();*/
     }
 }

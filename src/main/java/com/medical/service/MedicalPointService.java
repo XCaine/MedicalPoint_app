@@ -35,7 +35,7 @@ public interface MedicalPointService {
 
     public MedicalPoint findByName(String medicalPointName);
 
-    public void addMedicalPointWithName(String name)throws IOException, ApiException, InterruptedException;
+    public MedicalPoint addMedicalPointWithName(String name)throws IOException, ApiException, InterruptedException;
 
     public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Set<Specialty> specialties);
 

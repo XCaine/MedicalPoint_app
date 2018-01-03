@@ -6,10 +6,7 @@ import com.google.maps.GeocodingApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.AddressComponent;
 import com.google.maps.model.GeocodingResult;
-import com.medical.dao.CityDao;
-import com.medical.dao.CountryDao;
-import com.medical.dao.MedicalPointDao;
-import com.medical.dao.ProvinceDao;
+import com.medical.dao.*;
 import com.medical.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +32,9 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
 
     @Autowired
     ProvinceDao provinceDao;
+
+    @Autowired
+    MedicalUnitDao medicalUnitDao;
 
     @Override
     @Transactional(readOnly = false)
@@ -96,7 +96,7 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
 
     private String myApiKey = "AIzaSyBIDB0hfasjgD3hNrKtSz0X6EufWl820j0";
 
-    public void addMedicalPointWithName(String name) throws IOException, ApiException, InterruptedException {
+    public MedicalPoint addMedicalPointWithName(String name) throws IOException, ApiException, InterruptedException {
 
         if (name == null)
             throw new NullPointerException("Name is null");
@@ -162,6 +162,7 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
         medicalPoint.setCoordinates(coordinates);
         medicalPoint.setCity(city);
         this.add(medicalPoint);
+        return medicalPoint;
     }
 
     public void addMedicalPointJson(JsonElement jsonElement){
@@ -175,7 +176,8 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
         medicalUnit.setMedicalUnitType(medicalUnitType);
         medicalUnit.setMedicalPoint(medicalPoint);
         medicalUnit.setSpecialties(specialties);
-        medicalPointDao.update(medicalPoint);
+        //medicalPointDao.update(medicalPoint);
+        medicalUnitDao.saveOrUpdate(medicalUnit);
     }
 
     @Override
