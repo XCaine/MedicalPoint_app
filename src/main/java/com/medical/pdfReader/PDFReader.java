@@ -31,11 +31,6 @@ public class PDFReader {
     static String line = "";
     static String profileRegex = ".*[^.1-9]2\\.[1-9]*\\.";
 
-    static String USERNAME = "gsprojfmp";
-    static String PASSWORD = "1pro2myk";
-    static String CONNECTION = "jdbc:postgresql://medicalpoint.co2h7hvqzy4g.us-east-2.rds.amazonaws.com:5432/medical_point";
-    static Connection connection;
-
     static void printMedicalPoints() {
         for(int i=0; i<medicalPoints.size(); i++)
         {
@@ -47,26 +42,58 @@ public class PDFReader {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         MedicalPointService pointService = (MedicalPointService) context.getBean("medicalPointService");
         MedicalUnitTypeService unitTypeService = ( MedicalUnitTypeService) context.getBean("medicalUnitTypeService");
-        MedicalUnitTypeDao medicalUnitTypeDao;
-        //connection = DriverManager.getConnection(CONNECTION, USERNAME, PASSWORD);
 
-        for(int i=5; i<6; i++) {
+        //for(int i=0; i<medicalPoints.size(); i++)
+        for(int i=6; i<7; i++)
+        {
             String fullName = medicalPoints.get(i).getFullName();
             MedicalPoint point = pointService.addMedicalPointWithName(fullName);
-            //MedicalPoint point = pointService.findByName(medicalPoints.get(i).getFullName());
+
             Set<Specialty> specialties = new HashSet<Specialty>();
 
-            Specialty specialty = new Specialty();
-            specialty.setId(1);
-            specialties.add(specialty);
+            for(int j=0; j<medicalPoints.get(i).profile.size(); j++)
+            {
+                // TU DOPISAC JAK BEDZIE TRZEBA WIECEJ SPECJALIZACJI
+                if(medicalPoints.get(i).profile.get(j).contains("DERMATOLOGIA")) // id 7
+                {
+                    Specialty specialty = new Specialty();
+                    specialty.setId(7);
+                    specialties.add(specialty);
+                }
+                if(medicalPoints.get(i).profile.get(j).contains("ORTOPEDIA")) // id 25
+                {
+                    Specialty specialty = new Specialty();
+                    specialty.setId(25);
+                    specialties.add(specialty);
+                }
+                if(medicalPoints.get(i).profile.get(j).contains("OKULISTYKA")) // id 23
+                {
+                    Specialty specialty = new Specialty();
+                    specialty.setId(23);
+                    specialties.add(specialty);
+                }
+                if(medicalPoints.get(i).profile.get(j).contains("OTORYNOLARYNGOLOGIA")) // id 26
+                {
+                    Specialty specialty = new Specialty();
+                    specialty.setId(26);
+                    specialties.add(specialty);
+                }
+            }
 
-            //if (medicalPoints.get(i).sor == true)
-            //{
-            MedicalUnitType unitType = unitTypeService.findByName("Szpitalny Oddział Ratunkowy");
-            pointService.addMedicalUnit("SOR", unitType, point, specialties);
-            //}
-
-
+            if (medicalPoints.get(i).sor == true) {
+                MedicalUnitType unitType = unitTypeService.findByName("Szpitalny Oddział Ratunkowy");
+                pointService.addMedicalUnit("SOR", unitType, point, specialties);
+            }
+            if (medicalPoints.get(i).nocnaSwiatecznaPomoc == true) {
+                MedicalUnitType unitType = unitTypeService.findByName("Nocna i świąteczna opieka zdrowotna");
+                pointService.addMedicalUnit("Nocna i świąteczna opieka zdrowotna", unitType, point, specialties);
+            }
+            if (medicalPoints.get(i).izbaPrzyjec == true) {
+                MedicalUnitType unitType = unitTypeService.findByName("Izba przyjęć");
+                pointService.addMedicalUnit("Izba przyjęć", unitType, point, specialties);
+            }
+            MedicalUnitType unitType = unitTypeService.findByName("Oddział Szpitalny");
+            pointService.addMedicalUnit("Oddział Szpitalny", unitType, point, specialties);
         }
     }
 
@@ -171,16 +198,5 @@ public class PDFReader {
         }
         document.close();
         saveMedicalPointsToDatabase();
-        /*connection = DriverManager.getConnection(CONNECTION, USERNAME, PASSWORD);
-        String query = "SELECT * FROM medical_unit_type";
-        Statement st = connection.createStatement();
-        ResultSet rs = st.executeQuery(query);
-        while (rs.next())
-        {
-            String name = rs.getString("name");
-            // print the results
-            System.out.println(name);
-        }
-        st.close();*/
     }
 }
