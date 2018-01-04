@@ -58,7 +58,7 @@ public class FindMedicalPointController {
 
         final Gson gson = JsonModifier.prepareJsonBuilderForMedicalPointSerializer();
 
-        String json = gson.toJson(findByIllness.getNearestMedicalPointBySpeciality(latitude, longitude, specialty, city, province));
+        String json = gson.toJson(findByIllness.getNearestMedicalPointBySpecialty(latitude, longitude, specialty, city, province));
 
         return ResponseEntity.ok().body(JsonModifier.prepareResults(json));
     }

@@ -3,6 +3,7 @@ package com.medical.json;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.medical.domain.MedicalPoint;
+import com.medical.domain.MedicalUnit;
 import com.medical.json.serializers.*;
 
 public class JsonModifier {
@@ -18,6 +19,16 @@ public class JsonModifier {
                 .registerTypeAdapter(AddressSerializer.class, new AddressSerializer())
                 .registerTypeAdapter(CoordinatesSerializer.class, new CoordinatesSerializer())
                 .registerTypeAdapter(MedicalUnitSerializer.class, new MedicalUnitSerializer())
+                .registerTypeAdapter(SpecialtySerializer.class, new SpecialtySerializer());
+        gsonBuilder.setPrettyPrinting();
+
+        return gsonBuilder.create();
+    }
+
+    public static Gson prepareJsonBuilderForMedicalUnitSerializer (){
+        final GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder
+                .registerTypeAdapter(MedicalUnit.class, new MedicalUnitSerializer())
                 .registerTypeAdapter(SpecialtySerializer.class, new SpecialtySerializer());
         gsonBuilder.setPrettyPrinting();
 
