@@ -38,7 +38,7 @@ public class App {
 
 
 
-        List<MedicalPoint> xd = medService.findWithIllnessAndCity("Eye pain", "mazowieckie");
+        List<MedicalPoint> xd = medService.findWithIllnessAndCity("Eye pain", "sochaczewski");
 
         for(MedicalPoint medPoint : xd)
         {

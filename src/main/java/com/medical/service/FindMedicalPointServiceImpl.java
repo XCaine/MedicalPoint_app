@@ -12,7 +12,7 @@ import java.util.List;
 
 import static java.lang.Math.*;
 
-@Service("findByIllnessService")
+@Service("findMedicalPointService")
 public class FindMedicalPointServiceImpl extends GenericServiceImpl<Illness> implements FindMedicalPointService {
 
     @Autowired
@@ -30,6 +30,7 @@ public class FindMedicalPointServiceImpl extends GenericServiceImpl<Illness> imp
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public MedicalPoint getNearestMedicalPointByIllness(double latitude, double longitude, String illnessName,
                                                         String cityName, String provinceName) {
+
 
         List<MedicalPoint> medicalPoints = medicalPointDao.findWithIllnessAndCity(illnessName, cityName);
 
@@ -49,8 +50,8 @@ public class FindMedicalPointServiceImpl extends GenericServiceImpl<Illness> imp
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public MedicalPoint getNearestMedicalPointBySpeciality(double latitude, double longitude, String specialtyName,
-                                                           String cityName, String provinceName) {
+    public MedicalPoint getNearestMedicalPointBySpecialty(double latitude, double longitude, String specialtyName,
+                                                          String cityName, String provinceName) {
 
         List<MedicalPoint> medicalPoints = medicalPointDao.findWithSpecialtyAndCity(specialtyName, cityName);
 
@@ -75,8 +76,10 @@ public class FindMedicalPointServiceImpl extends GenericServiceImpl<Illness> imp
         double distance;
         MedicalPoint medicalPoint = null;
 
+
         for(MedicalPoint medPoint : medicalPoints)
         {
+
             distance = getDistanceHeversine(latitude, longitude, medPoint.getCoordinates().getLatitude(),
                     medPoint.getCoordinates().getLongitude());
 

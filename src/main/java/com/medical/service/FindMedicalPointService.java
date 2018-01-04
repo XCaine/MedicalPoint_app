@@ -12,6 +12,6 @@ public interface FindMedicalPointService extends GenericService<Illness> {
     public MedicalPoint getNearestMedicalPointByIllness(double latitude, double longitude, String illnessName,
                                                         String cityName, String provinceName);
 
-    public MedicalPoint getNearestMedicalPointBySpeciality(double latitude, double longitude, String specialtyName,
-                                                        String cityName, String provinceName);
+    public MedicalPoint getNearestMedicalPointBySpecialty(double latitude, double longitude, String specialtyName,
+                                                          String cityName, String provinceName);
 }
