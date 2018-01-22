@@ -1,11 +1,7 @@
 package com.medical.pdfReader;
 
-import com.google.maps.errors.ApiException;
-import com.medical.dao.MedicalUnitTypeDao;
-import com.medical.domain.MedicalPoint;
 import com.medical.service.MedicalPointService;
 
-import java.io.IOException;
 import java.util.Vector;
 
 public class ParsedMedicalPoint {

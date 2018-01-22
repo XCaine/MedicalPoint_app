@@ -1,6 +1,5 @@
 package com.medical.json.deserializers;
 
-import com.fasterxml.jackson.databind.DeserializationContext;
 import com.google.gson.*;
 import com.medical.domain.*;
 

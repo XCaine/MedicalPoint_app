@@ -12,7 +12,7 @@ import java.util.Set;
 public class Specialty {
 
 
-    public Specialty(){};
+    public Specialty(){}
 
     public Specialty(String name){
         this.setName(name);

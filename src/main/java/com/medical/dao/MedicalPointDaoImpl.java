@@ -2,25 +2,20 @@ package com.medical.dao;
 
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
-import com.medical.domain.MedicalUnitType;
-import com.medical.domain.Specialty;
 import org.hibernate.SQLQuery;
 import org.hibernate.query.Query;
-import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityGraph;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Transactional
 @Repository("medicalPointDao")
 public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implements MedicalPointDao {
 
-    MedicalPointDaoImpl(){super("MedicalPoint");};
+    MedicalPointDaoImpl(){super("MedicalPoint");}
+
     public MedicalUnit FindMedicalUnitWithSpecialty(String specialtyName){
         Query query = currentSession().createQuery("from MedicalUnit.specialties S where S.name=:name");
         query.setParameter("name", specialtyName);

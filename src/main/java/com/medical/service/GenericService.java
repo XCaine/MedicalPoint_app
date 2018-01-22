@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface GenericService<E> {
 
-    public void saveOrUpdate(E entity);
+    void saveOrUpdate(E entity);
 
-    public List<E> findAll();
+    List<E> findAll();
 
-    public E find(final Serializable id);
+    E find(final Serializable id);
 
-    public void save(E entity);
+    void save(E entity);
 
-    public void remove(E entity);
+    void remove(E entity);
 
-    public E findByName(String name);
+    E findByName(String name);
 }

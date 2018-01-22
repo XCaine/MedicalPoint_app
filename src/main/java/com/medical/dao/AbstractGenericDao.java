@@ -1,6 +1,5 @@
 package com.medical.dao;
 
-import com.medical.domain.Country;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -22,7 +22,7 @@ public interface GenericDao<E> {
      *
      * @param entity: entity to save or update
      */
-    public void saveOrUpdate(E entity);
+    void saveOrUpdate(E entity);
 
     /**
      *

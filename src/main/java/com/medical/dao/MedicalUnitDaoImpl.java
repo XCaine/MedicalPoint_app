@@ -8,8 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class MedicalUnitDaoImpl extends AbstractGenericDao<MedicalUnit> implements MedicalUnitDao {
 
-    MedicalUnitDaoImpl(){super("MedicalUnit");};
-
+    MedicalUnitDaoImpl(){super("MedicalUnit");}
 
 
 }

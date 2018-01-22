@@ -2,14 +2,12 @@ package com.medical.dao;
 
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
-import com.medical.domain.MedicalUnitType;
-import com.medical.domain.Specialty;
 
 import java.util.List;
 
 public interface MedicalPointDao extends GenericDao<MedicalPoint> {
 
-    public MedicalUnit FindMedicalUnitWithSpecialty(String specialtyName);
+    MedicalUnit FindMedicalUnitWithSpecialty(String specialtyName);
    // public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Specialty... specialties);
 
 
@@ -46,9 +44,9 @@ public interface MedicalPointDao extends GenericDao<MedicalPoint> {
     List<MedicalPoint> findWithSpecialtyAndProvince(String specialtyName, String provinceName);
 
 
-    public List<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint);
+    List<MedicalUnit> findAllMedicalUnits(MedicalPoint medicalPoint);
 
-    public MedicalPoint findById(int id);
+    MedicalPoint findById(int id);
 
-    public MedicalPoint findClosestMatchByName(String medicalPointName);
+    MedicalPoint findClosestMatchByName(String medicalPointName);
 }

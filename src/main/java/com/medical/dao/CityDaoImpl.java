@@ -1,10 +1,8 @@
 package com.medical.dao;
 
 import com.medical.domain.City;
-import com.medical.domain.Country;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 @Repository("cityDao")
 public class CityDaoImpl extends AbstractGenericDao<City> implements CityDao{

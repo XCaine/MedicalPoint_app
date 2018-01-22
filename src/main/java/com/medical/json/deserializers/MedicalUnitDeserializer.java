@@ -2,10 +2,7 @@ package com.medical.json.deserializers;
 
 import com.google.gson.*;
 import com.medical.domain.MedicalUnit;
-import com.medical.domain.MedicalUnitType;
 import com.medical.domain.Specialty;
-import com.medical.service.MedicalUnitService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Type;
 import java.util.HashSet;

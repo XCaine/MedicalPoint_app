@@ -44,7 +44,7 @@ medicalApp.controller('datainsertController',['$scope','$http', function($scope,
             $scope.results=result;
             $scope.name='';
         });                  
-    }
+    };
     
     $scope.submit = function () {
 

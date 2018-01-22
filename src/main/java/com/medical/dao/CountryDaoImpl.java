@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CountryDaoImpl extends AbstractGenericDao<Country> implements CountryDao {
 
 
-    public CountryDaoImpl() {super("Country");};
+    public CountryDaoImpl() {super("Country");}
 
     @Override
     public Country findByName(String countryName) {

@@ -1,6 +1,5 @@
 package com.medical.domain;
 
-import jdk.nashorn.internal.ir.annotations.Immutable;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -10,7 +9,7 @@ import java.io.Serializable;
 @Embeddable
 public class Address implements Serializable{
 
-    public Address(){};
+    public Address(){}
 
     Address(String streetName, String streetNumber, String postalCode){
         setStreetNumber(streetNumber);

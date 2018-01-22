@@ -1,7 +1,6 @@
 package com.medical.pdfReader;
 
 import com.medical.config.AppConfig;
-import com.medical.dao.MedicalUnitTypeDao;
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnitType;
 import com.medical.domain.Specialty;
@@ -13,15 +12,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.AbstractApplicationContext;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
-
-import static org.springframework.http.HttpHeaders.CONNECTION;
 
 public class PDFReader {
 

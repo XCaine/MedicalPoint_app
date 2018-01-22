@@ -9,7 +9,6 @@ import com.medical.dao.MedicalUnitTypeDao;
 import com.medical.dao.ProvinceDao;
 import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
-import com.medical.domain.MedicalUnitType;
 import com.medical.json.deserializers.MedicalPointDeserializer;
 import com.medical.json.deserializers.MedicalUnitDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.Set;
 
 @Service("medicalPointAdminService")
 @Transactional

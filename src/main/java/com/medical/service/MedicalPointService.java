@@ -11,37 +11,37 @@ import java.util.Set;
 
 public interface MedicalPointService {
 
-    public void add(MedicalPoint medicalPoint);
+    void add(MedicalPoint medicalPoint);
 
 
-    public void saveOrUpdate(MedicalPoint medicalPoint);
+    void saveOrUpdate(MedicalPoint medicalPoint);
 
 
 
-    public void update(MedicalPoint medicalPoint);
+    void update(MedicalPoint medicalPoint);
 
 
-    public void remove(MedicalPoint medicalPoint);
+    void remove(MedicalPoint medicalPoint);
 
-    public void removeAll();
+    void removeAll();
 
-    public void removeByName(String medicalPointName);
+    void removeByName(String medicalPointName);
 
-    public void removeById(Integer id);
+    void removeById(Integer id);
 
-    public MedicalPoint findById(Integer id);
+    MedicalPoint findById(Integer id);
 
-    public List<MedicalPoint> findALL();
+    List<MedicalPoint> findALL();
 
-    public MedicalPoint findByName(String medicalPointName);
+    MedicalPoint findByName(String medicalPointName);
 
-    public MedicalPoint addMedicalPointWithName(String name)throws IOException, ApiException, InterruptedException;
+    MedicalPoint addMedicalPointWithName(String name)throws IOException, ApiException, InterruptedException;
 
-    public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Set<Specialty> specialties);
+    void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Set<Specialty> specialties);
 
-    public List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName);
+    List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName);
 
-    public MedicalPoint findMedicalPointById(int id);
+    MedicalPoint findMedicalPointById(int id);
 
-    public MedicalPoint findMedicalPointIncludingString(String medicalPointName);
+    MedicalPoint findMedicalPointIncludingString(String medicalPointName);
 }

@@ -16,7 +16,7 @@ import java.util.Set;
 attributeNodes = {@NamedAttributeNode(value = "medicalUnitType", subgraph = "medicalUnitType")})
 public class MedicalUnit {
 
-    public MedicalUnit(){};
+    public MedicalUnit(){}
 
     public MedicalUnit(MedicalPoint medicalPoint, String medicalUnitName, MedicalUnitType medicalUnitType)
     {
