@@ -4,7 +4,9 @@ import com.medical.domain.MedicalPoint;
 import com.medical.domain.MedicalUnit;
 import com.medical.domain.MedicalUnitType;
 import com.medical.domain.Specialty;
+import org.hibernate.SQLQuery;
 import org.hibernate.query.Query;
+import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -106,6 +108,25 @@ public class MedicalPointDaoImpl extends AbstractGenericDao<MedicalPoint> implem
     @Override
     public MedicalPoint findById(int id){
         Query query = currentSession().createQuery("from MedicalPoint MP where MP.id =:id");
+        query.setParameter("id", id);
+
+        EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");
+        query.setHint("javax.persistence.fetchgraph", entityGraph);
+        return (MedicalPoint) query.uniqueResult();
+    }
+
+    @Override
+    public MedicalPoint findClosestMatchByName(String medicalPointName){
+
+        String sql = "SELECT medical_point.id FROM medical_point WHERE medical_point.name LIKE :name";
+        SQLQuery sqlQuery = currentSession().createSQLQuery(sql);
+        sqlQuery.setParameter("name", "%" + medicalPointName + "%");
+        List results = sqlQuery.list();
+        int id = (int)results.get(0);
+
+        Query query = currentSession().createQuery("from MedicalPoint MP "+
+                "where MP.id = :id");
+
         query.setParameter("id", id);
 
         EntityGraph entityGraph = currentSession().getEntityGraph("medicalPoint.city.province.country");

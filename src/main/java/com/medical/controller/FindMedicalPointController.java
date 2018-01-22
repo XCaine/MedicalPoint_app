@@ -2,9 +2,7 @@ package com.medical.controller;
 
 
 import com.google.gson.*;
-import com.medical.domain.MedicalPoint;
 import com.medical.json.JsonModifier;
-import com.medical.json.serializers.*;
 import com.medical.service.FindMedicalPointService;
 import com.medical.service.MedicalPointAdminService;
 import com.medical.service.MedicalPointService;
@@ -59,6 +57,15 @@ public class FindMedicalPointController {
         final Gson gson = JsonModifier.prepareJsonBuilderForMedicalPointSerializer();
 
         String json = gson.toJson(findByIllness.getNearestMedicalPointBySpecialty(latitude, longitude, specialty, city, province));
+
+        return ResponseEntity.ok().body(JsonModifier.prepareResults(json));
+    }
+
+    @RequestMapping("/medicalpoint/searchbyname")
+    public ResponseEntity<String> findMedicalPointByNameIncludingString(@RequestParam("name")String name){
+        final Gson gson = JsonModifier.prepareJsonBuilderForMedicalPointSerializer();
+
+        String json = gson.toJson(medicalPointService.findMedicalPointIncludingString(name));
 
         return ResponseEntity.ok().body(JsonModifier.prepareResults(json));
     }

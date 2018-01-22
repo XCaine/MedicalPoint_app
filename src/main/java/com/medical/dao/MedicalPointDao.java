@@ -50,5 +50,5 @@ public interface MedicalPointDao extends GenericDao<MedicalPoint> {
 
     public MedicalPoint findById(int id);
 
-
+    public MedicalPoint findClosestMatchByName(String medicalPointName);
 }

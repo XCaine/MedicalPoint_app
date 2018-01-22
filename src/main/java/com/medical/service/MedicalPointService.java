@@ -42,4 +42,6 @@ public interface MedicalPointService {
     public List<MedicalPoint> findWithIllnessAndCity(String illnessName, String cityName);
 
     public MedicalPoint findMedicalPointById(int id);
+
+    public MedicalPoint findMedicalPointIncludingString(String medicalPointName);
 }

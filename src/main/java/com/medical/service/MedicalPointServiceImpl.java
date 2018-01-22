@@ -190,4 +190,10 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
     public MedicalPoint findMedicalPointById(int id){
         return medicalPointDao.findById(id);
     }
+
+    @Override
+    public MedicalPoint findMedicalPointIncludingString(String medicalPointName) {
+        return medicalPointDao.findClosestMatchByName(medicalPointName);
+    }
+
 }
