@@ -3,6 +3,7 @@ package com.medical.controller;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.maps.errors.ApiException;
+import com.medical.json.JsonModifier;
 import com.medical.service.MedicalPointAdminService;
 import com.medical.service.MedicalPointService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class AdminController {
     public ResponseEntity<String> addByName(@PathVariable String name)throws IOException, ApiException, InterruptedException{
         medicalPointService.addMedicalPointWithName(name);
 
-        return ResponseEntity.ok().body(name + " successfully added");
+        return ResponseEntity.ok().body(JsonModifier.prepareResults(name + " successfully added"));
     }
 
 
@@ -39,7 +40,7 @@ public class AdminController {
         JsonElement jsonElement = gson.fromJson(medicalPointJson, JsonElement.class);
         medicalPointAdminService.addMedicalPoint(jsonElement);
 
-        return ResponseEntity.ok().body("Medical point successfully added");
+        return ResponseEntity.ok().body(JsonModifier.prepareResults("Medical point successfully added"));
     }
 
     @RequestMapping("/admin/medicalpoint/addmedicalunit")
@@ -49,6 +50,6 @@ public class AdminController {
         JsonElement jsonElement = gson.fromJson(medicalUnitJson, JsonElement.class);
         medicalPointAdminService.addMedicalUnit(jsonElement, medicalPointId);
 
-        return ResponseEntity.ok().body("Medical Unit successfully added");
+        return ResponseEntity.ok().body(JsonModifier.prepareResults("Medical Unit successfully added"));
     }
 }

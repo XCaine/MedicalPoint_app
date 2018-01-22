@@ -47,7 +47,7 @@ public class MedicalUnit {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.toUpperCase();
     }
 
     @Length(min=6, max=13)

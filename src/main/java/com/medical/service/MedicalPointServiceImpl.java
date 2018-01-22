@@ -165,10 +165,6 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
         return medicalPoint;
     }
 
-    public void addMedicalPointJson(JsonElement jsonElement){
-
-    }
-
 
     public void addMedicalUnit(String medicalUnitName, MedicalUnitType medicalUnitType, MedicalPoint medicalPoint, Set<Specialty> specialties){
         MedicalUnit medicalUnit = new MedicalUnit();
@@ -193,7 +189,7 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
 
     @Override
     public MedicalPoint findMedicalPointIncludingString(String medicalPointName) {
-        return medicalPointDao.findClosestMatchByName(medicalPointName);
+        return medicalPointDao.findClosestMatchByName(medicalPointName.toUpperCase());
     }
 
 }
