@@ -11,6 +11,9 @@
 .idea/dictionaries
 .idea/
 
+*.iml
+workspace.xml
+
 # Sensitive or high-churn files:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
