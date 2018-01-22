@@ -20,7 +20,7 @@ public class PDFReader {
 
     static int skipFirstLines = 8;
     static ParsedMedicalPoint medicalPoint = new ParsedMedicalPoint();
-    static Vector<ParsedMedicalPoint> medicalPoints = new Vector<ParsedMedicalPoint>();
+    static Vector<ParsedMedicalPoint> medicalPoints = new Vector<>();
     static String line = "";
     static String profileRegex = ".*[^.1-9]2\\.[1-9]*\\.";
 
@@ -36,57 +36,175 @@ public class PDFReader {
         MedicalPointService pointService = (MedicalPointService) context.getBean("medicalPointService");
         MedicalUnitTypeService unitTypeService = ( MedicalUnitTypeService) context.getBean("medicalUnitTypeService");
 
-        //for(int i=0; i<medicalPoints.size(); i++)
-        for(int i=6; i<7; i++)
+        for(int i=0; i<medicalPoints.size(); i++)
         {
             String fullName = medicalPoints.get(i).getFullName();
-            MedicalPoint point = pointService.addMedicalPointWithName(fullName);
+            MedicalPoint point;
+            try {
+                point = pointService.addMedicalPointWithName(fullName);
 
-            Set<Specialty> specialties = new HashSet<Specialty>();
+                Set<Specialty> specialties = new HashSet<>();
+                Vector<Integer> indexes = new Vector<>();
 
-            for(int j=0; j<medicalPoints.get(i).profile.size(); j++)
-            {
-                // TU DOPISAC JAK BEDZIE TRZEBA WIECEJ SPECJALIZACJI
-                if(medicalPoints.get(i).profile.get(j).contains("DERMATOLOGIA")) // id 7
+                for(int j=0; j<medicalPoints.get(i).profile.size(); j++)
                 {
-                    Specialty specialty = new Specialty();
-                    specialty.setId(7);
-                    specialties.add(specialty);
+                    if(medicalPoints.get(i).profile.get(j).contains("ANESTEZJOLOGIA"))
+                    {
+                        if(!indexes.contains(1))
+                            indexes.add(1);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("KARDIOLOGIA"))
+                    {
+                        if(!indexes.contains(2))
+                            indexes.add(2);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("GENETYKA"))
+                    {
+                        if(!indexes.contains(5))
+                            indexes.add(5);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("DERMATOLOGIA"))
+                    {
+                        if(!indexes.contains(7))
+                            indexes.add(7);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("ENDOKRYNOLOGIA"))
+                    {
+                        if(!indexes.contains(8))
+                            indexes.add(8);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("GASTROENTEROLOGIA"))
+                    {
+                        if(!indexes.contains(10))
+                            indexes.add(10);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("GERIATRIA"))
+                    {
+                        if(!indexes.contains(11))
+                            indexes.add(11);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("GINEKOLOGIA"))
+                    {
+                        if(!indexes.contains(12))
+                            indexes.add(12);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("CHOROBY ZAKAŹNE"))
+                    {
+                        if(!indexes.contains(13))
+                            indexes.add(13);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("CHOROBY WEWNĘTRZNE"))
+                    {
+                        if(!indexes.contains(14))
+                            indexes.add(14);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("ONKOLOGIA"))
+                    {
+                        if(!indexes.contains(15))
+                            indexes.add(15);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("NEFROLOGIA"))
+                    {
+                        if(!indexes.contains(18))
+                            indexes.add(18);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("NEUROLOGIA"))
+                    {
+                        if(!indexes.contains(19))
+                            indexes.add(19);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("NEUROCHIRURGIA"))
+                    {
+                        if(!indexes.contains(20))
+                            indexes.add(20);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("OKULISTYKA"))
+                    {
+                        if(!indexes.contains(23))
+                            indexes.add(23);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("ORTOPEDIA"))
+                    {
+                        if(!indexes.contains(25))
+                            indexes.add(25);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("OTORYNOLARYNGOLOGIA"))
+                    {
+                        if(!indexes.contains(26))
+                            indexes.add(26);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("CHIRURGIA DZIECIĘCA"))
+                    {
+                        if(!indexes.contains(27))
+                            indexes.add(27);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("PEDIATRIA"))
+                    {
+                        if(!indexes.contains(28))
+                            indexes.add(28);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("CHIRURGIA PLASTYCZNA"))
+                    {
+                        if(!indexes.contains(32))
+                            indexes.add(32);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("RADIOTERAPIA"))
+                    {
+                        if(!indexes.contains(37))
+                            indexes.add(37);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("REUMATOLOGIA"))
+                    {
+                        if(!indexes.contains(38))
+                            indexes.add(38);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("CHIRURGIA OGÓLNA"))
+                    {
+                        if(!indexes.contains(39))
+                            indexes.add(39);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("UROLOGIA"))
+                    {
+                        if(!indexes.contains(41))
+                            indexes.add(41);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("CHIRURGIA NACZYNIOWA"))
+                    {
+                        if(!indexes.contains(42))
+                            indexes.add(42);
+                    }
+                    if(medicalPoints.get(i).profile.get(j).contains("ALERGOLOGIA"))
+                    {
+                        if(!indexes.contains(43))
+                            indexes.add(43);
+                    }
                 }
-                if(medicalPoints.get(i).profile.get(j).contains("ORTOPEDIA")) // id 25
-                {
-                    Specialty specialty = new Specialty();
-                    specialty.setId(25);
-                    specialties.add(specialty);
-                }
-                if(medicalPoints.get(i).profile.get(j).contains("OKULISTYKA")) // id 23
-                {
-                    Specialty specialty = new Specialty();
-                    specialty.setId(23);
-                    specialties.add(specialty);
-                }
-                if(medicalPoints.get(i).profile.get(j).contains("OTORYNOLARYNGOLOGIA")) // id 26
-                {
-                    Specialty specialty = new Specialty();
-                    specialty.setId(26);
-                    specialties.add(specialty);
-                }
-            }
 
-            if (medicalPoints.get(i).sor == true) {
-                MedicalUnitType unitType = unitTypeService.findByName("Szpitalny Oddział Ratunkowy");
-                pointService.addMedicalUnit("SOR", unitType, point, specialties);
+                if (medicalPoints.get(i).sor == true) {
+                    if(!indexes.contains(44))
+                        indexes.add(44);
+                }
+                if (medicalPoints.get(i).nocnaSwiatecznaPomoc == true) {
+                    if(!indexes.contains(45))
+                        indexes.add(45);
+                }
+                if (medicalPoints.get(i).izbaPrzyjec == true) {
+                    if(!indexes.contains(46))
+                        indexes.add(46);
+                }
+
+                for(Integer j: indexes)
+                {
+                    Specialty specialty = new Specialty();
+                    specialty.setId(j);
+                    specialties.add(specialty);
+                }
+
+                MedicalUnitType unitType = unitTypeService.findByName("Oddział Szpitalny");
+                pointService.addMedicalUnit("Oddział Szpitalny", unitType, point, specialties);
+            } catch(NullPointerException e) {
+
             }
-            if (medicalPoints.get(i).nocnaSwiatecznaPomoc == true) {
-                MedicalUnitType unitType = unitTypeService.findByName("Nocna i świąteczna opieka zdrowotna");
-                pointService.addMedicalUnit("Nocna i świąteczna opieka zdrowotna", unitType, point, specialties);
-            }
-            if (medicalPoints.get(i).izbaPrzyjec == true) {
-                MedicalUnitType unitType = unitTypeService.findByName("Izba przyjęć");
-                pointService.addMedicalUnit("Izba przyjęć", unitType, point, specialties);
-            }
-            MedicalUnitType unitType = unitTypeService.findByName("Oddział Szpitalny");
-            pointService.addMedicalUnit("Oddział Szpitalny", unitType, point, specialties);
         }
     }
 
@@ -175,13 +293,10 @@ public class PDFReader {
             Pomorskie
             Sląskie
             Zachodniopomorskie
-
-            TO DO:
-                - x dla dzieci == x dziecięca, usunięcie powtórzeń jeśli gdzieś są
         */
 
 
-        PDDocument document = PDDocument.load(new File("pdf/mazowieckie.pdf"));
+        PDDocument document = PDDocument.load(new File("pdf/wielkopolskie.pdf"));
         if (!document.isEncrypted()) {
             PDFTextStripper stripper = new PDFTextStripper();
             String text = stripper.getText(document);

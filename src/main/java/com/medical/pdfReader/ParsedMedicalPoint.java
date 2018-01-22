@@ -1,7 +1,5 @@
 package com.medical.pdfReader;
 
-import com.medical.service.MedicalPointService;
-
 import java.util.Vector;
 
 public class ParsedMedicalPoint {
@@ -10,24 +8,6 @@ public class ParsedMedicalPoint {
     boolean sor = false;
     boolean nocnaSwiatecznaPomoc = false;
     boolean izbaPrzyjec = false;
-    static MedicalPointService service;
-
-    void saveToDatabase() {
-        /*String fullname = nazwaZakladu + ", " + adresZakladu;
-        //TO DO
-        try {
-            service.addMedicalPointWithName(fullname);
-        }
-        catch(IOException | ApiException | InterruptedException e) {
-            System.out.println("error, exception");
-        }
-        MedicalPoint point = service.findByName(fullname);
-        if(sor == true) {
-            MedicalUnitType unitType = MedicalUnitTypeService.
-            service.addMedicalUnit("SOR",)
-        }
-*/
-    }
 
     String getFullName() {
         return nazwaZakladu + ", " + adresZakladu;

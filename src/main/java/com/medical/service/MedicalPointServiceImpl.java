@@ -104,38 +104,39 @@ public class MedicalPointServiceImpl extends GenericServiceImpl<MedicalPoint> im
                 .apiKey(myApiKey)
                 .build();
         GeocodingResult[] results = GeocodingApi.geocode(context, name).await();
-        String countryName = null, provinceName = null, cityName = null, streetName = null, streetNumber = null, postalCode = null;
+        String countryName = null, provinceName = null, cityName = null, streetName = null, streetNumber = "1", postalCode = null;
 
-        for (AddressComponent ac : results[0].addressComponents) {
-            for (AddressComponentType acType : ac.types) {
-                switch (acType){
-                    case COUNTRY:  {
-                    countryName = ac.longName;
-                    continue;
-                }
-                    case ADMINISTRATIVE_AREA_LEVEL_1: {
-                    provinceName = ac.longName.toLowerCase().replace("województwo ", "");
-                    continue;
-                }
-                    case ADMINISTRATIVE_AREA_LEVEL_2: {
-                    cityName = ac.longName;
-                    continue;
-                }
-                    case ROUTE:{
-                    streetName = ac.shortName;
-                    continue;
-                }
-                    case STREET_NUMBER:{
-                    streetNumber = ac.longName;
-                    continue;
-                }
-                    case POSTAL_CODE: {
-                    postalCode = ac.longName;
-                    continue;
-                }
-                }
-            }
-        }
+		if(results.length > 0)
+			for (AddressComponent ac : results[0].addressComponents) {
+				for (AddressComponentType acType : ac.types) {
+					switch (acType){
+						case COUNTRY:  {
+						countryName = ac.longName;
+						continue;
+					}
+						case ADMINISTRATIVE_AREA_LEVEL_1: {
+						provinceName = ac.longName.toLowerCase().replace("województwo ", "");
+						continue;
+					}
+						case ADMINISTRATIVE_AREA_LEVEL_2: {
+						cityName = ac.longName;
+						continue;
+					}
+						case ROUTE:{
+						streetName = ac.shortName;
+						continue;
+					}
+						case STREET_NUMBER:{
+						streetNumber = ac.longName;
+						continue;
+					}
+						case POSTAL_CODE: {
+						postalCode = ac.longName;
+						continue;
+					}
+					}
+				}
+			}
 
         Country country = countryDao.findByName(countryName);
         if(country == null) throw new NullPointerException("Country is null");
