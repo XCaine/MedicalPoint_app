@@ -12,7 +12,7 @@
 .idea/
 
 *.iml
-workspace.xml
+.idea/workspace.xml
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
