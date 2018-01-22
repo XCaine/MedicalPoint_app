@@ -1,22 +1,22 @@
-<h2>medical points directory</h2>
+<h2>Browse through the list of medical points from our database!</h2>
 
 <form ng-submit = "request()">
     <label for="inputID">Please insert the ID of hospital you are looking for</label>
     <br>
     <input type="text" id="inputID" ng-model="ID" placeholder="ID" required>
     <br>
-    <input type="submit" value="submit data" class="btn btn-primary">
-
+    <input type="submit" value="get the medical point" class="btn btn-primary">
 </form>
+
     <br>
     <div ng-repeat="result in results">
-<!--
-        <h4>nazwa szpitala: </h4>   {{ result.name }} <br/>
-        <h4>adres szpitala: </h4>   {{ result.city }}
-                                    {{ result.address.streetName }}
-                                    {{ result.address.streetNumber }}
--->
-        {{result}}
+        <div class="alert alert-success" role="alert">
+            This ID represents {{result.name}} in {{result.city}}.<br> 
+            It is located on {{result.address.streetName}} {{result.address.streetNumber}}, 
+            postal code: {{result.address.postalCode}}   
+        </div>
     </div>
+
+
 
 

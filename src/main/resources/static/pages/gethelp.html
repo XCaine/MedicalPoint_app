@@ -1,47 +1,109 @@
 
-
   <head>
-    <link href="css/gethelp.css" rel="stylesheet">
+    <link href="../pages/css/gethelp.css" rel="stylesheet">
+
   </head>
 
   <body>
 
     <div class="container">
+        
+        
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<!--!!!!MEDICAL POINT BY ILLNESS!!!!!!!!-->
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+             
+      <form class="form-signin" ng-submit="requestByIllness()">
+        <h2 class="form-signin-heading">Find the closest medical point by illness</h2>
 
-      <form class="form-signin" ng-submit="request()">
-        <h2 class="form-signin-heading">Please insert your current position</h2>
-      
         <label for="inputCity" class="sr-only">City</label>
         <input type="text" id="inputCity" ng-model="city" class="form-control" placeholder="City" required>
-          
+  
         <label for="inputStreet" class="sr-only">Street</label>
         <input type="text" id="inputStreet" ng-model="street" class="form-control" placeholder="Street name" required>
           
         <label for="inputNumber" class="sr-only">Number</label>
         <input type="text" id="inputnumber" ng-model="number" class="form-control" placeholder="Street number" required>
           
-        <label for="inputIllness" class="sr-only">Illness</label>
-        <input type="text" id="illnessnumber" ng-model="illness" class="form-control" placeholder="illness">
-          
-        <input type="submit" value="submit data" class="btn btn-primary">
+        <select name="singleSelect" id="singleSelect" ng-model="illness.singleSelect" class="form-control">
+            <option value="">Illness</option>
+            <option value="{{illness.option1}}">Ankle sprain         </option>
+            <option value="{{illness.option2}}">Meniscus Tear        </option>
+            <option value="{{illness.option3}}">Shoulder Dislocation </option>
+            <option value="{{illness.option4}}">Hand fracture        </option>
+            <option value="{{illness.option5}}">Leg fracture         </option>
+            <option value="{{illness.option6}}">Ear pain             </option>
+            <option value="{{illness.option7}}">Eye pain             </option>
+            <option value="{{illness.option8}}">Blurry vision        </option>
+            <option value="{{illness.option9}}">Itchy eyes           </option>
+            <option value="{{illness.option10}}">Swollen eyelids     </option>
+            <option value="{{illness.option11}}">Acute abdomen       </option>
+            <option value="{{illness.option12}}">Chest pain          </option>
+            <option value="{{illness.option13}}">Fainting            </option>
+            <option value="{{illness.option14}}">Breathing difficulty</option>
+            <option value="{{illness.option15}}">Coughing up         </option>
+            <option value="{{illness.option16}}">Vomiting            </option>
+            <option value="{{illness.option17}}">Bleeding            </option>
+            <option value="{{illness.option18}}">Crabs               </option>
+            <option value="{{illness.option19}}">Herpes              </option>
+        </select> 
+        <div style="text-align: center">
+            <input type="submit" value="submit" class="btn btn-primary">
+        </div>
+        <h4 style="text-align: center;color: darkred">{{warning1}}</h4>
 
-      </form>
-        
-      
-      <h3>you entered {{ city }} {{ street }} {{ number }} </h3>
-      
-      <div ng-repeat="result in results">
-            {{ result[0] }}<br/>
+    </form>
+
+      <div ng-repeat="result in resultsByIllness">
+        <div class="alert alert-success" role="alert">
+            The closest medical point is {{ result.name }}! <br>
+            It is located on {{result.address.streetName}} {{result.address.streetNumber}}<br>
+            You should head right to {{result.medicalUnits[0].name}} for {{result.medicalUnits[0].specialties[0].name}} speciality
             
+        </div>  
+      </div><br/><br/>
+    
+        
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<!--!!!!MEDICAL POINT BY SPECIALTY!!!!!!-->
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                
+    <form class="form-signin" ng-submit="requestBySpecialty()">
+        <h2 class="form-signin-heading">Find the closest medical point by specialty</h2>
+
+        <label for="inputCity" class="sr-only">City</label>
+        <input type="text" id="inputCity" ng-model="cityBySpecialty" class="form-control" placeholder="City" required>
+  
+        <label for="inputStreet" class="sr-only">Street</label>
+        <input type="text" id="inputStreet" ng-model="streetBySpecialty" class="form-control" placeholder="Street name" required>
+          
+        <label for="inputNumber" class="sr-only">Number</label>
+        <input type="text" id="inputnumber" ng-model="numberBySpecialty" class="form-control" placeholder="Street number" required>
+          
+        <select name="singleSelect" id="singleSelect" ng-model="specialty.singleSelect" class="form-control">
+            <option value="">Specialty</option>
+            <option value="{{specialty.option1}}">Dermatology and Venereology</option>
+            <option value="{{specialty.option2}}">Internal Medicine          </option>
+            <option value="{{specialty.option3}}">Orthopaedics               </option>
+            <option value="{{specialty.option4}}">Paediatrics                </option>
+            <option value="{{specialty.option5}}">Public Health Medicine     </option>
+            <option value="{{specialty.option6}}">Radiology                  </option>
+            <option value="{{specialty.option7}}">Urology                    </option>
+        </select> 
+        <div style="text-align: center">
+            <input type="submit" value="submit" class="btn btn-primary">
+        </div>
+        <h4 style="text-align: center;color: darkred">{{warning2}}</h4>
+
+    </form>
+        <div ng-repeat="result in resultsBySpecialty">
+        <div class="alert alert-success" role="alert">
+            The closest medical point is {{ result.name }}! <br>
+            It is located on {{result.address.streetName}} {{result.address.streetNumber}}<br>
+            You should head right to {{result.medicalUnits[0].name}} for {{result.medicalUnits[0].specialties[0].name}} speciality
+            
+        </div>  
       </div>
-        <br/>
-        
-      <div ng-repeat="result in finalresults">
-            {{ result }}
-      </div>
-        
-<!--        <h4>{{ results.results }}</h4>-->
-        
         
     </div>
 

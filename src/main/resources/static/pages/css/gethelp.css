@@ -1,8 +1,10 @@
+
 body {
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #eee;
 }
+
 
 .form-signin {
     
@@ -16,8 +18,9 @@ body {
     position: relative;
     box-sizing: border-box;
     height: auto;
-    padding: 10px;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 18px;
+    
 }
 
 .form-signin .form-control:focus {
@@ -35,15 +38,13 @@ body {
     border-bottom-left-radius: 0;
 }
 .form-signin input[type="number"] {
-    margin-bottom: -1px;
+    margin-bottom: 0px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
-.form-signin input[type="illness"] {
-    margin-bottom: -1px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 // ROUTES
-medicalApp.config(function ($routeProvider){
+medicalApp.config(['$routeProvider', function ($routeProvider){
     
     $routeProvider
     .when('/', {
@@ -25,4 +25,4 @@ medicalApp.config(function ($routeProvider){
 
     .otherwise({ redirectTo: '/'});
     
-});
+}]);
