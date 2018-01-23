@@ -1,11 +1,11 @@
 <h2>Browse through the list of medical points from our database!</h2>
 
-<form ng-submit = "request()">
+<form ng-submit = "requestById()">
     <label for="inputID">Please insert the ID of hospital you are looking for</label>
     <br>
     <input type="text" id="inputID" ng-model="ID" placeholder="ID" required>
     <br>
-    <input type="submit" value="get the medical point" class="btn btn-primary">
+    <input type="submit" value="get the medical point by ID" class="btn btn-primary">
 </form>
 
     <br>
@@ -14,6 +14,28 @@
             This ID represents {{result.name}} in {{result.city}}.<br> 
             It is located on {{result.address.streetName}} {{result.address.streetNumber}}, 
             postal code: {{result.address.postalCode}}   
+        </div>
+    </div>
+
+<form ng-submit = "requestByName()">
+    <label for="inputID">Please insert the name of hospital you are looking for</label>
+    <br>
+    <input type="text" id="inputName" ng-model="hospitalName" placeholder="hospital name" required>
+    <br>
+    <input type="submit" value="get the medical point by name" class="btn btn-primary">
+</form>
+
+    <br>
+    <div ng-repeat="result in resultsByName">
+        <div class="alert alert-success" role="alert">
+            This name represents {{result.name}} in {{result.city}}.<br> 
+            It is located on {{result.address.streetName}} {{result.address.streetNumber}}, 
+            postal code: {{result.address.postalCode}}<br/>
+            Medical unit present here is {{result.medicalUnits[0].name}}<br/>
+            List of specialties:
+            <div ng-repeat="specialty in result.medicalUnits[0].specialties">
+                {{specialty.name}} <br/>
+            </div>
         </div>
     </div>
 

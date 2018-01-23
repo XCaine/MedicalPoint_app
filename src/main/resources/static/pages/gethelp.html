@@ -61,7 +61,15 @@
             You should head right to {{result.medicalUnits[0].name}} for {{result.medicalUnits[0].specialties[0].name}} speciality
             
         </div>  
-      </div><br/><br/>
+      </div>
+    
+    <div style="text-align: center" ng-show="showMapByIllness">
+       <a class="btn btn-primary"
+       ng-href="https://www.google.com/maps/dir/{{mapLink}}">Click to see directions on Google Maps!</a>
+    </div>
+
+        
+    <br/><br/>
     
         
 <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
@@ -104,6 +112,11 @@
             
         </div>  
       </div>
+        
+       <div style="text-align: center" ng-show="showMapBySpecialty">
+       <a class="btn btn-primary"
+       ng-href="https://www.google.com/maps/dir/{{mapLink}}">Click to see directions on Google Maps!</a>
+    </div>
         
     </div>
 

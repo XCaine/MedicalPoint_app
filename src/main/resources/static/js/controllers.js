@@ -12,14 +12,29 @@ medicalApp.controller('homeController',['$scope','$http', function($scope,$http)
 medicalApp.controller('medicalpointsController',['$scope','$http', function($scope,$http){
         
     $scope.results='';
-    $scope.ID='73';
+    $scope.ID='';
+    $scope.hospitalName='';
+    $scope.resultsByName='';
     
-    $scope.request = function () {    
+    $scope.requestById = function () {    
     $http.get("http://localhost:8080/medicalpoint/searchbyid/"+$scope.ID)
         .success(function(result) { 
             $scope.results=result; 
             $scope.ID='';
         });       
+    }
+    
+    $scope.requestByName = function () {    
+        
+    $http.get("http://localhost:8080/medicalpoint/searchbyname", {
+        params: {
+            'name' : $scope.hospitalName
+            }
+        })
+        .success(function(result) {
+            $scope.resultsByName=result; 
+            $scope.hospitalName='';
+        });     
     }
 }]);
 //////////////////////////////////////////////////////////////////////////////////////
@@ -30,15 +45,15 @@ medicalApp.controller('datainsertController',['$scope','$http', function($scope,
     $scope.jsonrequest='';
     
     $scope.hospital = {
-        "name": "Poradnia leczenia zaburzeń snu",
-        "city": "sochaczewski",
-        "province": "mazowieckie",
-        "country": "Poland",
+        "name": "",
+        "city": "",
+        "province": "",
+        "country": "",
         
         "address":{
-            "streetName": "Marsz. Piłsudskiego",
-            "streetNumber": "65",
-            "postalCode": "96-500"
+            "streetName": "",
+            "streetNumber": "",
+            "postalCode": ""
         },
         "coordinates":{
             "latitude":"",
@@ -97,9 +112,15 @@ medicalApp.controller('datainsertController',['$scope','$http', function($scope,
 //////////////////////////////////////////////////////////////////////////////////////
 medicalApp.controller('gethelpController',['$scope','$http', function($scope,$http){
 
-    $scope.city='Warszawa';
-    $scope.street='Nowowiejska';
-    $scope.number='15/19';
+    
+    $scope.city='';
+    $scope.street='';
+    $scope.number='';
+    $scope.showMapByIllness=false;
+    $scope.showMapByspecialty=false;
+    
+
+    
     $scope.illness = {
     singleSelect: null,
     option1: 'Ankle sprain',
@@ -124,9 +145,9 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
    };
     
     
-    $scope.cityBySpecialty='Warszawa';
-    $scope.streetBySpecialty='Nowowiejska';
-    $scope.numberBySpecialty='15/19';
+    $scope.cityBySpecialty='';
+    $scope.streetBySpecialty='';
+    $scope.numberBySpecialty='';
     $scope.specialty = {
     singleSelect: null,
     option1: 'Dermatology and Venereology',
@@ -146,9 +167,10 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
     $scope.warning1='';
     $scope.warning2='';
     
-    
     $scope.requestByIllness = function () {
         
+        $scope.showMapByIllness=false;
+        $scope.showMapByspecialty=false;
         $scope.warning1='';
         $scope.warning2='';
         if($scope.illness.singleSelect===null){
@@ -159,6 +181,7 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
     $http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+$scope.city+"+"+$scope.street+"+"+$scope.number+"+"+"&key=AIzaSyCPoLpNU2TEKnVNQOrrJH8SlUqdv-93LN0")
         .success(function(result) { 
             $scope.results=result;
+
 
             for(var i=0; i<$scope.results.results[0].address_components.length; i++){
                 if($scope.results.results[0].address_components[i].types[0]=="administrative_area_level_1")
@@ -186,6 +209,8 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
                         return;
                     } 
                     $scope.resultsByIllness=result;
+        $scope.mapLink=$scope.city+'+'+$scope.street+'+'+$scope.number+'/'+$scope.resultsByIllness.results.city +'+'+$scope.resultsByIllness.results.address.streetName+'+'+$scope.resultsByIllness.results.address.streetNumber.replace("/","%2F");
+        $scope.showMapByIllness=true;
                 });   
             });    
         }
@@ -193,6 +218,8 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
     
     $scope.requestBySpecialty = function () {
         
+        $scope.showMapByIllness=false;
+        $scope.showMapByspecialty=false;
         $scope.warning1='';
         $scope.warning2='';
         if($scope.specialty.singleSelect===null){
@@ -200,7 +227,7 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
             return;
         }   
             
-    $http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+$scope.city+"+"+$scope.street+"+"+$scope.number+"+"+"&key=AIzaSyCPoLpNU2TEKnVNQOrrJH8SlUqdv-93LN0")
+    $http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+$scope.cityBySpecialty+"+"+$scope.streetBySpecialty+"+"+$scope.numberBySpecialty+"+"+"&key=AIzaSyCPoLpNU2TEKnVNQOrrJH8SlUqdv-93LN0")
         .success(function(result) { 
             $scope.results=result;
 
@@ -210,7 +237,7 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
             }
             for(var j=0; j<$scope.results.results[0].address_components.length; j++){
                 if($scope.results.results[0].address_components[j].types[0]=="locality")
-                    $scope.city=$scope.results.results[0].address_components[j].long_name;
+                    $scope.cityBySpecialty=$scope.results.results[0].address_components[j].long_name;
             }
 
             $http.get("http://localhost:8080/findmedicalpoint/findmedicalpoint2/", {
@@ -218,7 +245,7 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
                     lat: $scope.results.results[0].geometry.location.lat,
                     lon: $scope.results.results[0].geometry.location.lng,
                     specialty: $scope.specialty.singleSelect,
-                    city: $scope.city,
+                    city: $scope.cityBySpecialty,
                     province: $scope.province
 
                     }
@@ -230,6 +257,8 @@ medicalApp.controller('gethelpController',['$scope','$http', function($scope,$ht
                         return;
                     } 
                     $scope.resultsBySpecialty=result;
+    $scope.mapLink=$scope.cityBySpecialty+'+'+$scope.streetBySpecialty+'+'+$scope.numberBySpecialty+'/'+$scope.resultsBySpecialty.results.city +'+'+$scope.resultsBySpecialty.results.address.streetName+'+'+$scope.resultsBySpecialty.results.address.streetNumber.replace("/","%2F");
+    $scope.showMapBySpecialty=true;
                 });   
             });    
         }
